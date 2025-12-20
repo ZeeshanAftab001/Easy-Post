@@ -1,0 +1,81 @@
+.btn {
+  background-color: #ccff00;
+}
+
+.text {
+  color: #ccff00;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+.chat_color {
+  background-color: #1b1b1b;
+}
+
+.chat_color_hover {
+  background-color: #212121;
+}
+
+@keyframes pulse-slow {
+
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes pulse-medium {
+
+  0%,
+  100% {
+    opacity: 0.2;
+  }
+
+  50% {
+    opacity: 0.4;
+  }
+}
+
+@keyframes pulse-slower {
+
+  0%,
+  100% {
+    opacity: 0.1;
+  }
+
+  50% {
+    opacity: 0.3;
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 8s ease-in-out infinite;
+}
+
+.animate-pulse-medium {
+  animation: pulse-medium 6s ease-in-out infinite;
+}
+
+.animate-pulse-slower {
+  animation: pulse-slower 10s ease-in-out infinite;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
