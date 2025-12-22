@@ -1,4 +1,6 @@
 # app/core/config.py
+import os
+
 from pydantic_settings import BaseSettings
 from typing import Optional
 from dotenv import load_dotenv
@@ -14,6 +16,13 @@ class Settings(BaseSettings):
     SECRET_KEY: str = "your-secret-key-here-change-in-production"
     ALGORITHM: str = "HS256"
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 1440
+
+    # Whatsapp
+    ACCESS_TOKEN: str = os.getenv("ACCESS_TOKEN")
+    PHONE_NUMBER_ID : str = os.getenv("PHONE_NUMBER_ID")
+    VERIFY_TOKEN : str = os.getenv("VERIFY_TOKEN")
+
+    GOOGLE_API_KEY : str = os.getenv("GOOGLE_API_KEY")
 
     # Facebook OAuth - Make optional for now
     FACEBOOK_APP_ID: Optional[str] = None

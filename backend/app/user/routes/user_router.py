@@ -32,6 +32,20 @@ async def read_users_me(current_user: User = Depends(get_current_active_user)):
     """Get current user"""
     return current_user
 
+@user_router.get("/me")
+async def get_current_user_info(
+    current_user: User = Depends(get_current_active_user),
+    db: AsyncSession = Depends(get_db)
+):
+    """Get current user information"""
+    return {
+        "id": current_user.id,
+        "username": current_user.username,
+        "email": current_user.email,
+        "whatsapp_number": current_user.whatsapp_number,
+        "niche": current_user.niche,
+        "is_active": current_user.is_active
+    }
 
 @user_router.get('/{user_id}', response_model=UserSchema)
 async def user_detail(user_id: int, db: AsyncSession = Depends(get_db)):

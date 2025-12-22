@@ -8,6 +8,8 @@ from  ..models.social import SocialAccount
 
 class SocialAccountService:
 
+    # In social_service.py - Update create_social_account method
+
     async def create_social_account(
             self,
             db: AsyncSession,
@@ -16,6 +18,11 @@ class SocialAccountService:
             platform: str
     ) -> SocialAccount:
         """Create or update social account"""
+
+        print(f"\n=== CREATE SOCIAL ACCOUNT DEBUG ===")
+        print(f"Platform: {platform}")
+        print(f"Data keys: {list(data.keys())}")
+        print(f"User ID in data: {data.get('user_id')}")
 
         # Check if account already exists
         result = await db.execute(
@@ -26,12 +33,25 @@ class SocialAccountService:
         )
         existing = result.scalar_one_or_none()
 
+        # Ensure we have a platform_user_id
+        platform_user_id = data.get('user_id')
+        if not platform_user_id:
+            # Create a fallback ID for Instagram if missing
+            if platform == 'instagram':
+                import hashlib
+                access_token = data.get('access_token', '')
+                platform_user_id = f"insta_{hashlib.md5(access_token.encode()).hexdigest()[:16]}"
+            else:
+                platform_user_id = f"unknown_{platform}"
+
+        print(f"Using platform_user_id: {platform_user_id}")
+
         if existing:
             # Update existing account
             existing.access_token = data['access_token']
             existing.refresh_token = data.get('refresh_token')
             existing.token_expires_at = datetime.now() + timedelta(seconds=data.get('expires_in', 3600))
-            existing.platform_user_id = data['user_id']
+            existing.platform_user_id = platform_user_id
             existing.pages = json.dumps(data.get('pages', [])) if data.get('pages') else None
 
             if platform == 'instagram':
@@ -50,7 +70,7 @@ class SocialAccountService:
         db_account = SocialAccount(
             user_id=user_id,
             platform=platform,
-            platform_user_id=data['user_id'],
+            platform_user_id=platform_user_id,  # Use the ensured ID
             access_token=data['access_token'],
             refresh_token=data.get('refresh_token'),
             token_expires_at=expires_at,

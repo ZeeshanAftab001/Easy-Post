@@ -1,8 +1,6 @@
-# app/user/services/user_service.py
-from sqlalchemy import select
+
 from sqlalchemy.ext.asyncio import AsyncSession
 from datetime import datetime  # <-- Make sure to import datetime
-
 from ...auth.utils.auth_utils import get_password_hash
 from ...user.models.user import User
 from ...user.schemas.user import UserCreate
@@ -18,6 +16,13 @@ async def get_users(db: AsyncSession):
 async def get_user(db: AsyncSession, user_id: int):
     """Get user by ID (async)"""
     result = await db.execute(select(User).where(User.id == user_id))
+    return result.scalar_one_or_none()
+
+async def get_user_by_number(db: AsyncSession, phone_number: str):
+    """Get user by WhatsApp phone number"""
+    result = await db.execute(
+        select(User).where(User.whatsapp_number == phone_number)
+    )
     return result.scalar_one_or_none()
 
 

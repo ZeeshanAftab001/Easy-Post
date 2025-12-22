@@ -97,34 +97,137 @@ class OAuthService:
                 'token_type': token_data.get('token_type', 'bearer')
             }
 
+    # In oauth_service.py - Update exchange_instagram_code method
+
+    # In oauth_service.py - Update exchange_instagram_code method
+
+    # In oauth_service.py - Update exchange_instagram_code method
+
     async def exchange_instagram_code(self, code: str) -> Dict:
         """Exchange Instagram authorization code for access token"""
-        async with httpx.AsyncClient() as client:
-            # Get access token
-            token_response = await client.post(self.instagram_token_url, data={
-                'client_id': settings.INSTAGRAM_APP_ID,
-                'client_secret': settings.INSTAGRAM_APP_SECRET,
-                'grant_type': 'authorization_code',
-                'redirect_uri': f"{settings.BACKEND_URL}/api/oauth/social/auth/instagram/callback",  # CHANGE THIS LINE
-                'code': code
-            })
+        print(f"\n=== INSTAGRAM TOKEN EXCHANGE DEBUG ===")
 
-            token_data = token_response.json()
+        async with httpx.AsyncClient() as client:
+            # Instagram Basic Display API requires POST with form data
+            data = {
+                'client_id': settings.FACEBOOK_APP_ID,
+                'client_secret': settings.FACEBOOK_APP_SECRET,
+                'redirect_uri': f"{settings.BACKEND_URL}/api/oauth/social/auth/instagram/callback",
+                'code': code,
+                'grant_type': 'authorization_code'
+            }
+
+            print(
+                f"Request data (client_secret hidden): { {k: '***' if k == 'client_secret' else v for k, v in data.items()} }")
+
+            headers = {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            }
+
+            try:
+                # Instagram Basic Display API uses POST
+                token_response = await client.post(
+                    "https://api.instagram.com/oauth/access_token",
+                    data=data,
+                    headers=headers
+                )
+
+                print(f"Instagram token response status: {token_response.status_code}")
+                print(f"Instagram token response headers: {dict(token_response.headers)}")
+
+                # Log response text before parsing JSON
+                response_text = token_response.text
+                print(f"Instagram token response text (first 500 chars): {response_text[:500]}")
+
+                if token_response.status_code != 200:
+                    print(f"Instagram API error: {response_text}")
+
+                    # Try alternative endpoint for Instagram Graph API
+                    print("Trying Instagram Graph API endpoint...")
+
+                    # For Instagram Graph API (connected to Facebook App)
+                    graph_response = await client.get(
+                        "https://graph.facebook.com/v18.0/oauth/access_token",
+                        params={
+                            'client_id': settings.FACEBOOK_APP_ID,
+                            'client_secret': settings.FACEBOOK_APP_SECRET,
+                            'redirect_uri': f"{settings.BACKEND_URL}/api/oauth/social/auth/instagram/callback",
+                            'code': code,
+                            'grant_type': 'authorization_code'
+                        }
+                    )
+
+                    print(f"Graph API response status: {graph_response.status_code}")
+                    graph_response_text = graph_response.text
+                    print(f"Graph API response text: {graph_response_text[:500]}")
+
+                    if graph_response.status_code == 200:
+                        token_data = graph_response.json()
+                    else:
+                        raise Exception(f"Instagram API error {token_response.status_code}: {response_text}")
+                else:
+                    token_data = token_response.json()
+
+                print(f"Instagram token data: {token_data}")
+
+            except json.decoder.JSONDecodeError as e:
+                print(f"JSON decode error: {e}")
+                print(f"Raw response: {response_text}")
+                raise Exception(f"Invalid response from Instagram API: {response_text}")
+            except Exception as e:
+                print(f"Instagram API error: {str(e)}")
+                raise Exception(f"Instagram API error: {str(e)}")
 
             if 'access_token' not in token_data:
                 raise Exception(f"Instagram token error: {token_data}")
 
-            # Get user info
-            user_response = await client.get(f"{self.instagram_graph_url}/me", params={
-                'access_token': token_data['access_token'],
-                'fields': 'id,username,media_count'
-            })
-            user_data = user_response.json()
+            access_token = token_data['access_token']
 
-            return {
-                'access_token': token_data['access_token'],
-                'user_id': user_data['id'],
-                'username': user_data['username'],
-                'media_count': user_data.get('media_count'),
-                'token_type': 'bearer'
-            }
+            # Instagram Basic Display API includes user_id in the initial response
+            user_id = token_data.get('user_id')
+
+            if user_id:
+                print(f"Got user_id from token response: {user_id}")
+                return {
+                    'access_token': access_token,
+                    'user_id': str(user_id),
+                    'username': token_data.get('username', 'instagram_user'),
+                    'expires_in': token_data.get('expires_in', 3600),
+                    'token_type': 'bearer'
+                }
+            else:
+                # Try to get user info from Instagram Graph API
+                try:
+                    print("Trying to get user info from Instagram Graph API...")
+                    user_response = await client.get(
+                        "https://graph.instagram.com/me",
+                        params={
+                            'access_token': access_token,
+                            'fields': 'id,username'
+                        }
+                    )
+
+                    user_data = user_response.json()
+                    print(f"User info from Graph API: {user_data}")
+
+                    if 'id' in user_data:
+                        return {
+                            'access_token': access_token,
+                            'user_id': user_data['id'],
+                            'username': user_data.get('username', 'instagram_user'),
+                            'expires_in': token_data.get('expires_in', 3600),
+                            'token_type': 'bearer'
+                        }
+                except Exception as e:
+                    print(f"Failed to get Instagram user info: {e}")
+
+                # Create a fallback user_id
+                import hashlib
+                user_id_hash = hashlib.md5(access_token.encode()).hexdigest()[:16]
+                return {
+                    'access_token': access_token,
+                    'user_id': f"insta_{user_id_hash}",
+                    'username': 'instagram_user',
+                    'expires_in': token_data.get('expires_in', 3600),
+                    'token_type': 'bearer'
+                }
