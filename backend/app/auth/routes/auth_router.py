@@ -29,7 +29,7 @@ async def login_for_access_token(
             headers={"WWW-Authenticate": "Bearer"},
         )
     
-    access_token_expires = timedelta(minutes=1440)  # 24 hours
+    access_token_expires = timedelta(minutes=14409)  # 24 hours
     access_token = create_access_token(
         data={"sub": user.email}, 
         expires_delta=access_token_expires
