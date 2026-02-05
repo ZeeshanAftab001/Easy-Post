@@ -1,16 +1,15 @@
+# app/chat/routes/whatsapp_router.py
 from fastapi import APIRouter, Request, Query, Depends
 from sqlalchemy.orm import Session
 from starlette.responses import PlainTextResponse
-
-from ..services.agent_service import agent
+from langchain_core.messages import HumanMessage
+# CHANGE: Import get_agent instead of agent_instance
+# from ..services.agent_service import get_agent_for_request
 from ..services.whatsapp_service import send_text, handle_text, handle_media
 from ...core.database import get_db
 from ...core.config import settings
 from ...user.services.user_service import get_user_by_number
 from sqlalchemy.ext.asyncio import AsyncSession
-from ..utils.utils import save_message,load_chat_history,get_or_create_chat_session
-
-
 
 whatsapp_router = APIRouter()
 
@@ -46,42 +45,30 @@ async def receive_message(
     message = value["messages"][0]
     sender = message["from"]
     msg_type = message.get("type")
+    
+    print("-"*10, sender)
+    print("-"*10, message)
 
     # 1️⃣ Get user
     user = await get_user_by_number(db, sender)
     if not user:
         return await send_text(sender, "You are not a registered user.")
 
-    # 2️⃣ Get or create chat session
-    chat = await get_or_create_chat_session(
-        db=db,
-        user_id=user.id,
-    )
-
+    
     # 3️⃣ Handle text messages
     if msg_type == "text":
         user_text = message["text"]["body"]
 
-        # Save USER message
-        await save_message(db, chat.id, "user", user_text)
-
-        # Load history for agent
-        messages = await load_chat_history(db, chat.id)
-
         # 4️⃣ Call LangGraph agent
+        # CHANGE: Use get_agent() instead of agent_instance
+        agent = request.app.state.graph
         result = await agent.ainvoke(
-            {"messages": messages},
-            config={
-                "configurable": {
-                    "thread_id": chat.id
-                }
-            }
+            #{"messages": [HumanMessage(content=user_text)]},
+            {"messages": user_text},
+            config={"configurable": {"thread_id": user.whatsapp_number}}
         )
-
-        ai_text = result["messages"][-1].content
-
-        # Save AI message
-        await save_message(db, chat.id, "assistant", ai_text)
+        # ai_text = result["messages"][-1].content
+        ai_text = result["messages"]
 
         # Send back to WhatsApp
         await send_text(sender, ai_text)

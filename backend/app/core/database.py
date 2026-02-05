@@ -7,7 +7,6 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # PostgreSQL connection URL should be in .env file like:
-# DATABASE_URL=postgresql+asyncpg://username:password@localhost:5432/database_name
 DATABASE_URL = os.getenv("DATABASE_URL")
 
 if not DATABASE_URL:

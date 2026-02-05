@@ -1,40 +1,65 @@
-# app/whatsapp/services/agent_service.py
-from typing import Dict, Any, Optional, List, TypedDict
+# app/chat/services/agent_service.py
 from langgraph.graph import StateGraph, END
-from langchain_core.messages import HumanMessage, AIMessage, SystemMessage, BaseMessage
-from langchain_google_genai import ChatGoogleGenerativeAI
+from fastapi import FastAPI
+from langchain_openai import ChatOpenAI
 from langgraph.checkpoint.postgres.aio import AsyncPostgresSaver
 from ...core.config import settings
-from dotenv import load_dotenv
+from contextlib import asynccontextmanager, AsyncExitStack
 
-load_dotenv()
+def get_psycopg_conn_string(sqlalchemy_url: str) -> str:
+    from urllib.parse import urlparse
+    url = urlparse(sqlalchemy_url)
+    return (
+        f"user={url.username} "
+        f"password={url.password} "
+        f"host={url.hostname} "
+        f"port={url.port} "
+        f"dbname={url.path.lstrip('/')}"
+    )
 
-class AgentState(TypedDict):
-    user_id: str
-    chat_id: str
-    messages: List[BaseMessage]
+psycopg_conn_string = get_psycopg_conn_string(settings.DATABASE_URL)
 
-llm = ChatGoogleGenerativeAI(
-    model="gemini-2.5-flash",
-    temperature=0.4
-)
+llm = ChatOpenAI(model="gpt-5")
 
-def chat_node(state: AgentState):
-    response = llm.invoke(state["messages"])
-    return {
-        "messages": state["messages"] + [response]
-    }
+def chat_node(state: dict):
+    # response = llm.invoke(state["messages"])
+    response = "Hi i am zeeshan."
+    return {"messages": state["messages"] + [response]}
 
-# Create the graph
-graph = StateGraph(AgentState)
+graph = StateGraph(dict)
 graph.add_node("chat", chat_node)
 graph.set_entry_point("chat")
 graph.add_edge("chat", END)
 
-# Instead, create a function to get the agent
-async def get_agent():
-    """Get agent with properly initialized checkpointer"""
-    async with AsyncPostgresSaver.from_conn_string(settings.DATABASE_URL) as checkpointer:
-        return graph.compile(checkpointer=checkpointer)
-
-agent = graph.compile()  # No checkpointer for development
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Startup
+    print("Starting up: Initializing agent with PostgreSQL checkpointer...")
+    
+    # Create exit stack to manage context managers
+    exit_stack = AsyncExitStack()
+    
+    try:
+        # Create and enter PostgreSQL checkpointer context
+        
+        checkpointer = await exit_stack.enter_async_context(
+            AsyncPostgresSaver.from_conn_string(psycopg_conn_string)
+            
+        )
+        await checkpointer.setup()
+        print("PostgreSQL checkpointer connection established.")
+        
+        # Compile graph with checkpointer
+        app.state.graph = graph.compile(checkpointer=checkpointer)
+        app.state.checkpointer = checkpointer
+        app.state.exit_stack = exit_stack  # Store for cleanup
+        
+        print("Agent initialized successfully.")
+        
+        yield
+        
+    finally:
+        # Shutdown
+        print("Shutting down: Cleaning up resources...")
+        await exit_stack.aclose()
+        print("Resources cleaned up.")

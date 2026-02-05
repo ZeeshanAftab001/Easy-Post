@@ -23,7 +23,7 @@ class Settings(BaseSettings):
     VERIFY_TOKEN : str = os.getenv("VERIFY_TOKEN")
 
     GOOGLE_API_KEY : str = os.getenv("GOOGLE_API_KEY")
-
+    OPENAI_API_KEY : str = os.getenv("OPENAI_API_KEY")
     # Facebook OAuth - Make optional for now
     FACEBOOK_APP_ID: Optional[str] = None
     FACEBOOK_APP_SECRET: Optional[str] = None

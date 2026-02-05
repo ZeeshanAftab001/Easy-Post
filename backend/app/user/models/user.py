@@ -17,8 +17,7 @@ class User(Base):
     created_at = Column(TIMESTAMP(timezone=True), nullable=False, server_default=func.now())
     updated_at = Column(TIMESTAMP(timezone=True), onupdate=func.now())
 
-    # Change from: "app.chat.models.whatsapp.ChatSession"
-    # To: Just "ChatSession"
+   
     social_accounts = relationship(
         "SocialAccount",
         back_populates="user",
@@ -26,8 +25,4 @@ class User(Base):
         lazy="select"
     )
 
-    chats = relationship(
-        "ChatSession",  # ← JUST THE CLASS NAME
-        back_populates="user",
-        lazy="dynamic"  # Add this to prevent immediate loading issues
-    )
+    
