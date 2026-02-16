@@ -1,7 +1,6 @@
 # main.py or at the end of your main app file
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-import logging
 
 from app.auth.routes.auth_router import auth_router
 from app.user.routes.user_router import user_router
@@ -9,13 +8,10 @@ from app.oauth.routes.oauth_router import oauth_router
 from app.chat.routes.whatsapp_router import whatsapp_router
 from app.chat.services.agent_service import lifespan
 
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
-
 app = FastAPI(
     lifespan=lifespan,
     title="EasyPost API",
-    description="Career Advisor API",
+    description="EasyPost API for user management, authentication, OAuth integration, and WhatsApp chat services for mananging social media accounts.",
     version="1.0.0"
 )
 
@@ -38,7 +34,6 @@ app.include_router(oauth_router, prefix="/api/oauth")
 app.include_router(whatsapp_router, prefix="/api/whatsapp")
 
 
-@app.get("/")
 async def root():
     return {"message": "EasyPost API is running"}
 

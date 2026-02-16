@@ -14,15 +14,11 @@ class User(Base):
     niche = Column(String, nullable=False)
     password = Column(String(128), nullable=False)
     is_active = Column(Boolean, nullable=False, default=True)
-    created_at = Column(TIMESTAMP(timezone=True), nullable=False, server_default=func.now())
+    created_at = Column(TIMESTAMP(timezone=True), server_default=func.now())
     updated_at = Column(TIMESTAMP(timezone=True), onupdate=func.now())
 
-   
     social_accounts = relationship(
         "SocialAccount",
         back_populates="user",
-        cascade="all, delete-orphan",
-        lazy="select"
+        cascade="all, delete-orphan"
     )
-
-    

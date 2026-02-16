@@ -1,24 +1,23 @@
-# app/chat/routes/whatsapp_router.py
 from fastapi import APIRouter, Request, Query, Depends
-from sqlalchemy.orm import Session
 from starlette.responses import PlainTextResponse
 from langchain_core.messages import HumanMessage
-# CHANGE: Import get_agent instead of agent_instance
-# from ..services.agent_service import get_agent_for_request
-from ..services.whatsapp_service import send_text, handle_text, handle_media
-from ...core.database import get_db
-from ...core.config import settings
-from ...user.services.user_service import get_user_by_number
 from sqlalchemy.ext.asyncio import AsyncSession
+import json
+# from app.chat.services.whatsapp_service import send_text
+# from ..services.whatsapp_service import send_text
+from app.core.database import get_db
+from app.core.config import settings
+from app.user.services.user_service import get_user_by_number
+from app.chat.services.agent_service import show_state
+from app.chat.services.whatsapp_service import send_text,handle_text
 
 whatsapp_router = APIRouter()
 
-
 @whatsapp_router.get("/webhook")
 async def verify(
-        hub_mode: str = Query(None, alias="hub.mode"),
-        hub_verify_token: str = Query(None, alias="hub.verify_token"),
-        hub_challenge: str = Query(None, alias="hub.challenge")
+    hub_mode: str = Query(None, alias="hub.mode"),
+    hub_verify_token: str = Query(None, alias="hub.verify_token"),
+    hub_challenge: str = Query(None, alias="hub.challenge"),
 ):
     if hub_mode == "subscribe" and hub_verify_token == settings.VERIFY_TOKEN:
         return PlainTextResponse(hub_challenge)
@@ -28,10 +27,10 @@ async def verify(
 @whatsapp_router.post("/webhook")
 async def receive_message(
     request: Request,
-    db: AsyncSession = Depends(get_db)
+    db: AsyncSession = Depends(get_db),
 ):
     data = await request.json()
-
+    
     entry = data.get("entry", [])
     if not entry:
         return {"status": "no entry"}
@@ -45,32 +44,44 @@ async def receive_message(
     message = value["messages"][0]
     sender = message["from"]
     msg_type = message.get("type")
-    
-    print("-"*10, sender)
-    print("-"*10, message)
+
+    # print("📩 WhatsApp from:", sender)
+    # print(message)
 
     # 1️⃣ Get user
     user = await get_user_by_number(db, sender)
     if not user:
-        return await send_text(sender, "You are not a registered user.")
+        await send_text(sender, "You are not a registered user.")
+        return {"status": "unauthorized"}
 
-    
-    # 3️⃣ Handle text messages
+    # 2️⃣ Handle text
     if msg_type == "text":
         user_text = message["text"]["body"]
 
-        # 4️⃣ Call LangGraph agent
-        # CHANGE: Use get_agent() instead of agent_instance
         agent = request.app.state.graph
-        result = await agent.ainvoke(
-            #{"messages": [HumanMessage(content=user_text)]},
-            {"messages": user_text},
-            config={"configurable": {"thread_id": user.whatsapp_number}}
-        )
-        # ai_text = result["messages"][-1].content
-        ai_text = result["messages"]
 
-        # Send back to WhatsApp
-        await send_text(sender, ai_text)
+        # 🔑 VERY IMPORTANT: stable thread_id
+        thread_id = user.whatsapp_number
+
+        # ✅ ONLY pass the NEW message
+        result = await agent.ainvoke(
+            {
+                "messages": [HumanMessage(content=user_text)],
+                "user_id": int(user.id),
+
+            },
+            config={"configurable": {"thread_id": thread_id}},
+        )
+        
+        ai_text = result["messages"][-1].content
+        
+        # print("🤖 AI Response:", ai_text)
+        # print("_" * 40)
+        config={"configurable": {"thread_id": thread_id}}
+        # print("📌 CURRENT HISTORY:")
+        await show_state(agent, config=config)
+        # print("_" * 40)
+        # await send_text(sender, ai_text)
+        await send_text(sender,ai_text )
 
     return {"status": "ok"}

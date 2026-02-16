@@ -10,7 +10,7 @@ load_dotenv()
 
 class Settings(BaseSettings):
     # Database
-    DATABASE_URL: str = "postgresql+asyncpg://postgres:password@localhost/EasyPost"
+    DATABASE_URL: str = "postgresql+asyncpg://postgres:548878447@localhost/EasyPost"
 
     # JWT
     SECRET_KEY: str = "your-secret-key-here-change-in-production"
@@ -38,9 +38,13 @@ class Settings(BaseSettings):
     FRONTEND_URL: str = "http://localhost:5173"
     BACKEND_URL: str = "http://localhost:8000"
 
+    CLOUDINARY_CLOUD_NAME: str = os.getenv("CLOUDINARY_CLOUD_NAME", "")
+    CLOUDINARY_API_KEY: str = os.getenv("CLOUDINARY_API_KEY", "")
+    CLOUDINARY_API_SECRET: str = os.getenv("CLOUDINARY_API_SECRET", "")
     # CORS
     CORS_ORIGINS: list = ["http://localhost:5173", "http://127.0.0.1:5173"]
-
+    
+    FACEBOOK_GRAPH_VERSION: str = os.getenv("FACEBOOK_GRAPH_VERSION", "v19.0")
     class Config:
         env_file = ".env"
         case_sensitive = False

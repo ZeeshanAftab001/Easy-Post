@@ -107,7 +107,16 @@ async def send_text(to, text):
 # ========================
 # UPLOAD AUDIO
 # ========================
-async def upload_audio(file_path):
+
+def create_voice_message(text):
+    from .sound_service import SoundService
+    sound_service = SoundService()
+    sound_service.text_to_speech(text, filename)
+    print("Voice message created:", filename)
+
+
+async def upload_audio(file_path,text):
+
     ext = os.path.splitext(file_path)[1].lower()
     mime_type = MIME_EXTENSIONS.get(ext)
     if not mime_type:

@@ -12,12 +12,11 @@ DATABASE_URL = os.getenv("DATABASE_URL")
 if not DATABASE_URL:
     raise ValueError("DATABASE_URL environment variable is not set. Please add it to your .env file.")
 
-print(f"Database URL configured for: {DATABASE_URL.split('@')[-1]}")
 
 # Create async engine for PostgreSQL
 engine = create_async_engine(
     DATABASE_URL,
-    echo=True,  # Shows SQL queries in console (set to False in production)
+    echo=False,  # Shows SQL queries in console (set to False in production)
     pool_size=10,  # Number of connections to keep open
     max_overflow=20,  # Max number of connections that can be created beyond pool_size
     pool_pre_ping=True,  # Verify connections before using them

@@ -1,0 +1,968 @@
+2026-02-16 20:19:57,428 - mcp.server.lowlevel.server - DEBUG - Initializing server 'Instagram MCP'
+2026-02-16 20:19:57,429 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListToolsRequest
+2026-02-16 20:19:57,429 - mcp.server.lowlevel.server - DEBUG - Registering handler for CallToolRequest
+2026-02-16 20:19:57,429 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListResourcesRequest
+2026-02-16 20:19:57,430 - mcp.server.lowlevel.server - DEBUG - Registering handler for ReadResourceRequest
+2026-02-16 20:19:57,430 - mcp.server.lowlevel.server - DEBUG - Registering handler for PromptListRequest
+2026-02-16 20:19:57,430 - mcp.server.lowlevel.server - DEBUG - Registering handler for GetPromptRequest
+2026-02-16 20:19:57,430 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListResourceTemplatesRequest
+2026-02-16 20:20:05,912 - mcp.server.lowlevel.server - DEBUG - Initializing server 'Instagram MCP'
+2026-02-16 20:20:05,912 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListToolsRequest
+2026-02-16 20:20:05,913 - mcp.server.lowlevel.server - DEBUG - Registering handler for CallToolRequest
+2026-02-16 20:20:05,913 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListResourcesRequest
+2026-02-16 20:20:05,913 - mcp.server.lowlevel.server - DEBUG - Registering handler for ReadResourceRequest
+2026-02-16 20:20:05,913 - mcp.server.lowlevel.server - DEBUG - Registering handler for PromptListRequest
+2026-02-16 20:20:05,914 - mcp.server.lowlevel.server - DEBUG - Registering handler for GetPromptRequest
+2026-02-16 20:20:05,914 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListResourceTemplatesRequest
+2026-02-16 20:20:05,922 - __main__ - INFO - ============================================================
+2026-02-16 20:20:05,922 - __main__ - INFO - Starting MCP server...
+2026-02-16 20:20:05,922 - __main__ - INFO - Python executable: C:\Users\Zeeshan\Desktop\Easy-Post\venv\Scripts\python.exe
+2026-02-16 20:20:05,923 - __main__ - INFO - Script location: C:\Users\Zeeshan\Desktop\Easy-Post\backend\app\mcp\server.py
+2026-02-16 20:20:05,923 - __main__ - INFO - Remember: Logs go to stderr, MCP protocol uses stdout
+2026-02-16 20:20:05,923 - __main__ - INFO - ============================================================
+2026-02-16 20:20:05,930 - asyncio - DEBUG - Using proactor: IocpProactor
+2026-02-16 20:20:41,170 - mcp.server.lowlevel.server - DEBUG - Initializing server 'Instagram MCP'
+2026-02-16 20:20:41,170 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListToolsRequest
+2026-02-16 20:20:41,170 - mcp.server.lowlevel.server - DEBUG - Registering handler for CallToolRequest
+2026-02-16 20:20:41,170 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListResourcesRequest
+2026-02-16 20:20:41,171 - mcp.server.lowlevel.server - DEBUG - Registering handler for ReadResourceRequest
+2026-02-16 20:20:41,171 - mcp.server.lowlevel.server - DEBUG - Registering handler for PromptListRequest
+2026-02-16 20:20:41,171 - mcp.server.lowlevel.server - DEBUG - Registering handler for GetPromptRequest
+2026-02-16 20:20:41,171 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListResourceTemplatesRequest
+2026-02-16 20:20:41,179 - __main__ - INFO - ============================================================
+2026-02-16 20:20:41,179 - __main__ - INFO - Starting MCP server...
+2026-02-16 20:20:41,179 - __main__ - INFO - Python executable: C:\Users\Zeeshan\Desktop\Easy-Post\venv\Scripts\python.exe
+2026-02-16 20:20:41,179 - __main__ - INFO - Script location: C:\Users\Zeeshan\Desktop\Easy-Post\backend\app\mcp\server.py
+2026-02-16 20:20:41,179 - __main__ - INFO - Remember: Logs go to stderr, MCP protocol uses stdout
+2026-02-16 20:20:41,179 - __main__ - INFO - ============================================================
+2026-02-16 20:20:41,187 - asyncio - DEBUG - Using proactor: IocpProactor
+2026-02-16 20:20:41,194 - mcp.server.lowlevel.server - DEBUG - Received message: root=InitializedNotification(method='notifications/initialized', params=None, jsonrpc='2.0')
+2026-02-16 20:20:41,195 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x00000292E55E0910>
+2026-02-16 20:20:41,196 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-16 20:20:41,196 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-16 20:20:41,197 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-16 20:23:52,098 - mcp.server.lowlevel.server - DEBUG - Initializing server 'Instagram MCP'
+2026-02-16 20:23:52,098 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListToolsRequest
+2026-02-16 20:23:52,099 - mcp.server.lowlevel.server - DEBUG - Registering handler for CallToolRequest
+2026-02-16 20:23:52,099 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListResourcesRequest
+2026-02-16 20:23:52,099 - mcp.server.lowlevel.server - DEBUG - Registering handler for ReadResourceRequest
+2026-02-16 20:23:52,099 - mcp.server.lowlevel.server - DEBUG - Registering handler for PromptListRequest
+2026-02-16 20:23:52,100 - mcp.server.lowlevel.server - DEBUG - Registering handler for GetPromptRequest
+2026-02-16 20:23:52,100 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListResourceTemplatesRequest
+2026-02-16 20:23:52,116 - __main__ - INFO - ============================================================
+2026-02-16 20:23:52,116 - __main__ - INFO - Starting MCP server...
+2026-02-16 20:23:52,116 - __main__ - INFO - Python executable: C:\Users\Zeeshan\AppData\Local\Programs\Python\Python313\python.exe
+2026-02-16 20:23:52,116 - __main__ - INFO - Script location: C:\Users\Zeeshan\Desktop\Easy-Post\backend\app\mcp\server.py
+2026-02-16 20:23:52,117 - __main__ - INFO - Remember: Logs go to stderr, MCP protocol uses stdout
+2026-02-16 20:23:52,117 - __main__ - INFO - ============================================================
+2026-02-16 20:23:52,123 - asyncio - DEBUG - Using proactor: IocpProactor
+2026-02-16 20:23:52,135 - mcp.server.lowlevel.server - DEBUG - Received message: root=InitializedNotification(method='notifications/initialized', params=None, jsonrpc='2.0')
+2026-02-16 20:23:52,136 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x0000022AEB407250>
+2026-02-16 20:23:52,136 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-16 20:23:52,136 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-16 20:23:52,137 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-16 20:26:10,136 - mcp.server.lowlevel.server - DEBUG - Initializing server 'Instagram MCP'
+2026-02-16 20:26:10,136 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListToolsRequest
+2026-02-16 20:26:10,137 - mcp.server.lowlevel.server - DEBUG - Registering handler for CallToolRequest
+2026-02-16 20:26:10,137 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListResourcesRequest
+2026-02-16 20:26:10,137 - mcp.server.lowlevel.server - DEBUG - Registering handler for ReadResourceRequest
+2026-02-16 20:26:10,137 - mcp.server.lowlevel.server - DEBUG - Registering handler for PromptListRequest
+2026-02-16 20:26:10,138 - mcp.server.lowlevel.server - DEBUG - Registering handler for GetPromptRequest
+2026-02-16 20:26:10,138 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListResourceTemplatesRequest
+2026-02-16 20:26:10,149 - __main__ - INFO - ============================================================
+2026-02-16 20:26:10,150 - __main__ - INFO - Starting MCP server...
+2026-02-16 20:26:10,150 - __main__ - INFO - Python executable: C:\Users\Zeeshan\AppData\Local\Programs\Python\Python313\python.exe
+2026-02-16 20:26:10,150 - __main__ - INFO - Script location: C:\Users\Zeeshan\Desktop\Easy-Post\backend\app\mcp\server.py
+2026-02-16 20:26:10,150 - __main__ - INFO - Remember: Logs go to stderr, MCP protocol uses stdout
+2026-02-16 20:26:10,150 - __main__ - INFO - ============================================================
+2026-02-16 20:26:10,154 - asyncio - DEBUG - Using proactor: IocpProactor
+2026-02-16 20:26:10,163 - mcp.server.lowlevel.server - DEBUG - Received message: root=InitializedNotification(method='notifications/initialized', params=None, jsonrpc='2.0')
+2026-02-16 20:26:10,164 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x00000198A8A27250>
+2026-02-16 20:26:10,164 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2026-02-16 20:26:10,164 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type CallToolRequest
+2026-02-16 20:26:10,165 - mcp.server.lowlevel.server - DEBUG - Tool cache miss for verify_instagram_connection, refreshing cache
+2026-02-16 20:26:10,165 - __main__ - INFO - ============================================================
+2026-02-16 20:26:10,165 - __main__ - INFO - verify_instagram_connection called with user_id: 1
+2026-02-16 20:26:10,165 - __main__ - INFO - ============================================================
+2026-02-16 20:26:10,166 - __main__ - INFO - Calling get_instagram_client...
+2026-02-16 20:26:10,166 - app.mcp.instagram_client - INFO - ============================================================
+2026-02-16 20:26:10,166 - app.mcp.instagram_client - INFO - Getting Instagram client for user 1
+2026-02-16 20:26:10,166 - app.mcp.instagram_client - INFO - ============================================================
+2026-02-16 20:26:10,166 - app.mcp.instagram_client - INFO - Querying database for Facebook account...
+2026-02-16 20:26:10,166 - app.oauth.services.social_account_service - INFO - Looking for Facebook account for user 1
+2026-02-16 20:26:10,271 - app.oauth.services.social_account_service - INFO -    Platform User ID: 122224876334270585
+2026-02-16 20:26:10,271 - app.oauth.services.social_account_service - INFO -    Has pages: Yes
+2026-02-16 20:26:10,272 - app.oauth.services.social_account_service - INFO -    Pages data length: 583 chars
+2026-02-16 20:26:10,274 - app.mcp.instagram_client - INFO -    Platform User ID: 122224876334270585
+2026-02-16 20:26:10,274 - app.mcp.instagram_client - INFO -    Has pages: Yes
+2026-02-16 20:26:10,274 - app.mcp.instagram_client - INFO - Parsing pages JSON...
+2026-02-16 20:26:10,274 - app.mcp.instagram_client - INFO - Found 1 page(s)
+2026-02-16 20:26:10,274 - app.mcp.instagram_client - INFO - Page details:
+2026-02-16 20:26:10,275 - app.mcp.instagram_client - INFO -   - Name: Pets Kingdom Uk 
+2026-02-16 20:26:10,275 - app.mcp.instagram_client - INFO -   - ID: 299677056569924
+2026-02-16 20:26:10,275 - app.mcp.instagram_client - INFO -   - Token preview: EAAWXzqZCmMQsBQkQZC8r5Q8zI7EFyjZBjGlqGK3fznpswrXyI...
+2026-02-16 20:26:10,275 - app.mcp.instagram_client - INFO - Calling Facebook API to get Instagram Business Account...
+2026-02-16 20:26:10,278 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): graph.facebook.com:443
+2026-02-16 20:26:11,085 - urllib3.connectionpool - DEBUG - https://graph.facebook.com:443 "GET /v19.0/299677056569924?fields=instagram_business_account%7Bid%2Cusername%7D&access_token=EAAWXzqZCmMQsBQkQZC8r5Q8zI7EFyjZBjGlqGK3fznpswrXyIhpBnXJeVZA0Sp6GJrpZC9KxtZBGSgU4LNBVzmGpg35Kjld8EJVEE6ZBT3ZBNvir9ZBIGSsxx9I1fgOyOZBjmNzZB81ht3ngxdrZAJE75I1HHEFeZC9NYdYZA0qRjCvEv4gLBokt287qZCdhZCO9fpiZAItMRdO0eN6fZC0VZAnks1ZA2ZBp3v3vy HTTP/1.1" 200 107
+2026-02-16 20:26:11,088 - app.mcp.instagram_client - INFO - Facebook API response: {'instagram_business_account': {'id': '17841467677781963', 'username': 'petskingdomuk'}, 'id': '299677056569924'}
+2026-02-16 20:26:11,091 - app.mcp.instagram_client - INFO -    Instagram ID: 17841467677781963
+2026-02-16 20:26:11,092 - app.mcp.instagram_client - INFO -    Instagram Username: petskingdomuk
+2026-02-16 20:26:11,092 - __main__ - INFO - Got client with Instagram ID: 17841467677781963
+2026-02-16 20:26:11,092 - __main__ - INFO - Fetching Instagram profile...
+2026-02-16 20:26:11,093 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): graph.facebook.com:443
+2026-02-16 20:26:11,846 - urllib3.connectionpool - DEBUG - https://graph.facebook.com:443 "GET /v19.0/17841467677781963?fields=id%2Cusername%2Cname%2Cfollowers_count%2Cmedia_count&access_token=EAAWXzqZCmMQsBQkQZC8r5Q8zI7EFyjZBjGlqGK3fznpswrXyIhpBnXJeVZA0Sp6GJrpZC9KxtZBGSgU4LNBVzmGpg35Kjld8EJVEE6ZBT3ZBNvir9ZBIGSsxx9I1fgOyOZBjmNzZB81ht3ngxdrZAJE75I1HHEFeZC9NYdYZA0qRjCvEv4gLBokt287qZCdhZCO9fpiZAItMRdO0eN6fZC0VZAnks1ZA2ZBp3v3vy HTTP/1.1" 200 116
+2026-02-16 20:26:11,848 - __main__ - INFO - Profile response: {'id': '17841467677781963', 'username': 'petskingdomuk', 'name': 'Pets Kingdom UK', 'followers_count': 18, 'media_count': 30}
+2026-02-16 20:26:11,854 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-16 20:26:11,856 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x00000198A8B81450>
+2026-02-16 20:26:11,856 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-16 20:26:11,857 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-16 20:26:11,857 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-16 20:28:43,860 - mcp.server.lowlevel.server - DEBUG - Initializing server 'Instagram MCP'
+2026-02-16 20:28:43,860 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListToolsRequest
+2026-02-16 20:28:43,861 - mcp.server.lowlevel.server - DEBUG - Registering handler for CallToolRequest
+2026-02-16 20:28:43,861 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListResourcesRequest
+2026-02-16 20:28:43,861 - mcp.server.lowlevel.server - DEBUG - Registering handler for ReadResourceRequest
+2026-02-16 20:28:43,861 - mcp.server.lowlevel.server - DEBUG - Registering handler for PromptListRequest
+2026-02-16 20:28:43,862 - mcp.server.lowlevel.server - DEBUG - Registering handler for GetPromptRequest
+2026-02-16 20:28:43,862 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListResourceTemplatesRequest
+2026-02-16 20:28:43,874 - __main__ - INFO - ============================================================
+2026-02-16 20:28:43,874 - __main__ - INFO - Starting MCP server with all Instagram tools...
+2026-02-16 20:28:43,874 - __main__ - INFO - Python executable: C:\Users\Zeeshan\AppData\Local\Programs\Python\Python313\python.exe
+2026-02-16 20:28:43,874 - __main__ - INFO - Script location: C:\Users\Zeeshan\Desktop\Easy-Post\backend\app\mcp\server.py
+2026-02-16 20:28:43,874 - __main__ - INFO - Available tools:
+2026-02-16 20:28:43,874 - __main__ - INFO -   - verify_instagram_connection
+2026-02-16 20:28:43,875 - __main__ - INFO -   - get_instagram_profile
+2026-02-16 20:28:43,875 - __main__ - INFO -   - get_instagram_posts
+2026-02-16 20:28:43,875 - __main__ - INFO -   - create_instagram_post
+2026-02-16 20:28:43,875 - __main__ - INFO -   - get_instagram_media_details
+2026-02-16 20:28:43,875 - __main__ - INFO -   - get_instagram_insights
+2026-02-16 20:28:43,875 - __main__ - INFO -   - debug_database
+2026-02-16 20:28:43,875 - __main__ - INFO - ============================================================
+2026-02-16 20:28:43,880 - asyncio - DEBUG - Using proactor: IocpProactor
+2026-02-16 20:28:43,888 - mcp.server.lowlevel.server - DEBUG - Received message: root=InitializedNotification(method='notifications/initialized', params=None, jsonrpc='2.0')
+2026-02-16 20:28:43,889 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x0000016A29199810>
+2026-02-16 20:28:43,889 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-16 20:28:43,889 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-16 20:28:43,890 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-16 20:29:07,972 - mcp.server.lowlevel.server - DEBUG - Initializing server 'Instagram MCP'
+2026-02-16 20:29:07,972 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListToolsRequest
+2026-02-16 20:29:07,972 - mcp.server.lowlevel.server - DEBUG - Registering handler for CallToolRequest
+2026-02-16 20:29:07,973 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListResourcesRequest
+2026-02-16 20:29:07,973 - mcp.server.lowlevel.server - DEBUG - Registering handler for ReadResourceRequest
+2026-02-16 20:29:07,973 - mcp.server.lowlevel.server - DEBUG - Registering handler for PromptListRequest
+2026-02-16 20:29:07,973 - mcp.server.lowlevel.server - DEBUG - Registering handler for GetPromptRequest
+2026-02-16 20:29:07,974 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListResourceTemplatesRequest
+2026-02-16 20:29:07,986 - __main__ - INFO - ============================================================
+2026-02-16 20:29:07,986 - __main__ - INFO - Starting MCP server with all Instagram tools...
+2026-02-16 20:29:07,986 - __main__ - INFO - Python executable: C:\Users\Zeeshan\AppData\Local\Programs\Python\Python313\python.exe
+2026-02-16 20:29:07,986 - __main__ - INFO - Script location: C:\Users\Zeeshan\Desktop\Easy-Post\backend\app\mcp\server.py
+2026-02-16 20:29:07,986 - __main__ - INFO - Available tools:
+2026-02-16 20:29:07,986 - __main__ - INFO -   - verify_instagram_connection
+2026-02-16 20:29:07,987 - __main__ - INFO -   - get_instagram_profile
+2026-02-16 20:29:07,987 - __main__ - INFO -   - get_instagram_posts
+2026-02-16 20:29:07,987 - __main__ - INFO -   - create_instagram_post
+2026-02-16 20:29:07,987 - __main__ - INFO -   - get_instagram_media_details
+2026-02-16 20:29:07,987 - __main__ - INFO -   - get_instagram_insights
+2026-02-16 20:29:07,988 - __main__ - INFO -   - debug_database
+2026-02-16 20:29:07,988 - __main__ - INFO - ============================================================
+2026-02-16 20:29:07,992 - asyncio - DEBUG - Using proactor: IocpProactor
+2026-02-16 20:29:08,000 - mcp.server.lowlevel.server - DEBUG - Received message: root=InitializedNotification(method='notifications/initialized', params=None, jsonrpc='2.0')
+2026-02-16 20:29:08,001 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x0000022B609E9810>
+2026-02-16 20:29:08,001 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2026-02-16 20:29:08,001 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type CallToolRequest
+2026-02-16 20:29:08,001 - mcp.server.lowlevel.server - DEBUG - Tool cache miss for get_instagram_profile, refreshing cache
+2026-02-16 20:29:08,002 - __main__ - INFO - ============================================================
+2026-02-16 20:29:08,002 - __main__ - INFO - get_instagram_profile called with user_id: 1
+2026-02-16 20:29:08,002 - __main__ - INFO - ============================================================
+2026-02-16 20:29:08,002 - app.mcp.instagram_client - INFO - ============================================================
+2026-02-16 20:29:08,002 - app.mcp.instagram_client - INFO - Getting Instagram client for user 1
+2026-02-16 20:29:08,002 - app.mcp.instagram_client - INFO - ============================================================
+2026-02-16 20:29:08,003 - app.mcp.instagram_client - INFO - Querying database for Facebook account...
+2026-02-16 20:29:08,003 - app.oauth.services.social_account_service - INFO - Looking for Facebook account for user 1
+2026-02-16 20:29:08,089 - app.oauth.services.social_account_service - INFO -    Platform User ID: 122224876334270585
+2026-02-16 20:29:08,089 - app.oauth.services.social_account_service - INFO -    Has pages: Yes
+2026-02-16 20:29:08,090 - app.oauth.services.social_account_service - INFO -    Pages data length: 583 chars
+2026-02-16 20:29:08,091 - app.mcp.instagram_client - INFO -    Platform User ID: 122224876334270585
+2026-02-16 20:29:08,091 - app.mcp.instagram_client - INFO -    Has pages: Yes
+2026-02-16 20:29:08,091 - app.mcp.instagram_client - INFO - Parsing pages JSON...
+2026-02-16 20:29:08,092 - app.mcp.instagram_client - INFO - Found 1 page(s)
+2026-02-16 20:29:08,092 - app.mcp.instagram_client - INFO - Page details:
+2026-02-16 20:29:08,092 - app.mcp.instagram_client - INFO -   - Name: Pets Kingdom Uk 
+2026-02-16 20:29:08,092 - app.mcp.instagram_client - INFO -   - ID: 299677056569924
+2026-02-16 20:29:08,092 - app.mcp.instagram_client - INFO -   - Token preview: EAAWXzqZCmMQsBQkQZC8r5Q8zI7EFyjZBjGlqGK3fznpswrXyI...
+2026-02-16 20:29:08,092 - app.mcp.instagram_client - INFO - Calling Facebook API to get Instagram Business Account...
+2026-02-16 20:29:08,095 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): graph.facebook.com:443
+2026-02-16 20:29:08,860 - urllib3.connectionpool - DEBUG - https://graph.facebook.com:443 "GET /v19.0/299677056569924?fields=instagram_business_account%7Bid%2Cusername%7D&access_token=EAAWXzqZCmMQsBQkQZC8r5Q8zI7EFyjZBjGlqGK3fznpswrXyIhpBnXJeVZA0Sp6GJrpZC9KxtZBGSgU4LNBVzmGpg35Kjld8EJVEE6ZBT3ZBNvir9ZBIGSsxx9I1fgOyOZBjmNzZB81ht3ngxdrZAJE75I1HHEFeZC9NYdYZA0qRjCvEv4gLBokt287qZCdhZCO9fpiZAItMRdO0eN6fZC0VZAnks1ZA2ZBp3v3vy HTTP/1.1" 200 107
+2026-02-16 20:29:08,862 - app.mcp.instagram_client - INFO - Facebook API response: {'instagram_business_account': {'id': '17841467677781963', 'username': 'petskingdomuk'}, 'id': '299677056569924'}
+2026-02-16 20:29:08,865 - app.mcp.instagram_client - INFO -    Instagram ID: 17841467677781963
+2026-02-16 20:29:08,865 - app.mcp.instagram_client - INFO -    Instagram Username: petskingdomuk
+2026-02-16 20:29:08,867 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): graph.facebook.com:443
+2026-02-16 20:29:09,655 - urllib3.connectionpool - DEBUG - https://graph.facebook.com:443 "GET /v19.0/17841467677781963?fields=id%2Cusername%2Cname%2Cfollowers_count%2Cmedia_count&access_token=EAAWXzqZCmMQsBQkQZC8r5Q8zI7EFyjZBjGlqGK3fznpswrXyIhpBnXJeVZA0Sp6GJrpZC9KxtZBGSgU4LNBVzmGpg35Kjld8EJVEE6ZBT3ZBNvir9ZBIGSsxx9I1fgOyOZBjmNzZB81ht3ngxdrZAJE75I1HHEFeZC9NYdYZA0qRjCvEv4gLBokt287qZCdhZCO9fpiZAItMRdO0eN6fZC0VZAnks1ZA2ZBp3v3vy HTTP/1.1" 200 116
+2026-02-16 20:29:09,657 - __main__ - INFO - Successfully retrieved profile for petskingdomuk
+2026-02-16 20:29:09,657 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-16 20:29:09,659 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x0000022B609E9590>
+2026-02-16 20:29:09,660 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-16 20:29:09,660 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-16 20:29:09,660 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-16 20:29:46,716 - mcp.server.lowlevel.server - DEBUG - Initializing server 'Instagram MCP'
+2026-02-16 20:29:46,716 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListToolsRequest
+2026-02-16 20:29:46,717 - mcp.server.lowlevel.server - DEBUG - Registering handler for CallToolRequest
+2026-02-16 20:29:46,717 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListResourcesRequest
+2026-02-16 20:29:46,717 - mcp.server.lowlevel.server - DEBUG - Registering handler for ReadResourceRequest
+2026-02-16 20:29:46,717 - mcp.server.lowlevel.server - DEBUG - Registering handler for PromptListRequest
+2026-02-16 20:29:46,717 - mcp.server.lowlevel.server - DEBUG - Registering handler for GetPromptRequest
+2026-02-16 20:29:46,718 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListResourceTemplatesRequest
+2026-02-16 20:29:46,730 - __main__ - INFO - ============================================================
+2026-02-16 20:29:46,730 - __main__ - INFO - Starting MCP server with all Instagram tools...
+2026-02-16 20:29:46,730 - __main__ - INFO - Python executable: C:\Users\Zeeshan\AppData\Local\Programs\Python\Python313\python.exe
+2026-02-16 20:29:46,730 - __main__ - INFO - Script location: C:\Users\Zeeshan\Desktop\Easy-Post\backend\app\mcp\server.py
+2026-02-16 20:29:46,730 - __main__ - INFO - Available tools:
+2026-02-16 20:29:46,730 - __main__ - INFO -   - verify_instagram_connection
+2026-02-16 20:29:46,730 - __main__ - INFO -   - get_instagram_profile
+2026-02-16 20:29:46,731 - __main__ - INFO -   - get_instagram_posts
+2026-02-16 20:29:46,731 - __main__ - INFO -   - create_instagram_post
+2026-02-16 20:29:46,731 - __main__ - INFO -   - get_instagram_media_details
+2026-02-16 20:29:46,731 - __main__ - INFO -   - get_instagram_insights
+2026-02-16 20:29:46,731 - __main__ - INFO -   - debug_database
+2026-02-16 20:29:46,731 - __main__ - INFO - ============================================================
+2026-02-16 20:29:46,736 - asyncio - DEBUG - Using proactor: IocpProactor
+2026-02-16 20:29:46,745 - mcp.server.lowlevel.server - DEBUG - Received message: root=InitializedNotification(method='notifications/initialized', params=None, jsonrpc='2.0')
+2026-02-16 20:29:46,746 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x0000021E1CAF9810>
+2026-02-16 20:29:46,746 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2026-02-16 20:29:46,746 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type CallToolRequest
+2026-02-16 20:29:46,747 - mcp.server.lowlevel.server - DEBUG - Tool cache miss for get_instagram_posts, refreshing cache
+2026-02-16 20:29:46,747 - __main__ - INFO - ============================================================
+2026-02-16 20:29:46,747 - __main__ - INFO - get_instagram_posts called with user_id: 1, limit: 5
+2026-02-16 20:29:46,747 - __main__ - INFO - ============================================================
+2026-02-16 20:29:46,747 - app.mcp.instagram_client - INFO - ============================================================
+2026-02-16 20:29:46,748 - app.mcp.instagram_client - INFO - Getting Instagram client for user 1
+2026-02-16 20:29:46,748 - app.mcp.instagram_client - INFO - ============================================================
+2026-02-16 20:29:46,748 - app.mcp.instagram_client - INFO - Querying database for Facebook account...
+2026-02-16 20:29:46,748 - app.oauth.services.social_account_service - INFO - Looking for Facebook account for user 1
+2026-02-16 20:29:46,836 - app.oauth.services.social_account_service - INFO -    Platform User ID: 122224876334270585
+2026-02-16 20:29:46,837 - app.oauth.services.social_account_service - INFO -    Has pages: Yes
+2026-02-16 20:29:46,837 - app.oauth.services.social_account_service - INFO -    Pages data length: 583 chars
+2026-02-16 20:29:46,838 - app.mcp.instagram_client - INFO -    Platform User ID: 122224876334270585
+2026-02-16 20:29:46,839 - app.mcp.instagram_client - INFO -    Has pages: Yes
+2026-02-16 20:29:46,839 - app.mcp.instagram_client - INFO - Parsing pages JSON...
+2026-02-16 20:29:46,839 - app.mcp.instagram_client - INFO - Found 1 page(s)
+2026-02-16 20:29:46,839 - app.mcp.instagram_client - INFO - Page details:
+2026-02-16 20:29:46,839 - app.mcp.instagram_client - INFO -   - Name: Pets Kingdom Uk 
+2026-02-16 20:29:46,839 - app.mcp.instagram_client - INFO -   - ID: 299677056569924
+2026-02-16 20:29:46,839 - app.mcp.instagram_client - INFO -   - Token preview: EAAWXzqZCmMQsBQkQZC8r5Q8zI7EFyjZBjGlqGK3fznpswrXyI...
+2026-02-16 20:29:46,839 - app.mcp.instagram_client - INFO - Calling Facebook API to get Instagram Business Account...
+2026-02-16 20:29:46,843 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): graph.facebook.com:443
+2026-02-16 20:29:47,549 - urllib3.connectionpool - DEBUG - https://graph.facebook.com:443 "GET /v19.0/299677056569924?fields=instagram_business_account%7Bid%2Cusername%7D&access_token=EAAWXzqZCmMQsBQkQZC8r5Q8zI7EFyjZBjGlqGK3fznpswrXyIhpBnXJeVZA0Sp6GJrpZC9KxtZBGSgU4LNBVzmGpg35Kjld8EJVEE6ZBT3ZBNvir9ZBIGSsxx9I1fgOyOZBjmNzZB81ht3ngxdrZAJE75I1HHEFeZC9NYdYZA0qRjCvEv4gLBokt287qZCdhZCO9fpiZAItMRdO0eN6fZC0VZAnks1ZA2ZBp3v3vy HTTP/1.1" 200 107
+2026-02-16 20:29:47,551 - app.mcp.instagram_client - INFO - Facebook API response: {'instagram_business_account': {'id': '17841467677781963', 'username': 'petskingdomuk'}, 'id': '299677056569924'}
+2026-02-16 20:29:47,554 - app.mcp.instagram_client - INFO -    Instagram ID: 17841467677781963
+2026-02-16 20:29:47,554 - app.mcp.instagram_client - INFO -    Instagram Username: petskingdomuk
+2026-02-16 20:29:47,555 - __main__ - ERROR - Unexpected error: 'InstagramClient' object has no attribute 'get_posts'
+Traceback (most recent call last):
+  File "C:\Users\Zeeshan\Desktop\Easy-Post\backend\app\mcp\server.py", line 131, in get_instagram_posts
+    posts_result = client.get_posts(instagram_id, limit)
+                   ^^^^^^^^^^^^^^^^
+AttributeError: 'InstagramClient' object has no attribute 'get_posts'
+2026-02-16 20:29:47,556 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-16 20:29:47,557 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x0000021E1CAF9590>
+2026-02-16 20:29:47,558 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-16 20:29:47,558 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-16 20:29:47,558 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-16 20:30:36,643 - mcp.server.lowlevel.server - DEBUG - Initializing server 'Instagram MCP'
+2026-02-16 20:30:36,643 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListToolsRequest
+2026-02-16 20:30:36,644 - mcp.server.lowlevel.server - DEBUG - Registering handler for CallToolRequest
+2026-02-16 20:30:36,644 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListResourcesRequest
+2026-02-16 20:30:36,644 - mcp.server.lowlevel.server - DEBUG - Registering handler for ReadResourceRequest
+2026-02-16 20:30:36,644 - mcp.server.lowlevel.server - DEBUG - Registering handler for PromptListRequest
+2026-02-16 20:30:36,644 - mcp.server.lowlevel.server - DEBUG - Registering handler for GetPromptRequest
+2026-02-16 20:30:36,644 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListResourceTemplatesRequest
+2026-02-16 20:30:36,656 - __main__ - INFO - ============================================================
+2026-02-16 20:30:36,656 - __main__ - INFO - Starting MCP server with all Instagram tools...
+2026-02-16 20:30:36,656 - __main__ - INFO - Python executable: C:\Users\Zeeshan\AppData\Local\Programs\Python\Python313\python.exe
+2026-02-16 20:30:36,657 - __main__ - INFO - Script location: C:\Users\Zeeshan\Desktop\Easy-Post\backend\app\mcp\server.py
+2026-02-16 20:30:36,657 - __main__ - INFO - Available tools:
+2026-02-16 20:30:36,657 - __main__ - INFO -   - verify_instagram_connection
+2026-02-16 20:30:36,657 - __main__ - INFO -   - get_instagram_profile
+2026-02-16 20:30:36,657 - __main__ - INFO -   - get_instagram_posts
+2026-02-16 20:30:36,657 - __main__ - INFO -   - create_instagram_post
+2026-02-16 20:30:36,658 - __main__ - INFO -   - get_instagram_media_details
+2026-02-16 20:30:36,658 - __main__ - INFO -   - get_instagram_insights
+2026-02-16 20:30:36,658 - __main__ - INFO -   - debug_database
+2026-02-16 20:30:36,658 - __main__ - INFO - ============================================================
+2026-02-16 20:30:36,662 - asyncio - DEBUG - Using proactor: IocpProactor
+2026-02-16 20:30:36,671 - mcp.server.lowlevel.server - DEBUG - Received message: root=InitializedNotification(method='notifications/initialized', params=None, jsonrpc='2.0')
+2026-02-16 20:30:36,671 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x000001666DA69810>
+2026-02-16 20:30:36,672 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-16 20:30:36,672 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-16 20:30:36,672 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-16 20:30:49,482 - mcp.server.lowlevel.server - DEBUG - Initializing server 'Instagram MCP'
+2026-02-16 20:30:49,482 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListToolsRequest
+2026-02-16 20:30:49,483 - mcp.server.lowlevel.server - DEBUG - Registering handler for CallToolRequest
+2026-02-16 20:30:49,483 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListResourcesRequest
+2026-02-16 20:30:49,483 - mcp.server.lowlevel.server - DEBUG - Registering handler for ReadResourceRequest
+2026-02-16 20:30:49,483 - mcp.server.lowlevel.server - DEBUG - Registering handler for PromptListRequest
+2026-02-16 20:30:49,483 - mcp.server.lowlevel.server - DEBUG - Registering handler for GetPromptRequest
+2026-02-16 20:30:49,484 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListResourceTemplatesRequest
+2026-02-16 20:30:49,496 - __main__ - INFO - ============================================================
+2026-02-16 20:30:49,496 - __main__ - INFO - Starting MCP server with all Instagram tools...
+2026-02-16 20:30:49,496 - __main__ - INFO - Python executable: C:\Users\Zeeshan\AppData\Local\Programs\Python\Python313\python.exe
+2026-02-16 20:30:49,496 - __main__ - INFO - Script location: C:\Users\Zeeshan\Desktop\Easy-Post\backend\app\mcp\server.py
+2026-02-16 20:30:49,496 - __main__ - INFO - Available tools:
+2026-02-16 20:30:49,496 - __main__ - INFO -   - verify_instagram_connection
+2026-02-16 20:30:49,497 - __main__ - INFO -   - get_instagram_profile
+2026-02-16 20:30:49,497 - __main__ - INFO -   - get_instagram_posts
+2026-02-16 20:30:49,497 - __main__ - INFO -   - create_instagram_post
+2026-02-16 20:30:49,497 - __main__ - INFO -   - get_instagram_media_details
+2026-02-16 20:30:49,497 - __main__ - INFO -   - get_instagram_insights
+2026-02-16 20:30:49,497 - __main__ - INFO -   - debug_database
+2026-02-16 20:30:49,498 - __main__ - INFO - ============================================================
+2026-02-16 20:30:49,501 - asyncio - DEBUG - Using proactor: IocpProactor
+2026-02-16 20:30:49,509 - mcp.server.lowlevel.server - DEBUG - Received message: root=InitializedNotification(method='notifications/initialized', params=None, jsonrpc='2.0')
+2026-02-16 20:30:49,510 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x000001D5C1C89810>
+2026-02-16 20:30:49,510 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2026-02-16 20:30:49,510 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type CallToolRequest
+2026-02-16 20:30:49,510 - mcp.server.lowlevel.server - DEBUG - Tool cache miss for get_instagram_posts, refreshing cache
+2026-02-16 20:30:49,511 - __main__ - INFO - ============================================================
+2026-02-16 20:30:49,511 - __main__ - INFO - get_instagram_posts called with user_id: 1, limit: 5
+2026-02-16 20:30:49,511 - __main__ - INFO - ============================================================
+2026-02-16 20:30:49,511 - app.mcp.instagram_client - INFO - ============================================================
+2026-02-16 20:30:49,512 - app.mcp.instagram_client - INFO - Getting Instagram client for user 1
+2026-02-16 20:30:49,512 - app.mcp.instagram_client - INFO - ============================================================
+2026-02-16 20:30:49,512 - app.mcp.instagram_client - INFO - Querying database for Facebook account...
+2026-02-16 20:30:49,512 - app.oauth.services.social_account_service - INFO - Looking for Facebook account for user 1
+2026-02-16 20:30:49,593 - app.oauth.services.social_account_service - INFO -    Platform User ID: 122224876334270585
+2026-02-16 20:30:49,593 - app.oauth.services.social_account_service - INFO -    Has pages: Yes
+2026-02-16 20:30:49,593 - app.oauth.services.social_account_service - INFO -    Pages data length: 583 chars
+2026-02-16 20:30:49,595 - app.mcp.instagram_client - INFO -    Platform User ID: 122224876334270585
+2026-02-16 20:30:49,595 - app.mcp.instagram_client - INFO -    Has pages: Yes
+2026-02-16 20:30:49,595 - app.mcp.instagram_client - INFO - Parsing pages JSON...
+2026-02-16 20:30:49,595 - app.mcp.instagram_client - INFO - Found 1 page(s)
+2026-02-16 20:30:49,595 - app.mcp.instagram_client - INFO - Page details:
+2026-02-16 20:30:49,595 - app.mcp.instagram_client - INFO -   - Name: Pets Kingdom Uk 
+2026-02-16 20:30:49,595 - app.mcp.instagram_client - INFO -   - ID: 299677056569924
+2026-02-16 20:30:49,596 - app.mcp.instagram_client - INFO -   - Token preview: EAAWXzqZCmMQsBQkQZC8r5Q8zI7EFyjZBjGlqGK3fznpswrXyI...
+2026-02-16 20:30:49,596 - app.mcp.instagram_client - INFO - Calling Facebook API to get Instagram Business Account...
+2026-02-16 20:30:49,598 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): graph.facebook.com:443
+2026-02-16 20:30:50,403 - urllib3.connectionpool - DEBUG - https://graph.facebook.com:443 "GET /v19.0/299677056569924?fields=instagram_business_account%7Bid%2Cusername%7D&access_token=EAAWXzqZCmMQsBQkQZC8r5Q8zI7EFyjZBjGlqGK3fznpswrXyIhpBnXJeVZA0Sp6GJrpZC9KxtZBGSgU4LNBVzmGpg35Kjld8EJVEE6ZBT3ZBNvir9ZBIGSsxx9I1fgOyOZBjmNzZB81ht3ngxdrZAJE75I1HHEFeZC9NYdYZA0qRjCvEv4gLBokt287qZCdhZCO9fpiZAItMRdO0eN6fZC0VZAnks1ZA2ZBp3v3vy HTTP/1.1" 200 107
+2026-02-16 20:30:50,405 - app.mcp.instagram_client - INFO - Facebook API response: {'instagram_business_account': {'id': '17841467677781963', 'username': 'petskingdomuk'}, 'id': '299677056569924'}
+2026-02-16 20:30:50,408 - app.mcp.instagram_client - INFO -    Instagram ID: 17841467677781963
+2026-02-16 20:30:50,408 - app.mcp.instagram_client - INFO -    Instagram Username: petskingdomuk
+2026-02-16 20:30:50,409 - __main__ - ERROR - Unexpected error: 'InstagramClient' object has no attribute 'get_posts'
+Traceback (most recent call last):
+  File "C:\Users\Zeeshan\Desktop\Easy-Post\backend\app\mcp\server.py", line 131, in get_instagram_posts
+    posts_result = client.get_posts(instagram_id, limit)
+                   ^^^^^^^^^^^^^^^^
+AttributeError: 'InstagramClient' object has no attribute 'get_posts'
+2026-02-16 20:30:50,410 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-16 20:30:50,412 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x000001D5C1C89590>
+2026-02-16 20:30:50,412 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-16 20:30:50,412 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-16 20:30:50,413 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-16 20:31:49,132 - mcp.server.lowlevel.server - DEBUG - Initializing server 'Instagram MCP'
+2026-02-16 20:31:49,132 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListToolsRequest
+2026-02-16 20:31:49,133 - mcp.server.lowlevel.server - DEBUG - Registering handler for CallToolRequest
+2026-02-16 20:31:49,133 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListResourcesRequest
+2026-02-16 20:31:49,133 - mcp.server.lowlevel.server - DEBUG - Registering handler for ReadResourceRequest
+2026-02-16 20:31:49,133 - mcp.server.lowlevel.server - DEBUG - Registering handler for PromptListRequest
+2026-02-16 20:31:49,134 - mcp.server.lowlevel.server - DEBUG - Registering handler for GetPromptRequest
+2026-02-16 20:31:49,134 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListResourceTemplatesRequest
+2026-02-16 20:31:49,149 - __main__ - INFO - ============================================================
+2026-02-16 20:31:49,150 - __main__ - INFO - Starting MCP server with all Instagram tools...
+2026-02-16 20:31:49,150 - __main__ - INFO - Python executable: C:\Users\Zeeshan\AppData\Local\Programs\Python\Python313\python.exe
+2026-02-16 20:31:49,150 - __main__ - INFO - Script location: C:\Users\Zeeshan\Desktop\Easy-Post\backend\app\mcp\server.py
+2026-02-16 20:31:49,150 - __main__ - INFO - Available tools:
+2026-02-16 20:31:49,150 - __main__ - INFO -   - verify_instagram_connection
+2026-02-16 20:31:49,150 - __main__ - INFO -   - get_instagram_profile
+2026-02-16 20:31:49,150 - __main__ - INFO -   - get_instagram_posts
+2026-02-16 20:31:49,151 - __main__ - INFO -   - create_instagram_post
+2026-02-16 20:31:49,151 - __main__ - INFO -   - get_instagram_media_details
+2026-02-16 20:31:49,151 - __main__ - INFO -   - get_instagram_insights
+2026-02-16 20:31:49,151 - __main__ - INFO -   - debug_database
+2026-02-16 20:31:49,151 - __main__ - INFO - ============================================================
+2026-02-16 20:31:49,155 - asyncio - DEBUG - Using proactor: IocpProactor
+2026-02-16 20:31:49,164 - mcp.server.lowlevel.server - DEBUG - Received message: root=InitializedNotification(method='notifications/initialized', params=None, jsonrpc='2.0')
+2026-02-16 20:31:49,165 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x0000024C888C9810>
+2026-02-16 20:31:49,166 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-16 20:31:49,166 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-16 20:31:49,166 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-16 20:32:11,849 - mcp.server.lowlevel.server - DEBUG - Initializing server 'Instagram MCP'
+2026-02-16 20:32:11,850 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListToolsRequest
+2026-02-16 20:32:11,850 - mcp.server.lowlevel.server - DEBUG - Registering handler for CallToolRequest
+2026-02-16 20:32:11,850 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListResourcesRequest
+2026-02-16 20:32:11,850 - mcp.server.lowlevel.server - DEBUG - Registering handler for ReadResourceRequest
+2026-02-16 20:32:11,850 - mcp.server.lowlevel.server - DEBUG - Registering handler for PromptListRequest
+2026-02-16 20:32:11,851 - mcp.server.lowlevel.server - DEBUG - Registering handler for GetPromptRequest
+2026-02-16 20:32:11,851 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListResourceTemplatesRequest
+2026-02-16 20:32:11,864 - __main__ - INFO - ============================================================
+2026-02-16 20:32:11,864 - __main__ - INFO - Starting MCP server with all Instagram tools...
+2026-02-16 20:32:11,865 - __main__ - INFO - Python executable: C:\Users\Zeeshan\AppData\Local\Programs\Python\Python313\python.exe
+2026-02-16 20:32:11,865 - __main__ - INFO - Script location: C:\Users\Zeeshan\Desktop\Easy-Post\backend\app\mcp\server.py
+2026-02-16 20:32:11,865 - __main__ - INFO - Available tools:
+2026-02-16 20:32:11,865 - __main__ - INFO -   - verify_instagram_connection
+2026-02-16 20:32:11,865 - __main__ - INFO -   - get_instagram_profile
+2026-02-16 20:32:11,865 - __main__ - INFO -   - get_instagram_posts
+2026-02-16 20:32:11,866 - __main__ - INFO -   - create_instagram_post
+2026-02-16 20:32:11,866 - __main__ - INFO -   - get_instagram_media_details
+2026-02-16 20:32:11,866 - __main__ - INFO -   - get_instagram_insights
+2026-02-16 20:32:11,866 - __main__ - INFO -   - debug_database
+2026-02-16 20:32:11,866 - __main__ - INFO - ============================================================
+2026-02-16 20:32:11,870 - asyncio - DEBUG - Using proactor: IocpProactor
+2026-02-16 20:32:11,879 - mcp.server.lowlevel.server - DEBUG - Received message: root=InitializedNotification(method='notifications/initialized', params=None, jsonrpc='2.0')
+2026-02-16 20:32:11,880 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x0000020FEF589810>
+2026-02-16 20:32:11,880 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-16 20:32:11,880 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-16 20:32:11,881 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-16 20:32:20,379 - mcp.server.lowlevel.server - DEBUG - Initializing server 'Instagram MCP'
+2026-02-16 20:32:20,379 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListToolsRequest
+2026-02-16 20:32:20,380 - mcp.server.lowlevel.server - DEBUG - Registering handler for CallToolRequest
+2026-02-16 20:32:20,380 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListResourcesRequest
+2026-02-16 20:32:20,380 - mcp.server.lowlevel.server - DEBUG - Registering handler for ReadResourceRequest
+2026-02-16 20:32:20,380 - mcp.server.lowlevel.server - DEBUG - Registering handler for PromptListRequest
+2026-02-16 20:32:20,380 - mcp.server.lowlevel.server - DEBUG - Registering handler for GetPromptRequest
+2026-02-16 20:32:20,381 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListResourceTemplatesRequest
+2026-02-16 20:32:20,392 - __main__ - INFO - ============================================================
+2026-02-16 20:32:20,393 - __main__ - INFO - Starting MCP server with all Instagram tools...
+2026-02-16 20:32:20,393 - __main__ - INFO - Python executable: C:\Users\Zeeshan\AppData\Local\Programs\Python\Python313\python.exe
+2026-02-16 20:32:20,393 - __main__ - INFO - Script location: C:\Users\Zeeshan\Desktop\Easy-Post\backend\app\mcp\server.py
+2026-02-16 20:32:20,393 - __main__ - INFO - Available tools:
+2026-02-16 20:32:20,393 - __main__ - INFO -   - verify_instagram_connection
+2026-02-16 20:32:20,393 - __main__ - INFO -   - get_instagram_profile
+2026-02-16 20:32:20,394 - __main__ - INFO -   - get_instagram_posts
+2026-02-16 20:32:20,394 - __main__ - INFO -   - create_instagram_post
+2026-02-16 20:32:20,394 - __main__ - INFO -   - get_instagram_media_details
+2026-02-16 20:32:20,394 - __main__ - INFO -   - get_instagram_insights
+2026-02-16 20:32:20,394 - __main__ - INFO -   - debug_database
+2026-02-16 20:32:20,394 - __main__ - INFO - ============================================================
+2026-02-16 20:32:20,400 - asyncio - DEBUG - Using proactor: IocpProactor
+2026-02-16 20:32:20,407 - mcp.server.lowlevel.server - DEBUG - Received message: root=InitializedNotification(method='notifications/initialized', params=None, jsonrpc='2.0')
+2026-02-16 20:32:20,408 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x000002E95FDC9810>
+2026-02-16 20:32:20,409 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2026-02-16 20:32:20,409 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type CallToolRequest
+2026-02-16 20:32:20,409 - mcp.server.lowlevel.server - DEBUG - Tool cache miss for get_instagram_posts, refreshing cache
+2026-02-16 20:32:20,409 - __main__ - INFO - ============================================================
+2026-02-16 20:32:20,409 - __main__ - INFO - get_instagram_posts called with user_id: 1, limit: 5
+2026-02-16 20:32:20,410 - __main__ - INFO - ============================================================
+2026-02-16 20:32:20,410 - app.mcp.instagram_client - INFO - ============================================================
+2026-02-16 20:32:20,410 - app.mcp.instagram_client - INFO - Getting Instagram client for user 1
+2026-02-16 20:32:20,410 - app.mcp.instagram_client - INFO - ============================================================
+2026-02-16 20:32:20,410 - app.mcp.instagram_client - INFO - Querying database for Facebook account...
+2026-02-16 20:32:20,411 - app.oauth.services.social_account_service - INFO - Looking for Facebook account for user 1
+2026-02-16 20:32:20,501 - app.oauth.services.social_account_service - INFO -    Platform User ID: 122224876334270585
+2026-02-16 20:32:20,501 - app.oauth.services.social_account_service - INFO -    Has pages: Yes
+2026-02-16 20:32:20,501 - app.oauth.services.social_account_service - INFO -    Pages data length: 583 chars
+2026-02-16 20:32:20,503 - app.mcp.instagram_client - INFO -    Platform User ID: 122224876334270585
+2026-02-16 20:32:20,503 - app.mcp.instagram_client - INFO -    Has pages: Yes
+2026-02-16 20:32:20,503 - app.mcp.instagram_client - INFO - Parsing pages JSON...
+2026-02-16 20:32:20,503 - app.mcp.instagram_client - INFO - Found 1 page(s)
+2026-02-16 20:32:20,503 - app.mcp.instagram_client - INFO - Page details:
+2026-02-16 20:32:20,503 - app.mcp.instagram_client - INFO -   - Name: Pets Kingdom Uk 
+2026-02-16 20:32:20,503 - app.mcp.instagram_client - INFO -   - ID: 299677056569924
+2026-02-16 20:32:20,503 - app.mcp.instagram_client - INFO -   - Token preview: EAAWXzqZCmMQsBQkQZC8r5Q8zI7EFyjZBjGlqGK3fznpswrXyI...
+2026-02-16 20:32:20,503 - app.mcp.instagram_client - INFO - Calling Facebook API to get Instagram Business Account...
+2026-02-16 20:32:20,507 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): graph.facebook.com:443
+2026-02-16 20:32:21,334 - urllib3.connectionpool - DEBUG - https://graph.facebook.com:443 "GET /v19.0/299677056569924?fields=instagram_business_account%7Bid%2Cusername%7D&access_token=EAAWXzqZCmMQsBQkQZC8r5Q8zI7EFyjZBjGlqGK3fznpswrXyIhpBnXJeVZA0Sp6GJrpZC9KxtZBGSgU4LNBVzmGpg35Kjld8EJVEE6ZBT3ZBNvir9ZBIGSsxx9I1fgOyOZBjmNzZB81ht3ngxdrZAJE75I1HHEFeZC9NYdYZA0qRjCvEv4gLBokt287qZCdhZCO9fpiZAItMRdO0eN6fZC0VZAnks1ZA2ZBp3v3vy HTTP/1.1" 200 107
+2026-02-16 20:32:21,336 - app.mcp.instagram_client - INFO - Facebook API response: {'instagram_business_account': {'id': '17841467677781963', 'username': 'petskingdomuk'}, 'id': '299677056569924'}
+2026-02-16 20:32:21,339 - app.mcp.instagram_client - INFO -    Instagram ID: 17841467677781963
+2026-02-16 20:32:21,339 - app.mcp.instagram_client - INFO -    Instagram Username: petskingdomuk
+2026-02-16 20:32:21,341 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): graph.facebook.com:443
+2026-02-16 20:32:22,370 - urllib3.connectionpool - DEBUG - https://graph.facebook.com:443 "GET /v19.0/17841467677781963/media?fields=id%2Ccaption%2Cmedia_type%2Cmedia_url%2Cpermalink%2Ctimestamp%2Clike_count%2Ccomments_count&limit=5&access_token=EAAWXzqZCmMQsBQkQZC8r5Q8zI7EFyjZBjGlqGK3fznpswrXyIhpBnXJeVZA0Sp6GJrpZC9KxtZBGSgU4LNBVzmGpg35Kjld8EJVEE6ZBT3ZBNvir9ZBIGSsxx9I1fgOyOZBjmNzZB81ht3ngxdrZAJE75I1HHEFeZC9NYdYZA0qRjCvEv4gLBokt287qZCdhZCO9fpiZAItMRdO0eN6fZC0VZAnks1ZA2ZBp3v3vy HTTP/1.1" 200 2050
+2026-02-16 20:32:22,373 - __main__ - INFO - Retrieved 5 posts
+2026-02-16 20:32:22,373 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-16 20:32:22,375 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x000002E95FDC9590>
+2026-02-16 20:32:22,376 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-16 20:32:22,376 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-16 20:32:22,376 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-16 20:32:46,458 - mcp.server.lowlevel.server - DEBUG - Initializing server 'Instagram MCP'
+2026-02-16 20:32:46,459 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListToolsRequest
+2026-02-16 20:32:46,459 - mcp.server.lowlevel.server - DEBUG - Registering handler for CallToolRequest
+2026-02-16 20:32:46,459 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListResourcesRequest
+2026-02-16 20:32:46,459 - mcp.server.lowlevel.server - DEBUG - Registering handler for ReadResourceRequest
+2026-02-16 20:32:46,459 - mcp.server.lowlevel.server - DEBUG - Registering handler for PromptListRequest
+2026-02-16 20:32:46,460 - mcp.server.lowlevel.server - DEBUG - Registering handler for GetPromptRequest
+2026-02-16 20:32:46,460 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListResourceTemplatesRequest
+2026-02-16 20:32:46,471 - __main__ - INFO - ============================================================
+2026-02-16 20:32:46,471 - __main__ - INFO - Starting MCP server with all Instagram tools...
+2026-02-16 20:32:46,471 - __main__ - INFO - Python executable: C:\Users\Zeeshan\AppData\Local\Programs\Python\Python313\python.exe
+2026-02-16 20:32:46,471 - __main__ - INFO - Script location: C:\Users\Zeeshan\Desktop\Easy-Post\backend\app\mcp\server.py
+2026-02-16 20:32:46,471 - __main__ - INFO - Available tools:
+2026-02-16 20:32:46,472 - __main__ - INFO -   - verify_instagram_connection
+2026-02-16 20:32:46,472 - __main__ - INFO -   - get_instagram_profile
+2026-02-16 20:32:46,472 - __main__ - INFO -   - get_instagram_posts
+2026-02-16 20:32:46,472 - __main__ - INFO -   - create_instagram_post
+2026-02-16 20:32:46,472 - __main__ - INFO -   - get_instagram_media_details
+2026-02-16 20:32:46,472 - __main__ - INFO -   - get_instagram_insights
+2026-02-16 20:32:46,472 - __main__ - INFO -   - debug_database
+2026-02-16 20:32:46,472 - __main__ - INFO - ============================================================
+2026-02-16 20:32:46,477 - asyncio - DEBUG - Using proactor: IocpProactor
+2026-02-16 20:32:46,484 - mcp.server.lowlevel.server - DEBUG - Received message: root=InitializedNotification(method='notifications/initialized', params=None, jsonrpc='2.0')
+2026-02-16 20:32:46,485 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x0000017DD5019810>
+2026-02-16 20:32:46,485 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2026-02-16 20:32:46,485 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type CallToolRequest
+2026-02-16 20:32:46,486 - mcp.server.lowlevel.server - DEBUG - Tool cache miss for get_instagram_posts, refreshing cache
+2026-02-16 20:32:46,486 - __main__ - INFO - ============================================================
+2026-02-16 20:32:46,486 - __main__ - INFO - get_instagram_posts called with user_id: 1, limit: 5
+2026-02-16 20:32:46,486 - __main__ - INFO - ============================================================
+2026-02-16 20:32:46,486 - app.mcp.instagram_client - INFO - ============================================================
+2026-02-16 20:32:46,487 - app.mcp.instagram_client - INFO - Getting Instagram client for user 1
+2026-02-16 20:32:46,487 - app.mcp.instagram_client - INFO - ============================================================
+2026-02-16 20:32:46,487 - app.mcp.instagram_client - INFO - Querying database for Facebook account...
+2026-02-16 20:32:46,487 - app.oauth.services.social_account_service - INFO - Looking for Facebook account for user 1
+2026-02-16 20:32:46,573 - app.oauth.services.social_account_service - INFO -    Platform User ID: 122224876334270585
+2026-02-16 20:32:46,574 - app.oauth.services.social_account_service - INFO -    Has pages: Yes
+2026-02-16 20:32:46,574 - app.oauth.services.social_account_service - INFO -    Pages data length: 583 chars
+2026-02-16 20:32:46,576 - app.mcp.instagram_client - INFO -    Platform User ID: 122224876334270585
+2026-02-16 20:32:46,576 - app.mcp.instagram_client - INFO -    Has pages: Yes
+2026-02-16 20:32:46,576 - app.mcp.instagram_client - INFO - Parsing pages JSON...
+2026-02-16 20:32:46,576 - app.mcp.instagram_client - INFO - Found 1 page(s)
+2026-02-16 20:32:46,576 - app.mcp.instagram_client - INFO - Page details:
+2026-02-16 20:32:46,576 - app.mcp.instagram_client - INFO -   - Name: Pets Kingdom Uk 
+2026-02-16 20:32:46,577 - app.mcp.instagram_client - INFO -   - ID: 299677056569924
+2026-02-16 20:32:46,577 - app.mcp.instagram_client - INFO -   - Token preview: EAAWXzqZCmMQsBQkQZC8r5Q8zI7EFyjZBjGlqGK3fznpswrXyI...
+2026-02-16 20:32:46,577 - app.mcp.instagram_client - INFO - Calling Facebook API to get Instagram Business Account...
+2026-02-16 20:32:46,579 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): graph.facebook.com:443
+2026-02-16 20:32:47,521 - urllib3.connectionpool - DEBUG - https://graph.facebook.com:443 "GET /v19.0/299677056569924?fields=instagram_business_account%7Bid%2Cusername%7D&access_token=EAAWXzqZCmMQsBQkQZC8r5Q8zI7EFyjZBjGlqGK3fznpswrXyIhpBnXJeVZA0Sp6GJrpZC9KxtZBGSgU4LNBVzmGpg35Kjld8EJVEE6ZBT3ZBNvir9ZBIGSsxx9I1fgOyOZBjmNzZB81ht3ngxdrZAJE75I1HHEFeZC9NYdYZA0qRjCvEv4gLBokt287qZCdhZCO9fpiZAItMRdO0eN6fZC0VZAnks1ZA2ZBp3v3vy HTTP/1.1" 200 107
+2026-02-16 20:32:47,523 - app.mcp.instagram_client - INFO - Facebook API response: {'instagram_business_account': {'id': '17841467677781963', 'username': 'petskingdomuk'}, 'id': '299677056569924'}
+2026-02-16 20:32:47,527 - app.mcp.instagram_client - INFO -    Instagram ID: 17841467677781963
+2026-02-16 20:32:47,527 - app.mcp.instagram_client - INFO -    Instagram Username: petskingdomuk
+2026-02-16 20:32:47,528 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): graph.facebook.com:443
+2026-02-16 20:32:48,359 - urllib3.connectionpool - DEBUG - https://graph.facebook.com:443 "GET /v19.0/17841467677781963/media?fields=id%2Ccaption%2Cmedia_type%2Cmedia_url%2Cpermalink%2Ctimestamp%2Clike_count%2Ccomments_count&limit=5&access_token=EAAWXzqZCmMQsBQkQZC8r5Q8zI7EFyjZBjGlqGK3fznpswrXyIhpBnXJeVZA0Sp6GJrpZC9KxtZBGSgU4LNBVzmGpg35Kjld8EJVEE6ZBT3ZBNvir9ZBIGSsxx9I1fgOyOZBjmNzZB81ht3ngxdrZAJE75I1HHEFeZC9NYdYZA0qRjCvEv4gLBokt287qZCdhZCO9fpiZAItMRdO0eN6fZC0VZAnks1ZA2ZBp3v3vy HTTP/1.1" 200 2053
+2026-02-16 20:32:48,362 - __main__ - INFO - Retrieved 5 posts
+2026-02-16 20:32:48,362 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-16 20:32:48,365 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x0000017DD5019590>
+2026-02-16 20:32:48,365 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-16 20:32:48,365 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-16 20:32:48,365 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-16 20:33:11,937 - mcp.server.lowlevel.server - DEBUG - Initializing server 'Instagram MCP'
+2026-02-16 20:33:11,937 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListToolsRequest
+2026-02-16 20:33:11,937 - mcp.server.lowlevel.server - DEBUG - Registering handler for CallToolRequest
+2026-02-16 20:33:11,938 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListResourcesRequest
+2026-02-16 20:33:11,938 - mcp.server.lowlevel.server - DEBUG - Registering handler for ReadResourceRequest
+2026-02-16 20:33:11,938 - mcp.server.lowlevel.server - DEBUG - Registering handler for PromptListRequest
+2026-02-16 20:33:11,938 - mcp.server.lowlevel.server - DEBUG - Registering handler for GetPromptRequest
+2026-02-16 20:33:11,938 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListResourceTemplatesRequest
+2026-02-16 20:33:11,954 - __main__ - INFO - ============================================================
+2026-02-16 20:33:11,954 - __main__ - INFO - Starting MCP server with all Instagram tools...
+2026-02-16 20:33:11,954 - __main__ - INFO - Python executable: C:\Users\Zeeshan\AppData\Local\Programs\Python\Python313\python.exe
+2026-02-16 20:33:11,955 - __main__ - INFO - Script location: C:\Users\Zeeshan\Desktop\Easy-Post\backend\app\mcp\server.py
+2026-02-16 20:33:11,955 - __main__ - INFO - Available tools:
+2026-02-16 20:33:11,955 - __main__ - INFO -   - verify_instagram_connection
+2026-02-16 20:33:11,955 - __main__ - INFO -   - get_instagram_profile
+2026-02-16 20:33:11,955 - __main__ - INFO -   - get_instagram_posts
+2026-02-16 20:33:11,955 - __main__ - INFO -   - create_instagram_post
+2026-02-16 20:33:11,955 - __main__ - INFO -   - get_instagram_media_details
+2026-02-16 20:33:11,955 - __main__ - INFO -   - get_instagram_insights
+2026-02-16 20:33:11,956 - __main__ - INFO -   - debug_database
+2026-02-16 20:33:11,956 - __main__ - INFO - ============================================================
+2026-02-16 20:33:11,960 - asyncio - DEBUG - Using proactor: IocpProactor
+2026-02-16 20:33:11,968 - mcp.server.lowlevel.server - DEBUG - Received message: root=InitializedNotification(method='notifications/initialized', params=None, jsonrpc='2.0')
+2026-02-16 20:33:11,969 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x000001A2938F9810>
+2026-02-16 20:33:11,969 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2026-02-16 20:33:11,970 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type CallToolRequest
+2026-02-16 20:33:11,970 - mcp.server.lowlevel.server - DEBUG - Tool cache miss for get_instagram_posts, refreshing cache
+2026-02-16 20:33:11,970 - __main__ - INFO - ============================================================
+2026-02-16 20:33:11,970 - __main__ - INFO - get_instagram_posts called with user_id: 1, limit: 5
+2026-02-16 20:33:11,970 - __main__ - INFO - ============================================================
+2026-02-16 20:33:11,970 - app.mcp.instagram_client - INFO - ============================================================
+2026-02-16 20:33:11,970 - app.mcp.instagram_client - INFO - Getting Instagram client for user 1
+2026-02-16 20:33:11,970 - app.mcp.instagram_client - INFO - ============================================================
+2026-02-16 20:33:11,971 - app.mcp.instagram_client - INFO - Querying database for Facebook account...
+2026-02-16 20:33:11,971 - app.oauth.services.social_account_service - INFO - Looking for Facebook account for user 1
+2026-02-16 20:33:12,071 - app.oauth.services.social_account_service - INFO -    Platform User ID: 122224876334270585
+2026-02-16 20:33:12,071 - app.oauth.services.social_account_service - INFO -    Has pages: Yes
+2026-02-16 20:33:12,071 - app.oauth.services.social_account_service - INFO -    Pages data length: 583 chars
+2026-02-16 20:33:12,074 - app.mcp.instagram_client - INFO -    Platform User ID: 122224876334270585
+2026-02-16 20:33:12,074 - app.mcp.instagram_client - INFO -    Has pages: Yes
+2026-02-16 20:33:12,074 - app.mcp.instagram_client - INFO - Parsing pages JSON...
+2026-02-16 20:33:12,074 - app.mcp.instagram_client - INFO - Found 1 page(s)
+2026-02-16 20:33:12,074 - app.mcp.instagram_client - INFO - Page details:
+2026-02-16 20:33:12,074 - app.mcp.instagram_client - INFO -   - Name: Pets Kingdom Uk 
+2026-02-16 20:33:12,074 - app.mcp.instagram_client - INFO -   - ID: 299677056569924
+2026-02-16 20:33:12,074 - app.mcp.instagram_client - INFO -   - Token preview: EAAWXzqZCmMQsBQkQZC8r5Q8zI7EFyjZBjGlqGK3fznpswrXyI...
+2026-02-16 20:33:12,074 - app.mcp.instagram_client - INFO - Calling Facebook API to get Instagram Business Account...
+2026-02-16 20:33:12,079 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): graph.facebook.com:443
+2026-02-16 20:33:12,815 - urllib3.connectionpool - DEBUG - https://graph.facebook.com:443 "GET /v19.0/299677056569924?fields=instagram_business_account%7Bid%2Cusername%7D&access_token=EAAWXzqZCmMQsBQkQZC8r5Q8zI7EFyjZBjGlqGK3fznpswrXyIhpBnXJeVZA0Sp6GJrpZC9KxtZBGSgU4LNBVzmGpg35Kjld8EJVEE6ZBT3ZBNvir9ZBIGSsxx9I1fgOyOZBjmNzZB81ht3ngxdrZAJE75I1HHEFeZC9NYdYZA0qRjCvEv4gLBokt287qZCdhZCO9fpiZAItMRdO0eN6fZC0VZAnks1ZA2ZBp3v3vy HTTP/1.1" 200 107
+2026-02-16 20:33:12,818 - app.mcp.instagram_client - INFO - Facebook API response: {'instagram_business_account': {'id': '17841467677781963', 'username': 'petskingdomuk'}, 'id': '299677056569924'}
+2026-02-16 20:33:12,821 - app.mcp.instagram_client - INFO -    Instagram ID: 17841467677781963
+2026-02-16 20:33:12,821 - app.mcp.instagram_client - INFO -    Instagram Username: petskingdomuk
+2026-02-16 20:33:12,823 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): graph.facebook.com:443
+2026-02-16 20:33:13,778 - urllib3.connectionpool - DEBUG - https://graph.facebook.com:443 "GET /v19.0/17841467677781963/media?fields=id%2Ccaption%2Cmedia_type%2Cmedia_url%2Cpermalink%2Ctimestamp%2Clike_count%2Ccomments_count&limit=5&access_token=EAAWXzqZCmMQsBQkQZC8r5Q8zI7EFyjZBjGlqGK3fznpswrXyIhpBnXJeVZA0Sp6GJrpZC9KxtZBGSgU4LNBVzmGpg35Kjld8EJVEE6ZBT3ZBNvir9ZBIGSsxx9I1fgOyOZBjmNzZB81ht3ngxdrZAJE75I1HHEFeZC9NYdYZA0qRjCvEv4gLBokt287qZCdhZCO9fpiZAItMRdO0eN6fZC0VZAnks1ZA2ZBp3v3vy HTTP/1.1" 200 2051
+2026-02-16 20:33:13,780 - __main__ - INFO - Retrieved 5 posts
+2026-02-16 20:33:13,781 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-16 20:33:13,783 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x000001A2938F9590>
+2026-02-16 20:33:13,783 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-16 20:33:13,783 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-16 20:33:13,784 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-16 20:33:39,913 - mcp.server.lowlevel.server - DEBUG - Initializing server 'Instagram MCP'
+2026-02-16 20:33:39,913 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListToolsRequest
+2026-02-16 20:33:39,914 - mcp.server.lowlevel.server - DEBUG - Registering handler for CallToolRequest
+2026-02-16 20:33:39,914 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListResourcesRequest
+2026-02-16 20:33:39,914 - mcp.server.lowlevel.server - DEBUG - Registering handler for ReadResourceRequest
+2026-02-16 20:33:39,914 - mcp.server.lowlevel.server - DEBUG - Registering handler for PromptListRequest
+2026-02-16 20:33:39,914 - mcp.server.lowlevel.server - DEBUG - Registering handler for GetPromptRequest
+2026-02-16 20:33:39,914 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListResourceTemplatesRequest
+2026-02-16 20:33:39,926 - __main__ - INFO - ============================================================
+2026-02-16 20:33:39,927 - __main__ - INFO - Starting MCP server with all Instagram tools...
+2026-02-16 20:33:39,927 - __main__ - INFO - Python executable: C:\Users\Zeeshan\AppData\Local\Programs\Python\Python313\python.exe
+2026-02-16 20:33:39,927 - __main__ - INFO - Script location: C:\Users\Zeeshan\Desktop\Easy-Post\backend\app\mcp\server.py
+2026-02-16 20:33:39,927 - __main__ - INFO - Available tools:
+2026-02-16 20:33:39,927 - __main__ - INFO -   - verify_instagram_connection
+2026-02-16 20:33:39,927 - __main__ - INFO -   - get_instagram_profile
+2026-02-16 20:33:39,927 - __main__ - INFO -   - get_instagram_posts
+2026-02-16 20:33:39,928 - __main__ - INFO -   - create_instagram_post
+2026-02-16 20:33:39,928 - __main__ - INFO -   - get_instagram_media_details
+2026-02-16 20:33:39,928 - __main__ - INFO -   - get_instagram_insights
+2026-02-16 20:33:39,928 - __main__ - INFO -   - debug_database
+2026-02-16 20:33:39,928 - __main__ - INFO - ============================================================
+2026-02-16 20:33:39,932 - asyncio - DEBUG - Using proactor: IocpProactor
+2026-02-16 20:33:39,939 - mcp.server.lowlevel.server - DEBUG - Received message: root=InitializedNotification(method='notifications/initialized', params=None, jsonrpc='2.0')
+2026-02-16 20:33:39,940 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x0000023C58BB5810>
+2026-02-16 20:33:39,940 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2026-02-16 20:33:39,940 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type CallToolRequest
+2026-02-16 20:33:39,941 - mcp.server.lowlevel.server - DEBUG - Tool cache miss for get_instagram_posts, refreshing cache
+2026-02-16 20:33:39,941 - __main__ - INFO - ============================================================
+2026-02-16 20:33:39,941 - __main__ - INFO - get_instagram_posts called with user_id: 1, limit: 5
+2026-02-16 20:33:39,941 - __main__ - INFO - ============================================================
+2026-02-16 20:33:39,941 - app.mcp.instagram_client - INFO - ============================================================
+2026-02-16 20:33:39,941 - app.mcp.instagram_client - INFO - Getting Instagram client for user 1
+2026-02-16 20:33:39,942 - app.mcp.instagram_client - INFO - ============================================================
+2026-02-16 20:33:39,942 - app.mcp.instagram_client - INFO - Querying database for Facebook account...
+2026-02-16 20:33:39,942 - app.oauth.services.social_account_service - INFO - Looking for Facebook account for user 1
+2026-02-16 20:33:40,026 - app.oauth.services.social_account_service - INFO -    Platform User ID: 122224876334270585
+2026-02-16 20:33:40,027 - app.oauth.services.social_account_service - INFO -    Has pages: Yes
+2026-02-16 20:33:40,027 - app.oauth.services.social_account_service - INFO -    Pages data length: 583 chars
+2026-02-16 20:33:40,030 - app.mcp.instagram_client - INFO -    Platform User ID: 122224876334270585
+2026-02-16 20:33:40,030 - app.mcp.instagram_client - INFO -    Has pages: Yes
+2026-02-16 20:33:40,030 - app.mcp.instagram_client - INFO - Parsing pages JSON...
+2026-02-16 20:33:40,030 - app.mcp.instagram_client - INFO - Found 1 page(s)
+2026-02-16 20:33:40,030 - app.mcp.instagram_client - INFO - Page details:
+2026-02-16 20:33:40,030 - app.mcp.instagram_client - INFO -   - Name: Pets Kingdom Uk 
+2026-02-16 20:33:40,030 - app.mcp.instagram_client - INFO -   - ID: 299677056569924
+2026-02-16 20:33:40,030 - app.mcp.instagram_client - INFO -   - Token preview: EAAWXzqZCmMQsBQkQZC8r5Q8zI7EFyjZBjGlqGK3fznpswrXyI...
+2026-02-16 20:33:40,030 - app.mcp.instagram_client - INFO - Calling Facebook API to get Instagram Business Account...
+2026-02-16 20:33:40,033 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): graph.facebook.com:443
+2026-02-16 20:33:40,818 - urllib3.connectionpool - DEBUG - https://graph.facebook.com:443 "GET /v19.0/299677056569924?fields=instagram_business_account%7Bid%2Cusername%7D&access_token=EAAWXzqZCmMQsBQkQZC8r5Q8zI7EFyjZBjGlqGK3fznpswrXyIhpBnXJeVZA0Sp6GJrpZC9KxtZBGSgU4LNBVzmGpg35Kjld8EJVEE6ZBT3ZBNvir9ZBIGSsxx9I1fgOyOZBjmNzZB81ht3ngxdrZAJE75I1HHEFeZC9NYdYZA0qRjCvEv4gLBokt287qZCdhZCO9fpiZAItMRdO0eN6fZC0VZAnks1ZA2ZBp3v3vy HTTP/1.1" 200 107
+2026-02-16 20:33:40,819 - app.mcp.instagram_client - INFO - Facebook API response: {'instagram_business_account': {'id': '17841467677781963', 'username': 'petskingdomuk'}, 'id': '299677056569924'}
+2026-02-16 20:33:40,823 - app.mcp.instagram_client - INFO -    Instagram ID: 17841467677781963
+2026-02-16 20:33:40,823 - app.mcp.instagram_client - INFO -    Instagram Username: petskingdomuk
+2026-02-16 20:33:40,824 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): graph.facebook.com:443
+2026-02-16 20:33:41,620 - urllib3.connectionpool - DEBUG - https://graph.facebook.com:443 "GET /v19.0/17841467677781963/media?fields=id%2Ccaption%2Cmedia_type%2Cmedia_url%2Cpermalink%2Ctimestamp%2Clike_count%2Ccomments_count&limit=5&access_token=EAAWXzqZCmMQsBQkQZC8r5Q8zI7EFyjZBjGlqGK3fznpswrXyIhpBnXJeVZA0Sp6GJrpZC9KxtZBGSgU4LNBVzmGpg35Kjld8EJVEE6ZBT3ZBNvir9ZBIGSsxx9I1fgOyOZBjmNzZB81ht3ngxdrZAJE75I1HHEFeZC9NYdYZA0qRjCvEv4gLBokt287qZCdhZCO9fpiZAItMRdO0eN6fZC0VZAnks1ZA2ZBp3v3vy HTTP/1.1" 200 2052
+2026-02-16 20:33:41,622 - __main__ - INFO - Retrieved 5 posts
+2026-02-16 20:33:41,622 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-16 20:33:41,625 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x0000023C58BB5590>
+2026-02-16 20:33:41,625 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-16 20:33:41,625 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-16 20:33:41,626 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-16 20:34:15,462 - mcp.server.lowlevel.server - DEBUG - Initializing server 'Instagram MCP'
+2026-02-16 20:34:15,462 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListToolsRequest
+2026-02-16 20:34:15,463 - mcp.server.lowlevel.server - DEBUG - Registering handler for CallToolRequest
+2026-02-16 20:34:15,463 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListResourcesRequest
+2026-02-16 20:34:15,463 - mcp.server.lowlevel.server - DEBUG - Registering handler for ReadResourceRequest
+2026-02-16 20:34:15,463 - mcp.server.lowlevel.server - DEBUG - Registering handler for PromptListRequest
+2026-02-16 20:34:15,463 - mcp.server.lowlevel.server - DEBUG - Registering handler for GetPromptRequest
+2026-02-16 20:34:15,464 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListResourceTemplatesRequest
+2026-02-16 20:34:15,475 - __main__ - INFO - ============================================================
+2026-02-16 20:34:15,475 - __main__ - INFO - Starting MCP server with all Instagram tools...
+2026-02-16 20:34:15,476 - __main__ - INFO - Python executable: C:\Users\Zeeshan\AppData\Local\Programs\Python\Python313\python.exe
+2026-02-16 20:34:15,476 - __main__ - INFO - Script location: C:\Users\Zeeshan\Desktop\Easy-Post\backend\app\mcp\server.py
+2026-02-16 20:34:15,476 - __main__ - INFO - Available tools:
+2026-02-16 20:34:15,476 - __main__ - INFO -   - verify_instagram_connection
+2026-02-16 20:34:15,476 - __main__ - INFO -   - get_instagram_profile
+2026-02-16 20:34:15,476 - __main__ - INFO -   - get_instagram_posts
+2026-02-16 20:34:15,477 - __main__ - INFO -   - create_instagram_post
+2026-02-16 20:34:15,477 - __main__ - INFO -   - get_instagram_media_details
+2026-02-16 20:34:15,477 - __main__ - INFO -   - get_instagram_insights
+2026-02-16 20:34:15,477 - __main__ - INFO -   - debug_database
+2026-02-16 20:34:15,477 - __main__ - INFO - ============================================================
+2026-02-16 20:34:15,481 - asyncio - DEBUG - Using proactor: IocpProactor
+2026-02-16 20:34:15,489 - mcp.server.lowlevel.server - DEBUG - Received message: root=InitializedNotification(method='notifications/initialized', params=None, jsonrpc='2.0')
+2026-02-16 20:34:15,490 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x000001D9C08A9810>
+2026-02-16 20:34:15,490 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2026-02-16 20:34:15,490 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type CallToolRequest
+2026-02-16 20:34:15,490 - mcp.server.lowlevel.server - DEBUG - Tool cache miss for get_instagram_posts, refreshing cache
+2026-02-16 20:34:15,491 - __main__ - INFO - ============================================================
+2026-02-16 20:34:15,491 - __main__ - INFO - get_instagram_posts called with user_id: 1, limit: 5
+2026-02-16 20:34:15,491 - __main__ - INFO - ============================================================
+2026-02-16 20:34:15,491 - app.mcp.instagram_client - INFO - ============================================================
+2026-02-16 20:34:15,491 - app.mcp.instagram_client - INFO - Getting Instagram client for user 1
+2026-02-16 20:34:15,492 - app.mcp.instagram_client - INFO - ============================================================
+2026-02-16 20:34:15,492 - app.mcp.instagram_client - INFO - Querying database for Facebook account...
+2026-02-16 20:34:15,492 - app.oauth.services.social_account_service - INFO - Looking for Facebook account for user 1
+2026-02-16 20:34:15,687 - app.oauth.services.social_account_service - INFO -    Platform User ID: 122224876334270585
+2026-02-16 20:34:15,688 - app.oauth.services.social_account_service - INFO -    Has pages: Yes
+2026-02-16 20:34:15,688 - app.oauth.services.social_account_service - INFO -    Pages data length: 583 chars
+2026-02-16 20:34:15,690 - app.mcp.instagram_client - INFO -    Platform User ID: 122224876334270585
+2026-02-16 20:34:15,690 - app.mcp.instagram_client - INFO -    Has pages: Yes
+2026-02-16 20:34:15,690 - app.mcp.instagram_client - INFO - Parsing pages JSON...
+2026-02-16 20:34:15,691 - app.mcp.instagram_client - INFO - Found 1 page(s)
+2026-02-16 20:34:15,691 - app.mcp.instagram_client - INFO - Page details:
+2026-02-16 20:34:15,691 - app.mcp.instagram_client - INFO -   - Name: Pets Kingdom Uk 
+2026-02-16 20:34:15,691 - app.mcp.instagram_client - INFO -   - ID: 299677056569924
+2026-02-16 20:34:15,691 - app.mcp.instagram_client - INFO -   - Token preview: EAAWXzqZCmMQsBQkQZC8r5Q8zI7EFyjZBjGlqGK3fznpswrXyI...
+2026-02-16 20:34:15,691 - app.mcp.instagram_client - INFO - Calling Facebook API to get Instagram Business Account...
+2026-02-16 20:34:15,694 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): graph.facebook.com:443
+2026-02-16 20:34:16,378 - urllib3.connectionpool - DEBUG - https://graph.facebook.com:443 "GET /v19.0/299677056569924?fields=instagram_business_account%7Bid%2Cusername%7D&access_token=EAAWXzqZCmMQsBQkQZC8r5Q8zI7EFyjZBjGlqGK3fznpswrXyIhpBnXJeVZA0Sp6GJrpZC9KxtZBGSgU4LNBVzmGpg35Kjld8EJVEE6ZBT3ZBNvir9ZBIGSsxx9I1fgOyOZBjmNzZB81ht3ngxdrZAJE75I1HHEFeZC9NYdYZA0qRjCvEv4gLBokt287qZCdhZCO9fpiZAItMRdO0eN6fZC0VZAnks1ZA2ZBp3v3vy HTTP/1.1" 200 107
+2026-02-16 20:34:16,380 - app.mcp.instagram_client - INFO - Facebook API response: {'instagram_business_account': {'id': '17841467677781963', 'username': 'petskingdomuk'}, 'id': '299677056569924'}
+2026-02-16 20:34:16,383 - app.mcp.instagram_client - INFO -    Instagram ID: 17841467677781963
+2026-02-16 20:34:16,384 - app.mcp.instagram_client - INFO -    Instagram Username: petskingdomuk
+2026-02-16 20:34:16,385 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): graph.facebook.com:443
+2026-02-16 20:34:17,399 - urllib3.connectionpool - DEBUG - https://graph.facebook.com:443 "GET /v19.0/17841467677781963/media?fields=id%2Ccaption%2Cmedia_type%2Cmedia_url%2Cpermalink%2Ctimestamp%2Clike_count%2Ccomments_count&limit=5&access_token=EAAWXzqZCmMQsBQkQZC8r5Q8zI7EFyjZBjGlqGK3fznpswrXyIhpBnXJeVZA0Sp6GJrpZC9KxtZBGSgU4LNBVzmGpg35Kjld8EJVEE6ZBT3ZBNvir9ZBIGSsxx9I1fgOyOZBjmNzZB81ht3ngxdrZAJE75I1HHEFeZC9NYdYZA0qRjCvEv4gLBokt287qZCdhZCO9fpiZAItMRdO0eN6fZC0VZAnks1ZA2ZBp3v3vy HTTP/1.1" 200 2054
+2026-02-16 20:34:17,401 - __main__ - INFO - Retrieved 5 posts
+2026-02-16 20:34:17,402 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-16 20:34:17,404 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x000001D9C08A9590>
+2026-02-16 20:34:17,404 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-16 20:34:17,404 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-16 20:34:17,405 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-16 20:35:13,238 - mcp.server.lowlevel.server - DEBUG - Initializing server 'Instagram MCP'
+2026-02-16 20:35:13,239 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListToolsRequest
+2026-02-16 20:35:13,239 - mcp.server.lowlevel.server - DEBUG - Registering handler for CallToolRequest
+2026-02-16 20:35:13,239 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListResourcesRequest
+2026-02-16 20:35:13,239 - mcp.server.lowlevel.server - DEBUG - Registering handler for ReadResourceRequest
+2026-02-16 20:35:13,239 - mcp.server.lowlevel.server - DEBUG - Registering handler for PromptListRequest
+2026-02-16 20:35:13,240 - mcp.server.lowlevel.server - DEBUG - Registering handler for GetPromptRequest
+2026-02-16 20:35:13,240 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListResourceTemplatesRequest
+2026-02-16 20:35:13,253 - __main__ - INFO - ============================================================
+2026-02-16 20:35:13,253 - __main__ - INFO - Starting MCP server with all Instagram tools...
+2026-02-16 20:35:13,253 - __main__ - INFO - Python executable: C:\Users\Zeeshan\AppData\Local\Programs\Python\Python313\python.exe
+2026-02-16 20:35:13,253 - __main__ - INFO - Script location: C:\Users\Zeeshan\Desktop\Easy-Post\backend\app\mcp\server.py
+2026-02-16 20:35:13,253 - __main__ - INFO - Available tools:
+2026-02-16 20:35:13,253 - __main__ - INFO -   - verify_instagram_connection
+2026-02-16 20:35:13,254 - __main__ - INFO -   - get_instagram_profile
+2026-02-16 20:35:13,254 - __main__ - INFO -   - get_instagram_posts
+2026-02-16 20:35:13,254 - __main__ - INFO -   - create_instagram_post
+2026-02-16 20:35:13,254 - __main__ - INFO -   - get_instagram_media_details
+2026-02-16 20:35:13,254 - __main__ - INFO -   - get_instagram_insights
+2026-02-16 20:35:13,254 - __main__ - INFO -   - debug_database
+2026-02-16 20:35:13,255 - __main__ - INFO - ============================================================
+2026-02-16 20:35:13,258 - asyncio - DEBUG - Using proactor: IocpProactor
+2026-02-16 20:35:13,266 - mcp.server.lowlevel.server - DEBUG - Received message: root=InitializedNotification(method='notifications/initialized', params=None, jsonrpc='2.0')
+2026-02-16 20:35:13,267 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x000001C1219B9810>
+2026-02-16 20:35:13,268 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2026-02-16 20:35:13,268 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type CallToolRequest
+2026-02-16 20:35:13,268 - mcp.server.lowlevel.server - DEBUG - Tool cache miss for get_instagram_posts, refreshing cache
+2026-02-16 20:35:13,268 - __main__ - INFO - ============================================================
+2026-02-16 20:35:13,269 - __main__ - INFO - get_instagram_posts called with user_id: 1, limit: 5
+2026-02-16 20:35:13,269 - __main__ - INFO - ============================================================
+2026-02-16 20:35:13,269 - app.mcp.instagram_client - INFO - ============================================================
+2026-02-16 20:35:13,269 - app.mcp.instagram_client - INFO - Getting Instagram client for user 1
+2026-02-16 20:35:13,269 - app.mcp.instagram_client - INFO - ============================================================
+2026-02-16 20:35:13,269 - app.mcp.instagram_client - INFO - Querying database for Facebook account...
+2026-02-16 20:35:13,270 - app.oauth.services.social_account_service - INFO - Looking for Facebook account for user 1
+2026-02-16 20:35:13,460 - app.oauth.services.social_account_service - INFO -    Platform User ID: 122224876334270585
+2026-02-16 20:35:13,460 - app.oauth.services.social_account_service - INFO -    Has pages: Yes
+2026-02-16 20:35:13,460 - app.oauth.services.social_account_service - INFO -    Pages data length: 583 chars
+2026-02-16 20:35:13,462 - app.mcp.instagram_client - INFO -    Platform User ID: 122224876334270585
+2026-02-16 20:35:13,462 - app.mcp.instagram_client - INFO -    Has pages: Yes
+2026-02-16 20:35:13,462 - app.mcp.instagram_client - INFO - Parsing pages JSON...
+2026-02-16 20:35:13,462 - app.mcp.instagram_client - INFO - Found 1 page(s)
+2026-02-16 20:35:13,462 - app.mcp.instagram_client - INFO - Page details:
+2026-02-16 20:35:13,462 - app.mcp.instagram_client - INFO -   - Name: Pets Kingdom Uk 
+2026-02-16 20:35:13,462 - app.mcp.instagram_client - INFO -   - ID: 299677056569924
+2026-02-16 20:35:13,462 - app.mcp.instagram_client - INFO -   - Token preview: EAAWXzqZCmMQsBQkQZC8r5Q8zI7EFyjZBjGlqGK3fznpswrXyI...
+2026-02-16 20:35:13,462 - app.mcp.instagram_client - INFO - Calling Facebook API to get Instagram Business Account...
+2026-02-16 20:35:13,465 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): graph.facebook.com:443
+2026-02-16 20:35:14,225 - urllib3.connectionpool - DEBUG - https://graph.facebook.com:443 "GET /v19.0/299677056569924?fields=instagram_business_account%7Bid%2Cusername%7D&access_token=EAAWXzqZCmMQsBQkQZC8r5Q8zI7EFyjZBjGlqGK3fznpswrXyIhpBnXJeVZA0Sp6GJrpZC9KxtZBGSgU4LNBVzmGpg35Kjld8EJVEE6ZBT3ZBNvir9ZBIGSsxx9I1fgOyOZBjmNzZB81ht3ngxdrZAJE75I1HHEFeZC9NYdYZA0qRjCvEv4gLBokt287qZCdhZCO9fpiZAItMRdO0eN6fZC0VZAnks1ZA2ZBp3v3vy HTTP/1.1" 200 107
+2026-02-16 20:35:14,227 - app.mcp.instagram_client - INFO - Facebook API response: {'instagram_business_account': {'id': '17841467677781963', 'username': 'petskingdomuk'}, 'id': '299677056569924'}
+2026-02-16 20:35:14,231 - app.mcp.instagram_client - INFO -    Instagram ID: 17841467677781963
+2026-02-16 20:35:14,231 - app.mcp.instagram_client - INFO -    Instagram Username: petskingdomuk
+2026-02-16 20:35:14,232 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): graph.facebook.com:443
+2026-02-16 20:35:15,019 - urllib3.connectionpool - DEBUG - https://graph.facebook.com:443 "GET /v19.0/17841467677781963/media?fields=id%2Ccaption%2Cmedia_type%2Cmedia_url%2Cpermalink%2Ctimestamp%2Clike_count%2Ccomments_count&limit=5&access_token=EAAWXzqZCmMQsBQkQZC8r5Q8zI7EFyjZBjGlqGK3fznpswrXyIhpBnXJeVZA0Sp6GJrpZC9KxtZBGSgU4LNBVzmGpg35Kjld8EJVEE6ZBT3ZBNvir9ZBIGSsxx9I1fgOyOZBjmNzZB81ht3ngxdrZAJE75I1HHEFeZC9NYdYZA0qRjCvEv4gLBokt287qZCdhZCO9fpiZAItMRdO0eN6fZC0VZAnks1ZA2ZBp3v3vy HTTP/1.1" 200 2055
+2026-02-16 20:35:15,021 - __main__ - INFO - Retrieved 5 posts
+2026-02-16 20:35:15,021 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-16 20:35:15,023 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x000001C1219B9590>
+2026-02-16 20:35:15,024 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-16 20:35:15,024 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-16 20:35:15,024 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-16 20:37:25,738 - mcp.server.lowlevel.server - DEBUG - Initializing server 'Instagram MCP'
+2026-02-16 20:37:25,738 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListToolsRequest
+2026-02-16 20:37:25,738 - mcp.server.lowlevel.server - DEBUG - Registering handler for CallToolRequest
+2026-02-16 20:37:25,738 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListResourcesRequest
+2026-02-16 20:37:25,739 - mcp.server.lowlevel.server - DEBUG - Registering handler for ReadResourceRequest
+2026-02-16 20:37:25,739 - mcp.server.lowlevel.server - DEBUG - Registering handler for PromptListRequest
+2026-02-16 20:37:25,739 - mcp.server.lowlevel.server - DEBUG - Registering handler for GetPromptRequest
+2026-02-16 20:37:25,739 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListResourceTemplatesRequest
+2026-02-16 20:37:25,755 - __main__ - INFO - ============================================================
+2026-02-16 20:37:25,755 - __main__ - INFO - Starting MCP server with all Instagram tools...
+2026-02-16 20:37:25,755 - __main__ - INFO - Python executable: C:\Users\Zeeshan\AppData\Local\Programs\Python\Python313\python.exe
+2026-02-16 20:37:25,756 - __main__ - INFO - Script location: C:\Users\Zeeshan\Desktop\Easy-Post\backend\app\mcp\server.py
+2026-02-16 20:37:25,756 - __main__ - INFO - Available tools:
+2026-02-16 20:37:25,756 - __main__ - INFO -   - verify_instagram_connection
+2026-02-16 20:37:25,756 - __main__ - INFO -   - get_instagram_profile
+2026-02-16 20:37:25,756 - __main__ - INFO -   - get_instagram_posts
+2026-02-16 20:37:25,756 - __main__ - INFO -   - create_instagram_post
+2026-02-16 20:37:25,757 - __main__ - INFO -   - get_instagram_media_details
+2026-02-16 20:37:25,757 - __main__ - INFO -   - get_instagram_insights
+2026-02-16 20:37:25,757 - __main__ - INFO -   - debug_database
+2026-02-16 20:37:25,757 - __main__ - INFO - ============================================================
+2026-02-16 20:37:25,762 - asyncio - DEBUG - Using proactor: IocpProactor
+2026-02-16 20:37:25,770 - mcp.server.lowlevel.server - DEBUG - Received message: root=InitializedNotification(method='notifications/initialized', params=None, jsonrpc='2.0')
+2026-02-16 20:37:25,771 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x000001F81059D810>
+2026-02-16 20:37:25,771 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-16 20:37:25,771 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-16 20:37:25,772 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-16 20:38:29,918 - mcp.server.lowlevel.server - DEBUG - Initializing server 'Instagram MCP'
+2026-02-16 20:38:29,919 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListToolsRequest
+2026-02-16 20:38:29,919 - mcp.server.lowlevel.server - DEBUG - Registering handler for CallToolRequest
+2026-02-16 20:38:29,919 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListResourcesRequest
+2026-02-16 20:38:29,919 - mcp.server.lowlevel.server - DEBUG - Registering handler for ReadResourceRequest
+2026-02-16 20:38:29,919 - mcp.server.lowlevel.server - DEBUG - Registering handler for PromptListRequest
+2026-02-16 20:38:29,920 - mcp.server.lowlevel.server - DEBUG - Registering handler for GetPromptRequest
+2026-02-16 20:38:29,920 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListResourceTemplatesRequest
+2026-02-16 20:38:29,935 - __main__ - INFO - ============================================================
+2026-02-16 20:38:29,935 - __main__ - INFO - Starting MCP server with all Instagram tools...
+2026-02-16 20:38:29,936 - __main__ - INFO - Python executable: C:\Users\Zeeshan\AppData\Local\Programs\Python\Python313\python.exe
+2026-02-16 20:38:29,936 - __main__ - INFO - Script location: C:\Users\Zeeshan\Desktop\Easy-Post\backend\app\mcp\server.py
+2026-02-16 20:38:29,936 - __main__ - INFO - Available tools:
+2026-02-16 20:38:29,936 - __main__ - INFO -   - verify_instagram_connection
+2026-02-16 20:38:29,936 - __main__ - INFO -   - get_instagram_profile
+2026-02-16 20:38:29,936 - __main__ - INFO -   - get_instagram_posts
+2026-02-16 20:38:29,936 - __main__ - INFO -   - create_instagram_post
+2026-02-16 20:38:29,936 - __main__ - INFO -   - get_instagram_media_details
+2026-02-16 20:38:29,937 - __main__ - INFO -   - get_instagram_insights
+2026-02-16 20:38:29,937 - __main__ - INFO -   - debug_database
+2026-02-16 20:38:29,937 - __main__ - INFO - ============================================================
+2026-02-16 20:38:29,941 - asyncio - DEBUG - Using proactor: IocpProactor
+2026-02-16 20:38:29,949 - mcp.server.lowlevel.server - DEBUG - Received message: root=InitializedNotification(method='notifications/initialized', params=None, jsonrpc='2.0')
+2026-02-16 20:38:29,950 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x0000025B8AB61810>
+2026-02-16 20:38:29,950 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-16 20:38:29,951 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-16 20:38:29,951 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-16 20:38:40,789 - mcp.server.lowlevel.server - DEBUG - Initializing server 'Instagram MCP'
+2026-02-16 20:38:40,789 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListToolsRequest
+2026-02-16 20:38:40,789 - mcp.server.lowlevel.server - DEBUG - Registering handler for CallToolRequest
+2026-02-16 20:38:40,790 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListResourcesRequest
+2026-02-16 20:38:40,790 - mcp.server.lowlevel.server - DEBUG - Registering handler for ReadResourceRequest
+2026-02-16 20:38:40,790 - mcp.server.lowlevel.server - DEBUG - Registering handler for PromptListRequest
+2026-02-16 20:38:40,790 - mcp.server.lowlevel.server - DEBUG - Registering handler for GetPromptRequest
+2026-02-16 20:38:40,790 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListResourceTemplatesRequest
+2026-02-16 20:38:40,808 - __main__ - INFO - ============================================================
+2026-02-16 20:38:40,808 - __main__ - INFO - Starting MCP server with all Instagram tools...
+2026-02-16 20:38:40,808 - __main__ - INFO - Python executable: C:\Users\Zeeshan\AppData\Local\Programs\Python\Python313\python.exe
+2026-02-16 20:38:40,808 - __main__ - INFO - Script location: C:\Users\Zeeshan\Desktop\Easy-Post\backend\app\mcp\server.py
+2026-02-16 20:38:40,808 - __main__ - INFO - Available tools:
+2026-02-16 20:38:40,808 - __main__ - INFO -   - verify_instagram_connection
+2026-02-16 20:38:40,809 - __main__ - INFO -   - get_instagram_profile
+2026-02-16 20:38:40,809 - __main__ - INFO -   - get_instagram_posts
+2026-02-16 20:38:40,809 - __main__ - INFO -   - create_instagram_post
+2026-02-16 20:38:40,809 - __main__ - INFO -   - get_instagram_media_details
+2026-02-16 20:38:40,809 - __main__ - INFO -   - get_instagram_insights
+2026-02-16 20:38:40,809 - __main__ - INFO -   - debug_database
+2026-02-16 20:38:40,809 - __main__ - INFO - ============================================================
+2026-02-16 20:38:40,815 - asyncio - DEBUG - Using proactor: IocpProactor
+2026-02-16 20:38:40,828 - mcp.server.lowlevel.server - DEBUG - Received message: root=InitializedNotification(method='notifications/initialized', params=None, jsonrpc='2.0')
+2026-02-16 20:38:40,834 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x0000013B107B9950>
+2026-02-16 20:38:40,834 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-16 20:38:40,835 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-16 20:38:40,835 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-16 20:41:10,478 - mcp.server.lowlevel.server - DEBUG - Initializing server 'Instagram MCP'
+2026-02-16 20:41:10,478 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListToolsRequest
+2026-02-16 20:41:10,478 - mcp.server.lowlevel.server - DEBUG - Registering handler for CallToolRequest
+2026-02-16 20:41:10,478 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListResourcesRequest
+2026-02-16 20:41:10,478 - mcp.server.lowlevel.server - DEBUG - Registering handler for ReadResourceRequest
+2026-02-16 20:41:10,479 - mcp.server.lowlevel.server - DEBUG - Registering handler for PromptListRequest
+2026-02-16 20:41:10,479 - mcp.server.lowlevel.server - DEBUG - Registering handler for GetPromptRequest
+2026-02-16 20:41:10,479 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListResourceTemplatesRequest
+2026-02-16 20:41:10,493 - __main__ - INFO - ============================================================
+2026-02-16 20:41:10,493 - __main__ - INFO - Starting MCP server with all Instagram tools...
+2026-02-16 20:41:10,493 - __main__ - INFO - Python executable: C:\Users\Zeeshan\AppData\Local\Programs\Python\Python313\python.exe
+2026-02-16 20:41:10,493 - __main__ - INFO - Script location: C:\Users\Zeeshan\Desktop\Easy-Post\backend\app\mcp\server.py
+2026-02-16 20:41:10,493 - __main__ - INFO - Available tools:
+2026-02-16 20:41:10,493 - __main__ - INFO -   - verify_instagram_connection
+2026-02-16 20:41:10,493 - __main__ - INFO -   - get_instagram_profile
+2026-02-16 20:41:10,494 - __main__ - INFO -   - get_instagram_posts
+2026-02-16 20:41:10,494 - __main__ - INFO -   - create_instagram_post
+2026-02-16 20:41:10,494 - __main__ - INFO -   - get_instagram_media_details
+2026-02-16 20:41:10,494 - __main__ - INFO -   - get_instagram_insights
+2026-02-16 20:41:10,494 - __main__ - INFO -   - debug_database
+2026-02-16 20:41:10,494 - __main__ - INFO - ============================================================
+2026-02-16 20:41:10,498 - asyncio - DEBUG - Using proactor: IocpProactor
+2026-02-16 20:41:10,507 - mcp.server.lowlevel.server - DEBUG - Received message: root=InitializedNotification(method='notifications/initialized', params=None, jsonrpc='2.0')
+2026-02-16 20:41:10,507 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x00000207AD449950>
+2026-02-16 20:41:10,508 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-16 20:41:10,508 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-16 20:41:10,509 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-16 20:42:06,244 - mcp.server.lowlevel.server - DEBUG - Initializing server 'Instagram MCP'
+2026-02-16 20:42:06,244 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListToolsRequest
+2026-02-16 20:42:06,244 - mcp.server.lowlevel.server - DEBUG - Registering handler for CallToolRequest
+2026-02-16 20:42:06,244 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListResourcesRequest
+2026-02-16 20:42:06,245 - mcp.server.lowlevel.server - DEBUG - Registering handler for ReadResourceRequest
+2026-02-16 20:42:06,245 - mcp.server.lowlevel.server - DEBUG - Registering handler for PromptListRequest
+2026-02-16 20:42:06,245 - mcp.server.lowlevel.server - DEBUG - Registering handler for GetPromptRequest
+2026-02-16 20:42:06,245 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListResourceTemplatesRequest
+2026-02-16 20:42:06,259 - __main__ - INFO - ============================================================
+2026-02-16 20:42:06,259 - __main__ - INFO - Starting MCP server with all Instagram tools...
+2026-02-16 20:42:06,259 - __main__ - INFO - Python executable: C:\Users\Zeeshan\AppData\Local\Programs\Python\Python313\python.exe
+2026-02-16 20:42:06,259 - __main__ - INFO - Script location: C:\Users\Zeeshan\Desktop\Easy-Post\backend\app\mcp\server.py
+2026-02-16 20:42:06,260 - __main__ - INFO - Available tools:
+2026-02-16 20:42:06,260 - __main__ - INFO -   - verify_instagram_connection
+2026-02-16 20:42:06,260 - __main__ - INFO -   - get_instagram_profile
+2026-02-16 20:42:06,260 - __main__ - INFO -   - get_instagram_posts
+2026-02-16 20:42:06,260 - __main__ - INFO -   - create_instagram_post
+2026-02-16 20:42:06,260 - __main__ - INFO -   - get_instagram_media_details
+2026-02-16 20:42:06,260 - __main__ - INFO -   - get_instagram_insights
+2026-02-16 20:42:06,261 - __main__ - INFO -   - debug_database
+2026-02-16 20:42:06,261 - __main__ - INFO - ============================================================
+2026-02-16 20:42:06,265 - asyncio - DEBUG - Using proactor: IocpProactor
+2026-02-16 20:42:06,273 - mcp.server.lowlevel.server - DEBUG - Received message: root=InitializedNotification(method='notifications/initialized', params=None, jsonrpc='2.0')
+2026-02-16 20:42:06,273 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x0000025F26DADA90>
+2026-02-16 20:42:06,274 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2026-02-16 20:42:06,274 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type CallToolRequest
+2026-02-16 20:42:06,274 - mcp.server.lowlevel.server - DEBUG - Tool cache miss for verify_instagram_connection, refreshing cache
+2026-02-16 20:42:06,275 - __main__ - INFO - ============================================================
+2026-02-16 20:42:06,275 - __main__ - INFO - verify_instagram_connection called with user_id: 1
+2026-02-16 20:42:06,275 - __main__ - INFO - ============================================================
+2026-02-16 20:42:06,275 - app.mcp.instagram_client - INFO - ============================================================
+2026-02-16 20:42:06,275 - app.mcp.instagram_client - INFO - Getting Instagram client for user 1
+2026-02-16 20:42:06,276 - app.mcp.instagram_client - INFO - ============================================================
+2026-02-16 20:42:06,276 - app.mcp.instagram_client - INFO - Querying database for Facebook account...
+2026-02-16 20:42:06,276 - app.oauth.services.social_account_service - INFO - Looking for Facebook account for user 1
+2026-02-16 20:42:06,367 - app.oauth.services.social_account_service - INFO -    Platform User ID: 122224876334270585
+2026-02-16 20:42:06,367 - app.oauth.services.social_account_service - INFO -    Has pages: Yes
+2026-02-16 20:42:06,367 - app.oauth.services.social_account_service - INFO -    Pages data length: 583 chars
+2026-02-16 20:42:06,369 - app.mcp.instagram_client - INFO -    Platform User ID: 122224876334270585
+2026-02-16 20:42:06,369 - app.mcp.instagram_client - INFO -    Has pages: Yes
+2026-02-16 20:42:06,369 - app.mcp.instagram_client - INFO - Parsing pages JSON...
+2026-02-16 20:42:06,369 - app.mcp.instagram_client - INFO - Found 1 page(s)
+2026-02-16 20:42:06,370 - app.mcp.instagram_client - INFO - Page details:
+2026-02-16 20:42:06,370 - app.mcp.instagram_client - INFO -   - Name: Pets Kingdom Uk 
+2026-02-16 20:42:06,370 - app.mcp.instagram_client - INFO -   - ID: 299677056569924
+2026-02-16 20:42:06,370 - app.mcp.instagram_client - INFO -   - Token preview: EAAWXzqZCmMQsBQkQZC8r5Q8zI7EFyjZBjGlqGK3fznpswrXyI...
+2026-02-16 20:42:06,370 - app.mcp.instagram_client - INFO - Calling Facebook API to get Instagram Business Account...
+2026-02-16 20:42:06,372 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): graph.facebook.com:443
+2026-02-16 20:42:07,070 - urllib3.connectionpool - DEBUG - https://graph.facebook.com:443 "GET /v19.0/299677056569924?fields=instagram_business_account%7Bid%2Cusername%7D&access_token=EAAWXzqZCmMQsBQkQZC8r5Q8zI7EFyjZBjGlqGK3fznpswrXyIhpBnXJeVZA0Sp6GJrpZC9KxtZBGSgU4LNBVzmGpg35Kjld8EJVEE6ZBT3ZBNvir9ZBIGSsxx9I1fgOyOZBjmNzZB81ht3ngxdrZAJE75I1HHEFeZC9NYdYZA0qRjCvEv4gLBokt287qZCdhZCO9fpiZAItMRdO0eN6fZC0VZAnks1ZA2ZBp3v3vy HTTP/1.1" 200 107
+2026-02-16 20:42:07,073 - app.mcp.instagram_client - INFO - Facebook API response: {'instagram_business_account': {'id': '17841467677781963', 'username': 'petskingdomuk'}, 'id': '299677056569924'}
+2026-02-16 20:42:07,077 - app.mcp.instagram_client - INFO -    Instagram ID: 17841467677781963
+2026-02-16 20:42:07,077 - app.mcp.instagram_client - INFO -    Instagram Username: petskingdomuk
+2026-02-16 20:42:07,079 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): graph.facebook.com:443
+2026-02-16 20:42:07,902 - urllib3.connectionpool - DEBUG - https://graph.facebook.com:443 "GET /v19.0/17841467677781963?fields=id%2Cusername%2Cname%2Cfollowers_count%2Cmedia_count%2Cbiography%2Cwebsite%2Cprofile_picture_url&access_token=EAAWXzqZCmMQsBQkQZC8r5Q8zI7EFyjZBjGlqGK3fznpswrXyIhpBnXJeVZA0Sp6GJrpZC9KxtZBGSgU4LNBVzmGpg35Kjld8EJVEE6ZBT3ZBNvir9ZBIGSsxx9I1fgOyOZBjmNzZB81ht3ngxdrZAJE75I1HHEFeZC9NYdYZA0qRjCvEv4gLBokt287qZCdhZCO9fpiZAItMRdO0eN6fZC0VZAnks1ZA2ZBp3v3vy HTTP/1.1" 200 495
+2026-02-16 20:42:07,904 - __main__ - INFO - Returning success result
+2026-02-16 20:42:07,905 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-16 20:42:07,907 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x0000025F26DAD810>
+2026-02-16 20:42:07,907 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-16 20:42:07,907 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-16 20:42:07,907 - mcp.server.lowlevel.server - DEBUG - Response sent
+2026-02-16 20:42:22,590 - mcp.server.lowlevel.server - DEBUG - Initializing server 'Instagram MCP'
+2026-02-16 20:42:22,590 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListToolsRequest
+2026-02-16 20:42:22,591 - mcp.server.lowlevel.server - DEBUG - Registering handler for CallToolRequest
+2026-02-16 20:42:22,591 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListResourcesRequest
+2026-02-16 20:42:22,591 - mcp.server.lowlevel.server - DEBUG - Registering handler for ReadResourceRequest
+2026-02-16 20:42:22,591 - mcp.server.lowlevel.server - DEBUG - Registering handler for PromptListRequest
+2026-02-16 20:42:22,592 - mcp.server.lowlevel.server - DEBUG - Registering handler for GetPromptRequest
+2026-02-16 20:42:22,592 - mcp.server.lowlevel.server - DEBUG - Registering handler for ListResourceTemplatesRequest
+2026-02-16 20:42:22,605 - __main__ - INFO - ============================================================
+2026-02-16 20:42:22,605 - __main__ - INFO - Starting MCP server with all Instagram tools...
+2026-02-16 20:42:22,605 - __main__ - INFO - Python executable: C:\Users\Zeeshan\AppData\Local\Programs\Python\Python313\python.exe
+2026-02-16 20:42:22,605 - __main__ - INFO - Script location: C:\Users\Zeeshan\Desktop\Easy-Post\backend\app\mcp\server.py
+2026-02-16 20:42:22,605 - __main__ - INFO - Available tools:
+2026-02-16 20:42:22,605 - __main__ - INFO -   - verify_instagram_connection
+2026-02-16 20:42:22,605 - __main__ - INFO -   - get_instagram_profile
+2026-02-16 20:42:22,606 - __main__ - INFO -   - get_instagram_posts
+2026-02-16 20:42:22,606 - __main__ - INFO -   - create_instagram_post
+2026-02-16 20:42:22,606 - __main__ - INFO -   - get_instagram_media_details
+2026-02-16 20:42:22,606 - __main__ - INFO -   - get_instagram_insights
+2026-02-16 20:42:22,606 - __main__ - INFO -   - debug_database
+2026-02-16 20:42:22,606 - __main__ - INFO - ============================================================
+2026-02-16 20:42:22,610 - asyncio - DEBUG - Using proactor: IocpProactor
+2026-02-16 20:42:22,619 - mcp.server.lowlevel.server - DEBUG - Received message: root=InitializedNotification(method='notifications/initialized', params=None, jsonrpc='2.0')
+2026-02-16 20:42:22,620 - mcp.server.lowlevel.server - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x000002271D059A90>
+2026-02-16 20:42:22,621 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-02-16 20:42:22,621 - mcp.server.lowlevel.server - DEBUG - Dispatching request of type ListToolsRequest
+2026-02-16 20:42:22,621 - mcp.server.lowlevel.server - DEBUG - Response sent
