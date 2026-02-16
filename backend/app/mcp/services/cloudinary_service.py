@@ -9,9 +9,9 @@ from typing import Optional
 
 # Configure Cloudinary
 cloudinary.config(
-    cloud_name=Settings.CLOUDINARY_CLOUD_NAME,
-    api_key=Settings.CLOUDINARY_API_KEY,
-    api_secret=Settings.CLOUDINARY_API_SECRET,
+    cloud_name="ditb3gv6y",
+    api_key="332984937111824",
+    api_secret="AYuTEJBwPoyyxveBlSMVD6oq17k",
     secure=True
 )
 
