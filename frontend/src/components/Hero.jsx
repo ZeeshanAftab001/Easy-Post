@@ -1,38 +1,62 @@
-import robot from '../assets/robot.png';
-import { Link } from 'react-router-dom';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
-export default function Hero() {
-  return (
-    <div className="w-full min-h-screen relative overflow-hidden">
-      
+const Hero = () => {
+    const navigate = useNavigate();
 
-      {/* Hero Content */}
-      <div className="relative z-10 flex flex-col md:flex-row items-center justify-center min-h-screen px-6 md:px-20 gap-10 md:gap-20">
-        {/* Robot Image */}
-        <div className="flex-shrink-0">
-          <img className="h-64 sm:h-96 md:h-[600px] animate-fadeUp w-auto" src={robot} alt="Robot" />
-        </div>
+    return (
+        <section className="relative w-full min-h-screen flex flex-col items-center justify-center pt-32 px-6">
+            {/* Background design elements */}
+            <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-full max-w-5xl h-[500px] bg-brand-primary/5 blur-[160px] rounded-full pointer-events-none" />
 
-        {/* Text & Buttons */}
-        <div className="flex flex-col items-center text-center md:items-center md:text-left gap-6 md:gap-10 justify-center">
-          <h1 className="text-white text-4xl animate-fadeUp sm:text-5xl md:text-[82px] font-bold leading-tight text-center">
-            The Future of <br />
-            The Next-Gen Chatbot
-          </h1>
-          <p className="leading-tight animate-fadeUp text-white text-[18px] sm:text-[20px] md:text-[22px] text-center ">
-            Meet Aidy, the next-gen AI chatbot designed to enhance conversations with intuitive responses,<br /> seamless integration, and powerful automation.
-          </p>
-          {/* Buttons */}
-          <div className="flex  animate-fadeUp flex-col sm:flex-row gap-4 sm:gap-10 mt-4">
-            <Link to="/chat" className="bg-white btn text-black font-Inter text-[18px] font-medium p-3 rounded-full w-[150px] h-[50px] text-center hover:bg-gray-200 transition">
-              Get Started
-            </Link>
-            <Link to="/contact" className="border-2 border-white text-white flex justify-center items-center font-Inter text-[18px] font-medium p-3 rounded-full w-[150px] h-[50px] text-center hover:bg-black hover:text-white transition">
-              Contact Us
-            </Link>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
+            {/* Status Badge */}
+            <div className="animate-fade-in mb-12">
+                <div className="bg-white border border-gray-100 px-5 py-2 rounded-full flex items-center gap-3 shadow-sm">
+                    <span className="relative flex h-2 w-2">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-primary opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-primary"></span>
+                    </span>
+                    <span className="text-[10px] font-black tracking-[0.2em] text-brand-primary uppercase">
+                        Enterprise AI Agent Infrastructure Live
+                    </span>
+                </div>
+            </div>
+
+            {/* Massive Typography */}
+            <div className="max-w-5xl text-center mb-16">
+                <h1 className="text-6xl md:text-[110px] font-black text-gray-900 leading-[1] tracking-[-0.04em] mb-10">
+                    Automate social <br /> 
+                    with <span className="brand-text-gradient">Agent Intelligence</span>
+                </h1>
+                <p className="text-lg md:text-2xl text-gray-400 font-bold max-w-3xl mx-auto leading-relaxed px-4">
+                    The autonomous command center for high-performance social operations. Generate, schedule, and engage with GenAI precision.
+                </p>
+            </div>
+
+            {/* Actions */}
+            <div className="flex flex-col sm:flex-row gap-6 mb-32 relative z-10">
+                <button 
+                    onClick={() => navigate('/dashboard')}
+                    className="group bg-gray-900 text-white px-12 py-6 rounded-[24px] font-black text-xl shadow-2xl shadow-gray-900/20 hover:scale-[1.02] active:scale-100 transition-all flex items-center gap-4"
+                >
+                    Launch Terminal
+                    <svg className="w-6 h-6 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                </button>
+                <button className="bg-white border border-gray-100 text-gray-900 px-12 py-6 rounded-[24px] font-black text-xl shadow-sm hover:bg-gray-50 transition-all">
+                    System Architecture
+                </button>
+            </div>
+
+            {/* Network Capabilities (Icons replaced with text/monochrome) */}
+            <div className="flex flex-wrap justify-center items-center gap-x-12 gap-y-6 opacity-20 group">
+                {['Meta', 'Instagram', 'WhatsApp'].map(plat => (
+                    <span key={plat} className="text-sm font-black uppercase tracking-[0.3em] hover:opacity-100 transition-opacity cursor-default">
+                        {plat}
+                    </span>
+                ))}
+            </div>
+        </section>
+    );
+};
+
+export default Hero;

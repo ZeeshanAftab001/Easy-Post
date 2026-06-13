@@ -28,9 +28,9 @@ export default function InstagramCallback() {
                 }
 
                 setStatus('Processing Instagram connection...');
-
+                console.log('Instagram callback response:', code, state);
                 // Send to backend
-                const response = await api.get('/api/social/auth/instagram/callback', {
+                const response = await api.get('/api/oauth/auth/instagram/callback', {
                     params: { code, state }
                 });
 

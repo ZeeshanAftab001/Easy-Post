@@ -1,1 +1,105 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=JetBrains+Mono:wght@400;700&display=swap');
+
+@theme {
+  --color-brand-primary: #ccff00; /* Toxic Green / Lime */
+  --color-brand-secondary: #00ffc2; /* Electric Cyan */
+  --color-brand-bg: #000000;
+  --color-brand-card: #0a0a0a;
+  --color-brand-text: #ffffff;
+  --color-brand-muted: #525252;
+  --color-brand-border: #1a1a1a;
+  
+  --font-plus-jakarta: "Plus Jakarta Sans", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+:root {
+  font-family: var(--font-plus-jakarta);
+  background-color: var(--color-brand-bg);
+  color: var(--color-brand-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+.glass-card {
+  background: rgba(10, 10, 12, 0.8);
+  backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.brand-gradient {
+  background: linear-gradient(135deg, #ccff00 0%, #00ffc2 100%);
+}
+
+.brand-text-gradient {
+  background: linear-gradient(135deg, #ccff00 0%, #ffffff 50%, #00ffc2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glow-primary {
+  box-shadow: 0 0 50px -10px rgba(204, 255, 0, 0.2);
+}
+
+.glow-text {
+  text-shadow: 0 0 20px rgba(204, 255, 0, 0.3);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1a1a1a;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ccff00;
+}
+
+@keyframes slow-pan {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-pan {
+  background-size: 200% 200%;
+  animation: slow-pan 12s ease infinite;
+}
+
+@keyframes reveal {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.reveal {
+  animation: reveal 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Base transitions */
+* {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+pre, code {
+  font-family: var(--font-mono);
+}
+
+.border-glow-hover:hover {
+  border-color: rgba(204, 255, 0, 0.3);
+  box-shadow: 0 0 30px -10px rgba(204, 255, 0, 0.1);
+}

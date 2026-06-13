@@ -35,7 +35,7 @@ export default function FacebookCallback() {
                 setStatus('Exchanging code for access token...');
 
                 // Send the code to your backend
-                const response = await api.get('/api/social/auth/facebook/callback', {
+                const response = await api.get('/api/oauth/auth/facebook/callback', {
                     params: { code, state }
                 });
 
@@ -49,7 +49,7 @@ export default function FacebookCallback() {
             } catch (err) {
                 console.error('Facebook callback error:', err);
                 setError(err.response?.data?.detail || err.message || 'Unknown error');
-                
+
                 // Redirect to connect page with error
                 setTimeout(() => {
                     navigate('/connect?error=facebook_connection_failed');
@@ -67,7 +67,7 @@ export default function FacebookCallback() {
                     <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-r from-blue-600 to-blue-800 flex items-center justify-center">
                         <span className="text-white text-3xl font-bold">f</span>
                     </div>
-                    
+
                     {error ? (
                         <div className="text-red-400">
                             <h2 className="text-xl font-semibold mb-2">Connection Failed</h2>
@@ -86,10 +86,10 @@ export default function FacebookCallback() {
                         </>
                     )}
                 </div>
-                
+
                 <div className="text-sm text-gray-500 mt-6">
                     <p>You'll be redirected automatically in a few seconds...</p>
-                    <button 
+                    <button
                         onClick={() => navigate('/connect')}
                         className="mt-4 px-4 py-2 text-sm bg-gray-800 hover:bg-gray-700 text-gray-300 rounded-lg transition-colors"
                     >

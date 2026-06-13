@@ -1,237 +1,132 @@
-// components/SocialConnect.jsx
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+import Layout from '../components/Layout';
 import api from '../api';
-import Navbar from '../components/Navbar';
 
-export default function SocialConnect() {
-    const [loading, setLoading] = useState(false);
-    const [facebookLoading, setFacebookLoading] = useState(false);
-    const [instagramLoading, setInstagramLoading] = useState(false);
-    const [oauthStatus, setOauthStatus] = useState(null);
+const PlatformConnectCard = ({ platform, title, description, icon, onConnect, loading, connectedAccount }) => {
+    const isConnected = !!connectedAccount;
+    
+    return (
+        <div className={`p-8 rounded-[2rem] border transition-all duration-500 group relative overflow-hidden ${
+            isConnected 
+            ? 'bg-emerald-500/5 border-emerald-500/20 shadow-[0_0_50px_-12px_rgba(16,185,129,0.1)]' 
+            : 'bg-white/5 border-white/10 hover:border-white/20'
+        }`}>
+            {/* Connection Glow */}
+            {isConnected && (
+                <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 blur-[60px] -mr-16 -mt-16 animate-pulse" />
+            )}
 
-    // Check OAuth status on component mount
+            <div className="flex items-center justify-between mb-8">
+                <div className={`w-14 h-14 rounded-2xl flex items-center justify-center transition-transform group-hover:scale-110 ${
+                    isConnected ? 'bg-emerald-500 text-black' : 'bg-white/10 text-white'
+                }`}>
+                    {icon}
+                </div>
+                {isConnected && (
+                    <span className="flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-[10px] font-black uppercase tracking-widest">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping" />
+                        Live Node
+                    </span>
+                )}
+            </div>
+
+            <h3 className="text-white text-xl font-bold mb-3 tracking-tight">{title}</h3>
+            <p className="text-brand-muted text-sm font-bold leading-relaxed mb-6 min-h-[48px]">
+                {isConnected 
+                    ? `Currently synchronizing with ${connectedAccount.account_name || 'authorized stream'}.` 
+                    : description
+                }
+            </p>
+
+            <button 
+                onClick={onConnect}
+                disabled={loading}
+                className={`w-full py-4 rounded-xl font-black text-[10px] uppercase tracking-[0.3em] transition-all relative overflow-hidden ${
+                    isConnected 
+                    ? 'bg-transparent text-emerald-400 border border-emerald-500/30 hover:bg-emerald-500/10' 
+                    : 'bg-white text-gray-900 shadow-xl shadow-white/5 hover:scale-[1.02] active:scale-100'
+                }`}
+            >
+                {loading ? 'Processing...' : isConnected ? 'Node Re-sync' : 'Establish Handshake'}
+                {isConnected && <div className="absolute inset-0 bg-emerald-500/5 animate-pulse" />}
+            </button>
+        </div>
+    );
+};
+
+const SocialConnect = () => {
+    const [loadingPlatform, setLoadingPlatform] = useState(null);
+    const [connectedAccounts, setConnectedAccounts] = useState([]);
+    const [user, setUser] = useState(null);
+
     useEffect(() => {
-        checkOAuthStatus();
+        let isMounted = true;
+        const fetchStatus = async () => {
+            try {
+                const [userRes, accountsRes] = await Promise.all([
+                    api.get('/api/users/me/info'),
+                    api.get('/api/oauth/accounts')
+                ]);
+                if (isMounted) {
+                    setUser(userRes.data);
+                    setConnectedAccounts(accountsRes.data);
+                }
+            } catch (error) {
+                console.error('Handshake status check failed:', error);
+            }
+        };
+
+        fetchStatus();
+        return () => { isMounted = false; };
     }, []);
 
-    const checkOAuthStatus = async () => {
+    const handleConnect = async (platform) => {
+        setLoadingPlatform(platform);
         try {
-            // Check if OAuth endpoints are available
-            const response = await api.get('/api/oauth/status');
-            console.log('OAuth Status:', response.data);
-            setOauthStatus(response.data);
+            const res = await api.get(`/api/oauth/auth/${platform}/init`);
+            window.location.href = res.data.auth_url;
         } catch (error) {
-            console.error('Failed to check OAuth status:', error);
-            setOauthStatus({
-                error: 'OAuth endpoints not available',
-                details: error.message
-            });
-        }
-    };
-
-    const connectFacebook = async () => {
-        setFacebookLoading(true);
-        try {
-            // CORRECT ENDPOINT: /api/oauth/social/auth/facebook/init
-            const response = await api.get('/api/oauth/social/auth/facebook/init');
-            console.log('Facebook OAuth Response:', response.data);
-            
-            if (response.data.auth_url) {
-                // Redirect user to Facebook OAuth
-                window.location.href = response.data.auth_url;
-            } else {
-                alert('Facebook OAuth URL not returned. Check backend configuration.');
-            }
-        } catch (error) {
-            console.error('Failed to initiate Facebook OAuth:', error);
-            console.error('Error details:', error.response?.data);
-            
-            let errorMessage = 'Failed to connect Facebook';
-            if (error.response?.data?.detail) {
-                errorMessage = error.response.data.detail;
-            } else if (error.response?.data?.message) {
-                errorMessage = error.response.data.message;
-            } else if (error.message) {
-                errorMessage = error.message;
-            }
-            alert('Error: ' + errorMessage);
+            alert(`Protocol initialization failed for ${platform}.`);
         } finally {
-            setFacebookLoading(false);
+            setLoadingPlatform(null);
         }
     };
 
-    const connectInstagram = async () => {
-        setInstagramLoading(true);
-        try {
-            // CORRECT ENDPOINT: /api/oauth/social/auth/instagram/init
-            const response = await api.get('/api/oauth/social/auth/instagram/init');
-            console.log('Instagram OAuth Response:', response.data);
-            
-            if (response.data.auth_url) {
-                // Redirect user to Instagram OAuth
-                window.location.href = response.data.auth_url;
-            } else {
-                alert('Instagram OAuth URL not returned. Check backend configuration.');
-            }
-        } catch (error) {
-            console.error('Failed to initiate Instagram OAuth:', error);
-            console.error('Error details:', error.response?.data);
-            
-            let errorMessage = 'Failed to connect Instagram';
-            if (error.response?.data?.detail) {
-                errorMessage = error.response.data.detail;
-            } else if (error.response?.data?.message) {
-                errorMessage = error.response.data.message;
-            } else if (error.message) {
-                errorMessage = error.message;
-            }
-            alert('Error: ' + errorMessage);
-        } finally {
-            setInstagramLoading(false);
-        }
-    };
-
-    // Test all possible endpoints
-    const testEndpoints = async () => {
-        const endpoints = [
-            '/api/oauth/status',
-            '/api/oauth/social/auth/facebook/init',
-            '/api/oauth/social/auth/instagram/init',
-            '/social/auth/facebook/init',  // Your current call
-            '/social/auth/instagram/init'  // Your current call
-        ];
-
-        for (const endpoint of endpoints) {
-            try {
-                const response = await api.get(endpoint);
-                console.log(`✅ ${endpoint}:`, response.status, response.data);
-            } catch (error) {
-                console.log(`❌ ${endpoint}:`, error.response?.status || error.message);
-            }
-        }
+    const getConnectedData = (platform) => {
+        return connectedAccounts.find(acc => acc.platform === platform);
     };
 
     return (
-        <div className="relative w-full min-h-screen bg-black">
-            {/* Grid Background */}
-            <div
-                className="fixed inset-0 -z-20"
-                style={{
-                    backgroundImage: `
-                        repeating-linear-gradient(0deg, #d1d5db 0px, #d1d5db 1px, transparent 1px, transparent 100px),
-                        repeating-linear-gradient(90deg, #d1d5db 0px, #d1d5db 1px, transparent 1px, transparent 100px)
-                    `,
-                    backgroundSize: '100px 100px',
-                    opacity: 0.1,
-                }}
-            />
-
-            {/* Content container */}
-            <div className="relative z-10 min-h-screen">
-                <Navbar />
-
-                <main className="container mx-auto px-4 py-8">
-                    {/* Debug Panel - Remove in production */}
-                    <div className="mb-6 p-4 bg-gray-800 rounded-lg">
-                        <button 
-                            onClick={testEndpoints}
-                            className="px-4 py-2 bg-gray-700 text-white rounded hover:bg-gray-600 mb-2"
-                        >
-                            Test All Endpoints
-                        </button>
-                        {oauthStatus && (
-                            <div className="text-sm text-gray-300 mt-2">
-                                <p>OAuth Status: {JSON.stringify(oauthStatus)}</p>
-                            </div>
-                        )}
-                    </div>
-
-                    <div className="max-w-2xl mx-auto">
-                        <div className="p-6 bg-gray-900 rounded-lg border border-gray-800">
-                            <h2 className="text-2xl font-bold text-white mb-4">Connect Social Accounts</h2>
-                            <p className="text-gray-400 mb-6">
-                                Connect your social media accounts to enable AI-powered automatic posting.
-                            </p>
-
-                            <div className="space-y-4">
-                                {/* Facebook Card */}
-                                <div className="p-4 border border-gray-700 rounded-lg hover:border-blue-500 transition-colors">
-                                    <div className="flex items-center justify-between">
-                                        <div className="flex items-center space-x-3">
-                                            <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center">
-                                                <span className="text-white font-bold">f</span>
-                                            </div>
-                                            <div>
-                                                <h3 className="text-white font-semibold">Facebook</h3>
-                                                <p className="text-gray-400 text-sm">Post to Facebook Pages and Groups</p>
-                                            </div>
-                                        </div>
-                                        <button
-                                            onClick={connectFacebook}
-                                            disabled={facebookLoading}
-                                            className="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg disabled:opacity-50 transition-colors"
-                                        >
-                                            {facebookLoading ? 'Connecting...' : 'Connect Facebook'}
-                                        </button>
-                                    </div>
-                                    <div className="mt-3 text-xs text-gray-500">
-                                        Endpoint: <code>/api/oauth/social/auth/facebook/init</code>
-                                    </div>
-                                </div>
-
-                                {/* Instagram Card */}
-                                <div className="p-4 border border-gray-700 rounded-lg hover:border-pink-500 transition-colors">
-                                    <div className="flex items-center justify-between">
-                                        <div className="flex items-center space-x-3">
-                                            <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
-                                                <span className="text-white font-bold">IG</span>
-                                            </div>
-                                            <div>
-                                                <h3 className="text-white font-semibold">Instagram</h3>
-                                                <p className="text-gray-400 text-sm">Post to Instagram Feed and Stories</p>
-                                            </div>
-                                        </div>
-                                        <button
-                                            onClick={connectInstagram}
-                                            disabled={instagramLoading}
-                                            className="px-6 py-2 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white rounded-lg disabled:opacity-50 transition-colors"
-                                        >
-                                            {instagramLoading ? 'Connecting...' : 'Connect Instagram'}
-                                        </button>
-                                    </div>
-                                    <div className="mt-3 text-xs text-gray-500">
-                                        Endpoint: <code>/api/oauth/social/auth/instagram/init</code>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Instructions */}
-                            <div className="mt-8 p-4 bg-gray-800 rounded-lg">
-                                <h4 className="text-white font-semibold mb-2">ℹ️ How it works:</h4>
-                                <ul className="text-gray-400 text-sm space-y-1">
-                                    <li>1. Click "Connect" button for the platform</li>
-                                    <li>2. You'll be redirected to Facebook/Instagram login</li>
-                                    <li>3. Grant permissions for posting</li>
-                                    <li>4. You'll be redirected back to the app</li>
-                                    <li>5. Your AI agent will then be able to post automatically</li>
-                                </ul>
-                            </div>
-
-                            {/* Troubleshooting */}
-                            <div className="mt-4 p-4 bg-yellow-900/20 border border-yellow-700/30 rounded-lg">
-                                <h4 className="text-yellow-300 font-semibold mb-2">⚠️ Getting 404 Error?</h4>
-                                <p className="text-yellow-200/80 text-sm">
-                                    Make sure your backend is running and OAuth routes are registered.
-                                    Check browser console for detailed error information.
-                                </p>
-                                <p className="text-gray-400 text-xs mt-2">
-                                    Current API Base URL: <code>{api.defaults.baseURL}</code>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </main>
+        <Layout user={user}>
+            <div className="mb-12">
+                <h1 className="text-4xl font-black text-white mb-4 tracking-tighter uppercase">Infrastructure Nodes</h1>
+                <p className="text-brand-muted font-bold">Establish high-frequency handshakes with your global social clusters.</p>
             </div>
-        </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <PlatformConnectCard 
+                    platform="facebook"
+                    title="Meta Strategy"
+                    description="Broadcast long-form narrative assets to authorized Facebook Page clusters."
+                    icon={<svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>}
+                    loading={loadingPlatform === 'facebook'}
+                    connectedAccount={getConnectedData('facebook')}
+                    onConnect={() => handleConnect('facebook')}
+                />
+                
+                <PlatformConnectCard 
+                    platform="instagram"
+                    title="Instagram Pulse"
+                    description="Synthesize visual nodes directly to high-engagement Instagram Boxes."
+                    icon={<svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>}
+                    loading={loadingPlatform === 'instagram'}
+                    connectedAccount={getConnectedData('instagram')}
+                    onConnect={() => handleConnect('instagram')}
+                />
+
+            </div>
+        </Layout>
     );
-}
+};
+
+export default SocialConnect;

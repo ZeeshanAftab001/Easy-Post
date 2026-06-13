@@ -15,7 +15,7 @@ from ..models.social import SocialAccount
 from ..services.oauth_service import OAuthService
 from ..services.social_service import SocialAccountService
 
-oauth_router = APIRouter(prefix="/social", tags=["social-auth"])
+oauth_router = APIRouter(tags=["social-auth"])
 oauth_service = OAuthService()
 social_service = SocialAccountService()
 
@@ -186,8 +186,8 @@ async def oauth_callback(
             print(f"✅ Facebook token exchange successful")
         else:  # instagram
             token_data = await oauth_service.exchange_instagram_code(code)
-            print(f"✅ Instagram token exchange successful")
-
+            print(f"✅ {actual_platform.capitalize()} token exchange successful")
+        print(f"🔑 [TOKEN DEBUG] Token data for {actual_platform}: {token_data}")
         print(f"Token data keys: {list(token_data.keys())}")
 
         # Save to database

@@ -1,98 +1,70 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import "../App.css";
+import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { SignedIn, SignedOut, UserButton } from "@clerk/clerk-react";
 
-export default function Navbar({ className }) {
-  const items = [
-    { name: "Home", path: "/" },
-    { name: "Connect", path: "/connect" },
-    { name: "About", path: "/about" },
-    { name: "Contact", path: "/contact" },
-  ];
-  const [menuOpen, setMenuOpen] = useState(false);
-  return (
-    <nav className={`${className} z-20 w-full py-4 px-6 sm:px-12 relative`}>
-      <div className="flex items-center justify-between">
-        {/* Logo */}
-        <div>
-          <Link to="/">
-            <h1 className="text-white font-bold text-[20px]">Career Advisor</h1>
-          </Link>
-        </div>
+const Navbar = () => {
+    const navigate = useNavigate();
 
-        {/* Desktop Menu */}
-        <ul className="hidden md:flex space-x-12">
-          {items.map((item) => (
-            <li key={item.name}>
-              <Link
-                to={item.path}
-                className="text-white cursor-pointer hover:text-gray-300 text-xl font-medium"
-              >
-                {item.name}
-              </Link>
-            </li>
-          ))}
-        </ul>
+    return (
+        <nav className="fixed top-0 left-0 right-0 z-50 bg-brand-bg/80 backdrop-blur-xl border-b border-white/5">
+            <div className="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+                {/* Logo */}
+                <Link to="/" className="flex items-center gap-3">
+                    <div className="w-9 h-9 brand-gradient rounded-xl flex items-center justify-center text-white glow-primary">
+                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd"/></svg>
+                    </div>
+                    <span className="text-xl font-bold text-white tracking-tight">EasyPost <span className="text-brand-secondary">AI</span></span>
+                </Link>
 
+                {/* Nav Links */}
+                <div className="hidden md:flex items-center gap-10">
+                    {['Features', 'Protocols', 'Enterprise'].map(item => (
+                        <a key={item} href={`#${item.toLowerCase()}`} className="text-[10px] font-black text-brand-muted hover:text-white uppercase tracking-[0.4em] transition-all">
+                            {item}
+                        </a>
+                    ))}
+                </div>
 
-        {/* Desktop Button */}
-        <div className="hidden md:flex">
-          <Link to="logout/">
-            <button
-              onClick={() => {
+                {/* Actions */}
+                <div className="flex items-center gap-6">
+                    <SignedOut>
+                        <div className="flex items-center gap-2">
+                            <button 
+                                onClick={() => navigate('/login')}
+                                className="text-[10px] font-black text-white hover:text-brand-secondary px-6 py-2 transition-colors uppercase tracking-widest"
+                            >
+                                Authenticate
+                            </button>
+                            <button 
+                                onClick={() => navigate('/signup')}
+                                className="bg-white text-gray-900 px-8 py-3 rounded-2xl text-[10px] font-black uppercase tracking-widest hover:scale-105 active:scale-100 transition-all shadow-xl shadow-white/10"
+                            >
+                                Provision Operator
+                            </button>
+                        </div>
+                    </SignedOut>
+                    <SignedIn>
+                        <div className="flex items-center gap-6">
+                            <button 
+                                onClick={() => navigate('/dashboard')}
+                                className="bg-white text-gray-900 px-8 py-3 rounded-2xl text-[10px] font-black uppercase tracking-widest hover:scale-105 active:scale-100 transition-all shadow-xl shadow-white/10"
+                            >
+                                Open Terminal
+                            </button>
+                            <UserButton 
+                                appearance={{
+                                    elements: {
+                                        userButtonAvatarBox: "w-10 h-10 border-2 border-brand-primary"
+                                    }
+                                }}
+                                afterSignOutUrl="/"
+                            />
+                        </div>
+                    </SignedIn>
+                </div>
+            </div>
+        </nav>
+    );
+};
 
-                setMenuOpen(false);
-              }}
-              className="bg-white text-black font-Inter text-[18px] font-medium p-3 rounded-full w-[150px] h-[50px] hover:bg-gray-200 transition"
-            >
-              Logout
-            </button>
-          </Link>
-        </div>
-
-        {/* Mobile Hamburger */}
-        <div className="md:hidden">
-          <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="text-white text-3xl font-bold focus:outline-none"
-          >
-            {menuOpen ? "✕" : "☰"}
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile Menu */}
-      <div
-        className={`md:hidden absolute top-full left-0 w-full bg-black transition-all duration-300 overflow-hidden ${menuOpen ? "max-h-96" : "max-h-0"
-          }`}
-      >
-        <ul className="flex flex-col space-y-4 py-4 text-center">
-          {items.map((item) => (
-            <li key={item.name}>
-              <Link
-                to={item.path}
-                className="text-white cursor-pointer hover:text-gray-300 text-xl font-medium"
-                onClick={() => setMenuOpen(false)}
-              >
-                {item.name}
-              </Link>
-            </li>
-          ))}
-          <li>
-            <Link to="logout/">
-              <button
-                onClick={() => {
-
-                  setMenuOpen(false);
-                }}
-                className="bg-white text-black font-Inter text-[18px] font-medium p-3 rounded-full w-[150px] h-[50px] hover:bg-gray-200 transition"
-              >
-                Logout
-              </button>
-            </Link>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  );
-}
+export default Navbar;

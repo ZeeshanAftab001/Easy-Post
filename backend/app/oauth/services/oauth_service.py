@@ -1,5 +1,6 @@
 # app/social/services/oauth_service.py
 import httpx
+import json
 from typing import Dict, Optional, Tuple
 from urllib.parse import urlencode
 import secrets
@@ -25,7 +26,7 @@ class OAuthService:
         """Generate Facebook OAuth URL"""
         params = {
             'client_id': settings.FACEBOOK_APP_ID,
-            'redirect_uri': f"{settings.BACKEND_URL}/api/oauth/social/auth/facebook/callback",  # CHANGE THIS
+            'redirect_uri': f"{settings.BACKEND_URL}/api/oauth/auth/facebook/callback",
             'state': state_token,
             'scope': 'pages_manage_posts,pages_read_engagement,instagram_basic,instagram_content_publish',
             'response_type': 'code'
@@ -35,12 +36,12 @@ class OAuthService:
         return f"https://www.facebook.com/v19.0/dialog/oauth?{query_string}"
 
     def get_instagram_auth_url(self, state_token: str) -> str:
-        """Generate Instagram OAuth URL"""
+        """Generate Instagram OAuth URL (using Facebook Login for Instagram Graph API)"""
         params = {
-            'client_id': settings.FACEBOOK_APP_ID,  # Instagram uses Facebook App ID
-            'redirect_uri': f"{settings.BACKEND_URL}/api/oauth/social/auth/instagram/callback",  # CHANGE THIS
+            'client_id': settings.FACEBOOK_APP_ID,
+            'redirect_uri': f"{settings.BACKEND_URL}/api/oauth/auth/instagram/callback",
             'state': state_token,
-            'scope': 'instagram_basic,instagram_content_publish',
+            'scope': 'pages_show_list,pages_read_engagement,pages_manage_posts,instagram_basic,instagram_content_publish,business_management',
             'response_type': 'code'
         }
 
@@ -54,7 +55,7 @@ class OAuthService:
             token_response = await client.get(self.facebook_token_url, params={
                 'client_id': settings.FACEBOOK_APP_ID,
                 'client_secret': settings.FACEBOOK_APP_SECRET,
-                'redirect_uri': f"{settings.BACKEND_URL}/api/oauth/social/auth/facebook/callback",  # CHANGE THIS LINE
+                'redirect_uri': f"{settings.BACKEND_URL}/api/oauth/auth/facebook/callback",
                 'code': code
             })
             token_data = token_response.json()
@@ -81,9 +82,10 @@ class OAuthService:
             })
             long_token_data = long_token_response.json()
 
-            # Get pages user manages
+            # Get pages user manages (IMPORTANT: must ask for access_token explicitly)
             pages_response = await client.get(f"{self.facebook_api_url}/me/accounts", params={
-                'access_token': long_token_data.get('access_token', access_token)
+                'access_token': long_token_data.get('access_token', access_token),
+                'fields': 'name,id,access_token,category,tasks'
             })
             pages_data = pages_response.json()
 
@@ -108,11 +110,11 @@ class OAuthService:
         print(f"\n=== INSTAGRAM TOKEN EXCHANGE DEBUG ===")
 
         async with httpx.AsyncClient() as client:
-            # Instagram Basic Display API requires POST with form data
+            # For Instagram Graph API, we use the Facebook token exchange endpoint
             data = {
                 'client_id': settings.FACEBOOK_APP_ID,
                 'client_secret': settings.FACEBOOK_APP_SECRET,
-                'redirect_uri': f"{settings.BACKEND_URL}/api/oauth/social/auth/instagram/callback",
+                'redirect_uri': f"{settings.BACKEND_URL}/api/oauth/auth/instagram/callback",
                 'code': code,
                 'grant_type': 'authorization_code'
             }
@@ -125,11 +127,10 @@ class OAuthService:
             }
 
             try:
-                # Instagram Basic Display API uses POST
-                token_response = await client.post(
-                    "https://api.instagram.com/oauth/access_token",
-                    data=data,
-                    headers=headers
+                # Use Facebook's token exchange endpoint
+                token_response = await client.get(
+                    "https://graph.facebook.com/v19.0/oauth/access_token",
+                    params=data
                 )
 
                 print(f"Instagram token response status: {token_response.status_code}")
@@ -151,7 +152,7 @@ class OAuthService:
                         params={
                             'client_id': settings.FACEBOOK_APP_ID,
                             'client_secret': settings.FACEBOOK_APP_SECRET,
-                            'redirect_uri': f"{settings.BACKEND_URL}/api/oauth/social/auth/instagram/callback",
+                            'redirect_uri': f"{settings.BACKEND_URL}/api/oauth/auth/instagram/callback",
                             'code': code,
                             'grant_type': 'authorization_code'
                         }
@@ -183,51 +184,62 @@ class OAuthService:
 
             access_token = token_data['access_token']
 
-            # Instagram Basic Display API includes user_id in the initial response
-            user_id = token_data.get('user_id')
+            # For Instagram Graph API, we find the Instagram Business Account linked to the Facebook Page
+            try:
+                print("Searching for linked Instagram Business Accounts via Facebook Graph API...")
+                # 1. Get the list of pages the user manages
+                pages_response = await client.get(
+                    "https://graph.facebook.com/v19.0/me/accounts",
+                    params={
+                        "access_token": access_token,
+                        "fields": "name,instagram_business_account{id,username}"
+                    }
+                )
+                pages_data = pages_response.json()
+                print(f"Pages data: {pages_data}")
 
-            if user_id:
-                print(f"Got user_id from token response: {user_id}")
-                return {
-                    'access_token': access_token,
-                    'user_id': str(user_id),
-                    'username': token_data.get('username', 'instagram_user'),
-                    'expires_in': token_data.get('expires_in', 3600),
-                    'token_type': 'bearer'
-                }
-            else:
-                # Try to get user info from Instagram Graph API
-                try:
-                    print("Trying to get user info from Instagram Graph API...")
-                    user_response = await client.get(
-                        "https://graph.instagram.com/me",
-                        params={
-                            'access_token': access_token,
-                            'fields': 'id,username'
-                        }
-                    )
-
-                    user_data = user_response.json()
-                    print(f"User info from Graph API: {user_data}")
-
-                    if 'id' in user_data:
+                # 2. Find a page that has an Instagram Business Account linked
+                for page in pages_data.get('data', []):
+                    ig_account = page.get('instagram_business_account')
+                    if ig_account:
+                        print(f"✅ Found linked Instagram Business Account: {ig_account['username']} ({ig_account['id']})")
                         return {
                             'access_token': access_token,
-                            'user_id': user_data['id'],
-                            'username': user_data.get('username', 'instagram_user'),
+                            'user_id': ig_account['id'],
+                            'username': ig_account['username'],
                             'expires_in': token_data.get('expires_in', 3600),
-                            'token_type': 'bearer'
+                            'token_type': 'bearer',
+                            'page_id': page['id']
                         }
-                except Exception as e:
-                    print(f"Failed to get Instagram user info: {e}")
 
-                # Create a fallback user_id
-                import hashlib
-                user_id_hash = hashlib.md5(access_token.encode()).hexdigest()[:16]
+                print("⚠️ No linked Instagram Business Accounts found on any of your Facebook Pages.")
+                # Fallback to a placeholder so registration doesn't fail, but warn the user
                 return {
                     'access_token': access_token,
-                    'user_id': f"insta_{user_id_hash}",
-                    'username': 'instagram_user',
+                    'user_id': f"no_ig_linked_{secrets.token_hex(4)}",
+                    'username': 'Manual Link Required',
                     'expires_in': token_data.get('expires_in', 3600),
                     'token_type': 'bearer'
                 }
+
+            except Exception as e:
+                print(f"❌ Failed to lookup Instagram accounts: {e}")
+                raise Exception(f"Lookup error: {e}")
+
+    async def refresh_facebook_token(self, existing_token: str) -> Dict:
+        """
+        Refresh a Facebook long-lived token.
+        Actually, long-lived tokens for pages don't expire if they are from a never-expire system,
+        but for users they last 60 days. This exchanges a valid token for a fresh long-lived one.
+        """
+        async with httpx.AsyncClient() as client:
+            response = await client.get(f"{self.facebook_api_url}/oauth/access_token", params={
+                'grant_type': 'fb_exchange_token',
+                'client_id': settings.FACEBOOK_APP_ID,
+                'client_secret': settings.FACEBOOK_APP_SECRET,
+                'fb_exchange_token': existing_token
+            })
+            data = response.json()
+            if 'access_token' not in data:
+                raise Exception(f"Facebook refresh error: {data}")
+            return data
