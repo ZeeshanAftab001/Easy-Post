@@ -28,6 +28,10 @@ clerk = Clerk(bearer_auth=CLERK_SECRET_KEY)
 JWKS_URL = f"{CLERK_ISSUER}/.well-known/jwks.json" if CLERK_ISSUER else None
 jwks_client = PyJWKClient(JWKS_URL) if JWKS_URL else None
 
+# Cache for Clerk user IDs to emails to avoid repeated API calls
+# In a production environment, use Redis or a more robust TTL cache
+user_email_cache = {}
+
 async def get_current_user(
     authorization: Annotated[str | None, Header()] = None,
     db: AsyncSession = Depends(get_db)
@@ -62,11 +66,16 @@ async def get_current_user(
         user_id = payload.get("sub")
         email = payload.get("email")
         
-        # If email not in payload, fetch from Clerk API with timeout
+        # If email not in payload, check cache or fetch from Clerk API
         if not email:
-            print(f"Fetching email for Clerk User: {user_id}")
-            clerk_user = clerk.users.get(user_id=user_id)
-            email = clerk_user.email_addresses[0].email_address
+            if user_id in user_email_cache:
+                email = user_email_cache[user_id]
+            else:
+                print(f"Fetching email for Clerk User: {user_id}")
+                clerk_user = clerk.users.get(user_id=user_id)
+                email = clerk_user.email_addresses[0].email_address
+                # Cache the result for subsequent parallel requests
+                user_email_cache[user_id] = email
 
         user = await get_user_by_email(db, email=email)
         

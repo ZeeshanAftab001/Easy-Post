@@ -142,7 +142,7 @@ async def receive_waha_message(request: Request, db: AsyncSession = Depends(get_
 
         print(f"📨 Incoming from: {sender_full} | Body: {body[:60]}")
         print(f"   Full payload keys: {list(payload.keys())}")
-
+        print(f"media : {media}")
         user, sender = await _resolve_sender(sender_full, db, payload)
         if not user:
             print(f"❌ Unauthorized Operator: {sender_full}")
@@ -231,8 +231,10 @@ async def receive_waha_message(request: Request, db: AsyncSession = Depends(get_
                     await send_text(sender_full, reply)
                     return {"status": "ok"}
                 except Exception as e:
-                    print(f"❌ WAHA Media Agent Error: {e}")
-                    await send_text(sender_full, "⚠️ System Failure: Could not process media asset.")
+                    print(f"❌ WAHA Media Agent Error: {type(e).__name__}: {e}")
+                    import traceback
+                    traceback.print_exc()
+                    await send_text(sender_full, "⚠️ System Failure: Could not process media asset. Please try again.")
                     return {"status": "agent_error"}
 
         # ── Handle Text ───────────────────────────────────────────────────────
@@ -263,8 +265,10 @@ async def receive_waha_message(request: Request, db: AsyncSession = Depends(get_
                 await send_text(sender_full, reply)
                 return {"status": "ok"}
             except Exception as e:
-                print(f"❌ WAHA Text Agent Error: {e}")
-                await send_text(sender_full, "⚠️ AI Agent encountered a processing error.")
+                print(f"❌ WAHA Text Agent Error: {type(e).__name__}: {e}")
+                import traceback
+                traceback.print_exc()
+                await send_text(sender_full, "⚠️ AI Agent encountered a processing error. Please try again in a moment.")
                 return {"status": "agent_error"}
 
         return {"status": "no_content"}

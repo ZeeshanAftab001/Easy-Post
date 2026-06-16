@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchDashboardSummary } from '../store/slices/dashboardSlice';
 import Layout from '../components/Layout';
 import api from '../api';
 
@@ -55,30 +57,17 @@ const PlatformConnectCard = ({ platform, title, description, icon, onConnect, lo
 };
 
 const SocialConnect = () => {
+    const dispatch = useDispatch();
+    const { summary, loading: summaryLoading } = useSelector(state => state.dashboard);
     const [loadingPlatform, setLoadingPlatform] = useState(null);
-    const [connectedAccounts, setConnectedAccounts] = useState([]);
-    const [user, setUser] = useState(null);
+
+    // Map summary to local-style variables for compatibility
+    const user = summary?.user || null;
+    const connectedAccounts = summary?.accounts || [];
 
     useEffect(() => {
-        let isMounted = true;
-        const fetchStatus = async () => {
-            try {
-                const [userRes, accountsRes] = await Promise.all([
-                    api.get('/api/users/me/info'),
-                    api.get('/api/oauth/accounts')
-                ]);
-                if (isMounted) {
-                    setUser(userRes.data);
-                    setConnectedAccounts(accountsRes.data);
-                }
-            } catch (error) {
-                console.error('Handshake status check failed:', error);
-            }
-        };
-
-        fetchStatus();
-        return () => { isMounted = false; };
-    }, []);
+        dispatch(fetchDashboardSummary());
+    }, [dispatch]);
 
     const handleConnect = async (platform) => {
         setLoadingPlatform(platform);

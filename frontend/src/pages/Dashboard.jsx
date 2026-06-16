@@ -4,10 +4,7 @@ import {
     BarChart, Bar
 } from 'recharts';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchUser } from '../store/slices/authSlice';
-import { fetchAccounts } from '../store/slices/accountSlice';
-import { fetchAnalytics } from '../store/slices/postSlice';
-import api from '../api';
+import { fetchDashboardSummary } from '../store/slices/dashboardSlice';
 import Layout from '../components/Layout';
 
 const StatCard = ({ title, value, unit, icon, color }) => (
@@ -27,31 +24,55 @@ const StatCard = ({ title, value, unit, icon, color }) => (
 
 export default function Dashboard() {
     const dispatch = useDispatch();
-    const { user, loading: authLoading } = useSelector(state => state.auth);
-    const { list: accounts, loading: accountsLoading } = useSelector(state => state.accounts);
-    const { analytics, loading: postsLoading } = useSelector(state => state.posts);
+    const { summary, loading: summaryLoading } = useSelector(state => state.dashboard);
     
+    // Fallback data structure for initial load safety
+    const user = summary?.user || {};
+    const accounts = summary?.accounts || [];
+    const analytics = summary?.analytics || { summary: {}, trends: [] };
+
     const [range, setRange] = useState('30D');
     const [isMounted, setIsMounted] = useState(false);
 
-    const loading = authLoading || accountsLoading || postsLoading;
-
     useEffect(() => {
-        dispatch(fetchUser());
-        dispatch(fetchAccounts());
-        dispatch(fetchAnalytics());
+        dispatch(fetchDashboardSummary());
         
         const timer = setTimeout(() => setIsMounted(true), 100);
         return () => clearTimeout(timer);
     }, [dispatch]);
 
     const platformData = [
-        { name: 'INSTAGRAM', value: accounts.some(a => a.platform === 'instagram') ? (analytics.summary.instagram || 1) : 0 },
-        { name: 'METAFEED', value: accounts.some(a => a.platform === 'facebook') ? (analytics.summary.facebook || 1) : 0 },
+        { name: 'INSTAGRAM', value: accounts.some(a => a.platform === 'instagram') ? (analytics?.summary?.instagram || 1) : 0 },
+        { name: 'METAFEED', value: accounts.some(a => a.platform === 'facebook') ? (analytics?.summary?.facebook || 1) : 0 },
         { name: 'WHATSAPP', value: 1 },
     ].sort((a, b) => b.value - a.value);
 
-    if (loading) return null;
+    if (summaryLoading && !summary) {
+        return (
+            <Layout user={user}>
+                <div className="min-h-[60vh] flex flex-col items-center justify-center">
+                    <div className="relative w-24 h-24 mb-8">
+                        <div className="absolute inset-0 border-4 border-brand-primary/20 rounded-full" />
+                        <div className="absolute inset-0 border-4 border-brand-primary border-t-transparent rounded-full animate-spin" />
+                        <div className="absolute inset-4 border-2 border-brand-primary/40 border-b-transparent rounded-full animate-spin-slow" />
+                    </div>
+                    <h2 className="text-white text-xl font-black uppercase tracking-[0.5em] mb-2 animate-pulse">Initializing System</h2>
+                    <p className="text-brand-primary text-[10px] font-black uppercase tracking-[0.3em] opacity-60">Synchronizing Global Social Clusters...</p>
+                    
+                    <div className="mt-12 grid grid-cols-3 gap-4 w-full max-w-md">
+                        {[1, 2, 3].map(i => (
+                            <div key={i} className="h-1 bg-white/5 rounded-full overflow-hidden">
+                                <div 
+                                    className="h-full bg-brand-primary animate-progress" 
+                                    style={{ animationDelay: `${i * 200}ms` }} 
+                                />
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </Layout>
+        );
+    }
 
     return (
         <Layout user={user}>
@@ -78,8 +99,8 @@ export default function Dashboard() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-12 reveal" style={{ animationDelay: '100ms' }}>
                 <StatCard title="Active Nodes" value={accounts.length + 1} icon={<svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13.828 10.172a4.5 4.5 0 00-5.656 0l-4 4a4.5 4.5 0 105.656 5.656l1.102-1.101m-.758-4.899a4.5 4.5 0 005.656 0l4-4a4.5 4.5 0 00-5.656-5.656l-1.1 1.1" /></svg>} />
-                <StatCard title="Deployments" value={analytics.summary.total || 0} icon={<svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" /></svg>} />
-                <StatCard title="Sync Queue" value={analytics.summary.scheduled || 0} icon={<svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>} />
+                <StatCard title="Deployments" value={analytics?.summary?.total || 0} icon={<svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" /></svg>} />
+                <StatCard title="Sync Queue" value={analytics?.summary?.scheduled || 0} icon={<svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>} />
                 <StatCard title="Impressions" value="0.0K" icon={<svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>} />
                 <StatCard title="Uptime" value="100" unit="%" icon={<svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>} />
             </div>

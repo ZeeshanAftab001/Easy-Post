@@ -10,6 +10,7 @@ from app.chat.routes.post_router import post_router
 from app.chat.routes.ai_router import ai_router
 from app.chat.routes.knowledge_router import knowledge_router
 from app.chat.routes.media_router import media_router
+from app.chat.routes.dashboard_router import dashboard_router
 from app.chat.services.agent_service import lifespan
 
 app = FastAPI(
@@ -43,6 +44,7 @@ app.include_router(post_router, prefix="/api/posts", tags=["Posts"])
 app.include_router(ai_router, prefix="/api/ai", tags=["AI Core"])
 app.include_router(knowledge_router, prefix="/api/ai/knowledge", tags=["RAG Knowledge"])
 app.include_router(media_router, prefix="/api/media", tags=["Media Storage"])
+app.include_router(dashboard_router, prefix="/api/dashboard", tags=["Dashboard"])
 
 
 @app.get("/")

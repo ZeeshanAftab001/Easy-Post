@@ -28,7 +28,7 @@ class Settings(BaseSettings):
     WAHA_SESSION: str = os.getenv("WAHA_SESSION", "default")
     WAHA_API_KEY: Optional[str] = os.getenv("WAHA_API_KEY", None)
     VERIFY_TOKEN : str = os.getenv("VERIFY_TOKEN", "zeeshanaftab")
-
+    WAHA_AUTHENTICATION_REQUIRED: bool = os.getenv("WAHA_AUTHENTICATION_REQUIRED", False)
     GOOGLE_API_KEY : str = os.getenv("GOOGLE_API_KEY")
     OPENAI_API_KEY : str = os.getenv("OPENAI_API_KEY")
     # Facebook OAuth - Make optional for now

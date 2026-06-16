@@ -22,6 +22,7 @@ from langgraph.checkpoint.postgres.aio import AsyncPostgresSaver
 
 from ...core.config import settings
 from .memory_service import store_agent_memory
+from psycopg_pool import AsyncConnectionPool
 
 # Maintain ChatState name for compatibility with existing routers
 class ChatState(TypedDict):
@@ -32,7 +33,7 @@ class ChatState(TypedDict):
     summary: Optional[str]  # Kept for compatibility
 
 # LLM Setup
-agent_llm = ChatOpenAI(model="gpt-4o", temperature=0.7)
+agent_llm = ChatOpenAI(model="gpt-5", temperature=0.7)
 
 # Database Connection Fix
 def _get_psycopg_conn_string(sqlalchemy_url: str) -> str:
@@ -66,19 +67,53 @@ async def agent_node(state: ChatState) -> dict:
     tools = await get_tools()
     
     system_prompt = f"""
-You are the **EasyPost Social Media Commander**.
-You have DIRECT authority to post content using your tools.
+You are the **EasyPost Social Media Commander** - an AI agent with DIRECT authority to post content to Facebook and Instagram.
 
-🎯 CAPABILITIES:
-- Post images/text to Facebook and Instagram.
-- Generate high-engagement captions and hashtags.
-- Analyze social media intent.
+## 🎯 YOUR CAPABILITIES
+You have access to these tools:
+1. **post_image_to_facebook** - Post images to Facebook Pages
+2. **post_image_to_instagram** - Post images to Instagram Business accounts  
+3. **post_text_to_facebook** - Post text-only updates to Facebook
+4. **post_image_to_all_platforms** - Post simultaneously to Facebook AND Instagram
+5. **analyze_image** - Generate hashtags and content suggestions from images
+6. **get_user_stats** - Retrieve user account information
 
-📋 RULES:
-- If asked to post, CALL THE TOOLS IMMEDIATELY.
-- Never claim you lack the capability.
-- Use the user's Niche ({state.get('niche', 'General')}) and Tone ({state.get('ai_tone', 'Professional')}) for all content.
-- Be precise and professional.
+## 📋 MEDIA HANDLING RULES
+- **ALWAYS use the S3 Mirrored URL** when posting images (never use localhost URLs)
+- If no S3 URL is provided, ask the user to upload the image again
+- For WhatsApp images, the S3 URL will be in the message (look for "S3 Mirrored URL")
+- Validate that URLs are public (start with https:// and not localhost)
+
+## 🔧 RESPONSE GUIDELINES
+- If asked to post, CALL THE TOOLS IMMEDIATELY - never claim you lack capability
+- Use the user's Niche ({state.get('niche', 'General')}) and Tone ({state.get('ai_tone', 'Professional')}) for all content
+- Generate engaging captions that match the user's brand voice
+- Suggest relevant hashtags (5-10) based on the image content and niche
+- Be precise, professional, and action-oriented
+
+## ✅ POSTING WORKFLOW
+1. **Receive media** → Check if S3 URL is provided
+2. **Generate content** → Create caption with user's tone and niche
+3. **Add hashtags** → Research and include relevant hashtags
+4. **Execute post** → Call the appropriate tool
+5. **Confirm success** → Share the post URL with the user
+
+## ⚠️ ERROR HANDLING
+- If posting fails, explain the error clearly and suggest solutions
+- If media URL is invalid, ask user to provide a public URL
+- If user needs help, guide them through the process step-by-step
+
+## 📊 PLATFORM SPECIFICS
+- **Instagram**: Must have image, max 2200 characters, use relevant hashtags
+- **Facebook**: Can be text-only or with image, longer posts allowed
+- **Both**: Always include a call-to-action when appropriate
+
+## 🎨 CONTENT STYLE
+- Niche: {state.get('niche', 'General')}
+- Tone: {state.get('ai_tone', 'Professional')}
+- Always maintain brand consistency across platforms
+
+Remember: You are the commander. Take decisive action. Make the posts happen.
 """
     
     # We pass the ENTIRE message history so the agent remembers what it just did
@@ -139,19 +174,30 @@ async def build_agent_graph():
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    print("⏳ Initializing Simple Agent with Postgres persistence...")
+    print("⏳ Initializing Simple Agent with Postgres Connection Pool...")
     exit_stack = AsyncExitStack()
     try:
-        # Proper checkpointer lifecycle management
-        checkpointer = await exit_stack.enter_async_context(
-            AsyncPostgresSaver.from_conn_string(psycopg_conn_string)
+        # 1. Create a persistent connection pool
+        pool = await exit_stack.enter_async_context(
+            AsyncConnectionPool(
+                psycopg_conn_string,
+                max_size=20,
+                min_size=1,
+                max_idle=300,
+                check=AsyncConnectionPool.check_connection,
+                kwargs={"sslmode": "require"} if "sslmode=require" in psycopg_conn_string else {}
+            )
         )
+        
+        # 2. Initialize the checkpointer using the pool
+        # We don't 'enter' this as a context manager because the pool is already managed above
+        checkpointer = AsyncPostgresSaver(pool)
         await checkpointer.setup()
         
         graph_builder = await build_agent_graph()
         app.state.graph = graph_builder.compile(checkpointer=checkpointer)
         
-        print("✅ Simple Agent Online & Ready to Post.")
+        print("✅ Simple Agent Online & Pool Ready.")
         yield
     finally:
         await exit_stack.aclose()

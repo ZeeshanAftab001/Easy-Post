@@ -11,9 +11,15 @@ const api = axios.create({
 // For now, let's allow setting it via a global variable or a setter function
 let authToken = null;
 let tokenProvider = null;
+let tokenCache = {
+  token: null,
+  expiry: 0
+};
 
 export const setAuthToken = (token) => {
   authToken = token;
+  tokenCache.token = token;
+  tokenCache.expiry = Date.now() + 30000; // 30s cache
 };
 
 export const registerTokenProvider = (provider) => {
@@ -24,16 +30,22 @@ api.interceptors.request.use(
   async (config) => {
     let token = null;
     
-    // Always prefer the dynamic provider for fresh tokens
-    if (tokenProvider) {
+    // Check cache first to avoid async overhead from Clerk
+    if (tokenCache.token && Date.now() < tokenCache.expiry) {
+      token = tokenCache.token;
+    } else if (tokenProvider) {
       try {
+        // Dynamic provider (Clerk getToken)
         token = await tokenProvider();
+        // Update cache
+        tokenCache.token = token;
+        tokenCache.expiry = Date.now() + 30000; 
       } catch (e) {
         console.error("Token Provider Failed:", e);
       }
     }
     
-    // Fallback to static token if provider failed or not registered
+    // Fallback to static token
     if (!token) {
       token = authToken;
     }
