@@ -2,6 +2,7 @@
 import asyncio
 import urllib.parse
 import requests
+from typing import Optional, Dict, Any, List
 from datetime import datetime, timedelta
 from mcp.server.fastmcp import FastMCP
 
@@ -17,6 +18,11 @@ from app.platforms.whatsapp_downloader import download_whatsapp_media
 from app.core.s3_service import s3_service
 from app.platforms.validators import Platform, validate_for_platform, truncate_caption
 from app.platforms.facebook_poster import post_image_to_facebook as _fb_post
+
+from app.core.database import AsyncSessionLocal
+from app.chat.models.post import Post
+from app.core.celery_app import celery_app
+import dateutil.parser
 
 
 
@@ -37,6 +43,46 @@ async def _whatsapp_to_s3(media_id: str, user_id: int):
     if not s3_url:
         return {"success": False, "error": "S3 upload failed"}
     return s3_url, image_bytes, mime_type
+
+
+async def _handle_scheduling(user_id: int, platform: str, media_url: str, caption: str, schedule_at: Optional[str]) -> Optional[dict]:
+    """If schedule_at is provided, create a Post and return a success dict, else return None."""
+    if not schedule_at:
+        return None
+    
+    try:
+        # Parse schedule_at (expecting ISO format or human-readable handled by dateutil)
+        eta = dateutil.parser.parse(schedule_at)
+        if eta.tzinfo is None:
+            # Assume UTC if no timezone provided
+            eta = eta.replace(tzinfo=None) # We'll let Celery handle it as UTC
+        
+        async with AsyncSessionLocal() as db:
+            post = Post(
+                user_id=user_id,
+                content=caption,
+                media_url=media_url,
+                platform=platform,
+                status="scheduled",
+                schedule_time=eta
+            )
+            db.add(post)
+            await db.commit()
+            await db.refresh(post)
+            
+            # Trigger Celery Task
+            from app.chat.tasks import publish_scheduled_post_task
+            publish_scheduled_post_task.apply_async(args=[post.id], eta=eta)
+            
+            return {
+                "success": True, 
+                "platform": platform, 
+                "status": "scheduled", 
+                "post_id": post.id, 
+                "scheduled_for": eta.isoformat()
+            }
+    except Exception as e:
+        return {"success": False, "error": f"Scheduling failed: {str(e)}"}
 
 
 # ============================================================================
@@ -156,19 +202,25 @@ async def get_follower_growth(user_id: int, days: int = 7) -> dict:
 # ============================================================================
 
 @mcp.tool()
-async def post_image_to_instagram(user_id: int, media_id: str, caption: str = "") -> dict:
+async def post_image_to_instagram(user_id: int, media_id: str, caption: str = "", schedule_at: Optional[str] = None) -> dict:
     """
-    Post a WhatsApp image with caption to Instagram.
+    Post a WhatsApp image with caption to Instagram (or schedule it).
 
     Args:
         user_id:  Internal user ID — credentials fetched from DB automatically
         media_id: WAHA media_id (or url) from the incoming webhook
         caption:  Post caption (max 2,200 chars, auto-truncated)
+        schedule_at: ISO format date string (e.g. "2024-07-01T10:00:00") to schedule via Celery.
     """
     result = await _whatsapp_to_s3(media_id, user_id)
     if isinstance(result, dict):
         return result
     s3_url, image_bytes, mime_type = result
+
+    # If scheduling requested, handle and return early
+    schedule_result = await _handle_scheduling(user_id, "instagram", s3_url, caption, schedule_at)
+    if schedule_result:
+        return schedule_result
 
     v = validate_for_platform(Platform.INSTAGRAM, image_bytes, mime_type, caption)
     if not v.valid:
@@ -236,39 +288,54 @@ async def get_facebook_page_analytics(user_id: int, period: str = "day") -> dict
         return {"success": False, "error": str(e)}
 
 @mcp.tool()
-async def schedule_facebook_post(user_id: int, message: str, scheduled_publish_time: int) -> dict:
-    """
-    Schedule a text post for a future time on Facebook Page.
-    scheduled_publish_time must be a Unix timestamp between 10 minutes and 75 days from now.
-    """
+async def create_facebook_text_post(user_id: int, message: str) -> dict:
+    """Create a text-only post on the Facebook Page."""
     try:
         page_id, page_token = await get_facebook_page_credentials(user_id)
         client = FacebookClient(access_token=page_token, page_id=page_id)
-        result = client.schedule_post(message=message, scheduled_publish_time=scheduled_publish_time)
+        result = client.create_text_post(message)
         if "error" in result:
             return {"success": False, "error": result["error"].get("message")}
-        return {"success": True, "scheduled_post_id": result.get("id")}
+        return {"success": True, "post_id": result.get("id")}
     except Exception as e:
         return {"success": False, "error": str(e)}
+
+@mcp.tool()
+async def schedule_facebook_post(user_id: int, message: str, schedule_at: str) -> dict:
+    """
+    Schedule a text post for a future time on Facebook Page using Celery.
+    
+    Args:
+        user_id: Internal user ID
+        message: The text content of the post
+        schedule_at: ISO format date string (e.g. "2024-07-01T10:00:00")
+    """
+    return await _handle_scheduling(user_id, "facebook", "", message, schedule_at)
 
 # ============================================================================
 # POST IMAGE — FACEBOOK
 # ============================================================================
 
 @mcp.tool()
-async def post_image_to_facebook(user_id: int, media_id: str, caption: str) -> dict:
+async def post_image_to_facebook(user_id: int, media_id: str, caption: str, schedule_at: Optional[str] = None) -> dict:
     """
-    Post a WhatsApp image with caption to the connected Facebook Page.
+    Post a WhatsApp image with caption to the connected Facebook Page (or schedule it).
 
     Args:
         user_id:  Internal user ID — page credentials fetched from DB automatically
         media_id: WAHA media_id (or url) from the incoming webhook
         caption:  Post caption
+        schedule_at: ISO format date string (e.g. "2024-07-01T10:00:00") to schedule via Celery.
     """
     result = await _whatsapp_to_s3(media_id, user_id)
     if isinstance(result, dict):
         return result
     s3_url, image_bytes, mime_type = result
+
+    # If scheduling requested, handle and return early
+    schedule_result = await _handle_scheduling(user_id, "facebook", s3_url, caption, schedule_at)
+    if schedule_result:
+        return schedule_result
 
     v = validate_for_platform(Platform.FACEBOOK, image_bytes, mime_type, caption)
     if not v.valid:
@@ -287,9 +354,9 @@ async def post_image_to_facebook(user_id: int, media_id: str, caption: str) -> d
 # ============================================================================
 
 @mcp.tool()
-async def post_image_to_all_platforms(user_id: int, media_id: str, caption: str, platforms: list[str]) -> dict:
+async def post_image_to_all_platforms(user_id: int, media_id: str, caption: str, platforms: list[str], schedule_at: Optional[str] = None) -> dict:
     """
-    Post a WhatsApp image to Meta platforms in one call.
+    Post a WhatsApp image to Meta platforms in one call (or schedule it).
     Image is downloaded once and uploaded to S3 once, then posted concurrently.
 
     Args:
@@ -297,11 +364,18 @@ async def post_image_to_all_platforms(user_id: int, media_id: str, caption: str,
         media_id:  WAHA media_id (or url) from the incoming webhook
         caption:   Caption (auto-truncated per platform limits)
         platforms: e.g. ["instagram", "facebook"]
+        schedule_at: ISO format date string (e.g. "2024-07-01T10:00:00") to schedule via Celery.
     """
     result = await _whatsapp_to_s3(media_id, user_id)
     if isinstance(result, dict):
         return {p: result for p in platforms}
     s3_url, image_bytes, mime_type = result
+
+    # If scheduling requested, handle and return early
+    # For "all platforms", we use "all" as the platform in DB
+    schedule_result = await _handle_scheduling(user_id, "all", s3_url, caption, schedule_at)
+    if schedule_result:
+        return schedule_result
 
     async def _do_instagram():
         v = validate_for_platform(Platform.INSTAGRAM, image_bytes, mime_type, caption)

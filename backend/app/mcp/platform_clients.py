@@ -34,7 +34,7 @@ async def _get_account(user_id: int, platform: str) -> SocialAccount:
 
     # Global Token Refresh Check
     if account.token_expires_at and account.token_expires_at <= datetime.now():
-        print(f"🔄 Token for {platform} expired at {account.token_expires_at}. Current time: {datetime.now()}. Attempting refresh...")
+        print(f"[*] Token for {platform} expired at {account.token_expires_at}. Current time: {datetime.now()}. Attempting refresh...")
         try:
             if platform in ["facebook", "instagram"]:
                 refresh_data = await oauth_service.refresh_facebook_token(account.access_token)
@@ -47,9 +47,9 @@ async def _get_account(user_id: int, platform: str) -> SocialAccount:
                     db.add(account)
                     await db.commit()
                     await db.refresh(account)
-                print(f"✅ {platform} token refreshed successfully.")
+                print(f"[OK] {platform} token refreshed successfully.")
         except Exception as e:
-            print(f"⚠️ Failed to refresh {platform} token: {e}. Proceeding anyway as Page Tokens may still be valid.")
+            print(f"[!] Failed to refresh {platform} token: {e}. Proceeding anyway as Page Tokens may still be valid.")
 
     return account
 

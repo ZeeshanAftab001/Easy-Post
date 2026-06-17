@@ -28,7 +28,7 @@ class S3Service:
         try:
             self.client.put_object(
                 Bucket=self.bucket, Key=key, Body=image_bytes,
-                ContentType=mime_type
+                ContentType=mime_type,
             )
             return f"https://{self.bucket}.s3.{self.region}.amazonaws.com/{key}"
         except ClientError as e:

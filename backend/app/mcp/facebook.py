@@ -4,8 +4,10 @@ import requests
 from typing import Optional, Dict, Any, List
 import sys
 
+from app.core.config import settings
+
 class FacebookClient:
-    def __init__(self, access_token: str, page_id: Optional[str] = None, api_version: str = "v19.0"):
+    def __init__(self, access_token: str, page_id: Optional[str] = None, api_version: str = settings.FACEBOOK_GRAPH_VERSION):
         self.token = access_token
         self.page_id = page_id
         self.api_version = api_version

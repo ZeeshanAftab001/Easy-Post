@@ -1,7 +1,9 @@
 # app/platforms/facebook_poster.py
 import httpx
+from app.core.config import settings
 
-GRAPH_BASE = "https://graph.facebook.com/v19.0"
+GRAPH_BASE = "https://graph.facebook.com"
+API_VERSION = settings.FACEBOOK_GRAPH_VERSION
 
 
 async def post_image_to_facebook(image_url: str = None, caption: str = "", page_id: str = "", page_token: str = "") -> dict:
@@ -9,14 +11,14 @@ async def post_image_to_facebook(image_url: str = None, caption: str = "", page_
     async with httpx.AsyncClient(timeout=60) as client:
         if image_url:
             # Image Post
-            endpoint = f"{GRAPH_BASE}/{page_id}/photos"
+            endpoint = f"{GRAPH_BASE}/{API_VERSION}/{page_id}/photos"
             payload = {"url": image_url, "caption": caption, "access_token": page_token, "published": "true"}
         else:
             # Text Post
-            endpoint = f"{GRAPH_BASE}/{page_id}/feed"
+            endpoint = f"{GRAPH_BASE}/{API_VERSION}/{page_id}/feed"
             payload = {"message": caption, "access_token": page_token}
 
-        resp = await client.post(endpoint, params=payload)
+        resp = await client.post(endpoint, data=payload)
         data = resp.json()
         
         if "error" in data:

@@ -91,7 +91,18 @@ def publish_scheduled_post_task(post_id: int):
                 success_count = 0
                 
                 for plat in platforms_to_deploy:
-                    tool_name = url_tool_map.get(plat)
+                    # Decide tool based on content
+                    if plat == "facebook" and not post.media_url:
+                        tool_name = "create_facebook_text_post"
+                        tool_args = {"user_id": post.user_id, "message": post.content}
+                    else:
+                        tool_name = url_tool_map.get(plat)
+                        tool_args = {
+                            "user_id": post.user_id,
+                            "image_url": post.media_url or "", # Ensure not None
+                            "caption": post.content
+                        }
+
                     if not tool_name: continue
 
                     target_tool = next((t for t in tools if t.name == tool_name), None)
@@ -99,12 +110,8 @@ def publish_scheduled_post_task(post_id: int):
                         results_summary.append({"platform": plat, "error": f"Tool {tool_name} not found"})
                         continue
 
-                    print(f"📡 Worker: Deploying to {plat}...")
-                    tool_result = await target_tool.ainvoke({
-                        "user_id": post.user_id,
-                        "image_url": post.media_url,
-                        "caption": post.content
-                    })
+                    print(f"📡 Worker: Deploying to {plat} via {tool_name}...")
+                    tool_result = await target_tool.ainvoke(tool_args)
 
                     import json
                     # Robust parsing
